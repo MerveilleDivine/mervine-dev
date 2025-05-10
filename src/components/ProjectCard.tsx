@@ -38,9 +38,9 @@ const ProjectCard = ({
         y: -10,
         transition: { duration: 0.3 }
       }}
-      className="project-card bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow-lg"
+      className="project-card bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-zinc-700"
     >
-      <div className="h-48 bg-gray-200 relative overflow-hidden">
+      <div className="h-48 bg-gray-200 relative overflow-hidden border-b border-gray-200 dark:border-zinc-700">
         <motion.img 
           src={imageUrl || '/placeholder.svg'} 
           alt={title} 
@@ -63,7 +63,7 @@ const ProjectCard = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 + index * 0.1 }}
-              className="bg-secondary px-3 py-1 rounded-full text-sm font-medium dark:bg-secondary/20"
+              className="bg-secondary px-3 py-1 rounded-full text-sm font-medium dark:bg-secondary/20 border border-secondary-dark/30"
             >
               {tech}
             </motion.span>

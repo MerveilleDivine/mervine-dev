@@ -165,6 +165,14 @@ export default {
 						backgroundPosition: "350% 50%, 350% 50%",
 					},
 				},
+				'star-movement-bottom': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(-100%, 0%)', opacity: '0' },
+        },
+        'star-movement-top': {
+          '0%': { transform: 'translate(0%, 0%)', opacity: '1' },
+          '100%': { transform: 'translate(100%, 0%)', opacity: '0' },
+        },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
@@ -173,6 +181,8 @@ export default {
 				'slide-up': 'slide-up 0.6s ease-out forwards',
 				'card-hover': 'card-hover 0.3s ease-out forwards',
 				aurora: "aurora 60s linear infinite",
+				'star-movement-bottom': 'star-movement-bottom linear infinite alternate',
+        'star-movement-top': 'star-movement-top linear infinite alternate',
 			}
 		}
 	},

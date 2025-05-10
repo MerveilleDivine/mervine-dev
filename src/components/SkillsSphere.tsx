@@ -110,7 +110,7 @@ const TechBall = ({ position, image, name, color }: TechBallProps) => {
         onPointerOver={() => setHovered(true)}
         onPointerOut={() => setHovered(false)}
       >
-        <octahedronGeometry args={[0.6, 2]} />
+        <sphereGeometry args={[0.6, 32, 32]} />
         <meshStandardMaterial 
           ref={matRef}
           map={texture} 
@@ -149,7 +149,7 @@ interface SkillsSphereProps {
 
 export const SkillsSphere = ({ categoryData }: SkillsSphereProps) => {
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 50 }} className="w-full h-[500px] bg-transparent">
+    <Canvas camera={{ position: [0, 0, 10], fov: 50 }} className="w-full h-[500px] bg-transparent shadow-lg border border-gray-200 dark:border-gray-700 rounded-lg">
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={1} />
       

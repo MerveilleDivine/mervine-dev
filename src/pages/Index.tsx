@@ -13,6 +13,7 @@ import { Code, Database, Server, Laptop, FileDown } from 'lucide-react';
 import { ResumeTimeline } from '../components/ResumeTimeline';
 import { SocialDock } from '../components/SocialDock';
 import SectionTitle from '../components/SectionTitle';
+import { StarBorder } from '../components/ui/star-border';
 import { Button } from '../components/ui/button';
 import { techLogos, getTechImage } from '../components/TechIcons';
 
@@ -113,22 +114,22 @@ const Index = () => {
                 {t('hero.subtitle')}
               </p>
               <div className="flex gap-4">
-                <motion.a 
-                  href="#projects" 
-                  className="btn-primary"
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {t('hero.cta.work')}
-                </motion.a>
-                <motion.a 
-                  href="#contact" 
-                  className="btn-outline"
+                  <StarBorder as="a" href="#projects" className="inline-block">
+                    {t('hero.cta.work')}
+                  </StarBorder>
+                </motion.div>
+                <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {t('hero.cta.contact')}
-                </motion.a>
+                  <StarBorder as="a" href="#contact" className="inline-block" color="#FEC6A1">
+                    {t('hero.cta.contact')}
+                  </StarBorder>
+                </motion.div>
               </div>
             </motion.div>
             
@@ -182,7 +183,7 @@ const Index = () => {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <h3 className="text-lg font-bold mb-2 text-primary">{t('card.fitness')}</h3>
                   <p className="text-gray-600 dark:text-gray-300">{t('card.fitness.desc')}</p>
                 </div>
@@ -194,7 +195,7 @@ const Index = () => {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <h3 className="text-lg font-bold mb-2 text-primary">{t('card.snack')}</h3>
                   <p className="text-gray-600 dark:text-gray-300">{t('card.snack.desc')}</p>
                 </div>
@@ -206,7 +207,7 @@ const Index = () => {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <h3 className="text-lg font-bold mb-2 text-primary">{t('card.community')}</h3>
                   <p className="text-gray-600 dark:text-gray-300">{t('card.community.desc')}</p>
                 </div>
@@ -218,7 +219,7 @@ const Index = () => {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
                   <h3 className="text-lg font-bold mb-2 text-primary">{t('card.music')}</h3>
                   <p className="text-gray-600 dark:text-gray-300">{t('card.music.desc')}</p>
                 </div>
@@ -264,13 +265,10 @@ const Index = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Button 
-                onClick={handleResumeDownload} 
-                className="flex items-center gap-2 bg-primary hover:bg-primary-dark"
-              >
+              <StarBorder onClick={handleResumeDownload} className="inline-flex items-center gap-2 cursor-pointer">
                 <FileDown size={16} />
                 {t('resume.download')}
-              </Button>
+              </StarBorder>
             </motion.div>
           </div>
           
@@ -301,7 +299,7 @@ const Index = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="bg-secondary/30 dark:bg-primary/5 rounded-lg p-8 h-full">
+              <div className="bg-secondary/30 dark:bg-primary/5 rounded-lg p-8 h-full border border-gray-200 dark:border-zinc-700 shadow-lg">
                 <h3 className="text-2xl font-bold mb-6">{t('contact.info')}</h3>
                 
                 <div className="space-y-6">
@@ -326,7 +324,7 @@ const Index = () => {
                   </div>
                 </div>
                 
-                <div className="mt-8 p-6 bg-white dark:bg-zinc-800 rounded-lg shadow-inner">
+                <div className="mt-8 p-6 bg-white dark:bg-zinc-800 rounded-lg shadow-inner border border-gray-200 dark:border-zinc-700">
                   <h4 className="font-semibold text-lg mb-4">{t('contact.philosophy')}</h4>
                   <p className="italic text-gray-700 dark:text-gray-300">
                     {t('contact.philosophy.quote')}
