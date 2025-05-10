@@ -1,7 +1,9 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
-import SkillCategory from '../components/SkillCategory';
 import SkillsSphere from '../components/SkillsSphere';
 import ContactForm from '../components/ContactForm';
 import ChatWidget from '../components/ChatWidget';
@@ -9,12 +11,14 @@ import { TubelightNavbar } from '../components/TubelightNavbar';
 import { BackgroundAurora } from '../components/ui/background-aurora';
 import { Code, Database, Server, Laptop, FileDown } from 'lucide-react';
 import { ResumeTimeline } from '../components/ResumeTimeline';
-import { GlowingCard } from '../components/GlowingCard';
 import { SocialDock } from '../components/SocialDock';
 import SectionTitle from '../components/SectionTitle';
 import { Button } from '../components/ui/button';
+import { techLogos, getTechImage } from '../components/TechIcons';
 
 const Index = () => {
+  const { t } = useTranslation();
+  
   const projects = [
     {
       title: 'E-Commerce Platform',
@@ -50,33 +54,37 @@ const Index = () => {
     }
   ];
 
+  // Maps skills to their tech icons
   const skillCategories = [
     {
       title: "Frontend Development",
-      skills: ['JavaScript', 'TypeScript', 'React', 'Redux', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive Design'],
-      color: "#7E69AB"
+      skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
+      color: "#7E69AB",
+      images: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind'].map(getTechImage)
     },
     {
       title: "Backend Development",
       skills: ['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization'],
-      color: "#FEC6A1"
+      color: "#FEC6A1",
+      images: ['Node', 'Express', 'API', 'Authentication', 'Authorization'].map(getTechImage)
     },
     {
       title: "Database Management",
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling', 'Query Optimization'],
-      color: "#9b87f5"
+      color: "#9b87f5",
+      images: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Database', 'SQL'].map(getTechImage)
     },
     {
       title: "Tools & Others",
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving'],
-      color: "#F1F1F1"
+      color: "#F1F1F1",
+      images: ['Git', 'Docker', 'CI', 'Testing', 'AWS', 'Agile', 'Code'].map(getTechImage)
     }
   ];
 
   const handleResumeDownload = () => {
-    // In a real scenario, you would have the actual resume file path here
     const link = document.createElement('a');
-    link.href = '/mervine_muganguzi_resume.pdf'; // This should be the actual path to your resume
+    link.href = '/mervine_muganguzi_resume.pdf';
     link.download = 'Mervine_Muganguzi_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -91,25 +99,45 @@ const Index = () => {
       <BackgroundAurora>
         <section id="home" className="min-h-screen flex items-center pt-20">
           <div className="container mx-auto px-4 flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 md:pr-8 mb-10 md:mb-0 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <motion.div 
+              className="md:w-1/2 md:pr-8 mb-10 md:mb-0"
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+            >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Hi, I'm Mervine — <br />
-                <span className="text-primary">I build smart, meaningful digital experiences.</span>
+                {t('hero.greeting')} <br />
+                <span className="text-primary">{t('hero.title')}</span>
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-lg">
-                Full Stack Developer with a passion for creating elegant solutions to complex problems. Let's turn your ideas into reality.
+                {t('hero.subtitle')}
               </p>
-              <div className="flex gap-4 animate-slide-up" style={{ animationDelay: '0.5s' }}>
-                <a href="#projects" className="btn-primary">
-                  View My Work
-                </a>
-                <a href="#contact" className="btn-outline">
-                  Get In Touch
-                </a>
+              <div className="flex gap-4">
+                <motion.a 
+                  href="#projects" 
+                  className="btn-primary"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {t('hero.cta.work')}
+                </motion.a>
+                <motion.a 
+                  href="#contact" 
+                  className="btn-outline"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  {t('hero.cta.contact')}
+                </motion.a>
               </div>
-            </div>
+            </motion.div>
             
-            <div className="md:w-1/2 flex justify-center md:justify-end animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            <motion.div 
+              className="md:w-1/2 flex justify-center md:justify-end"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
               <div className="avatar-blob w-64 h-64 md:w-80 md:h-80 bg-primary/10 overflow-hidden">
                 <img
                   src="/placeholder.svg"
@@ -117,7 +145,7 @@ const Index = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
       </BackgroundAurora>
@@ -125,42 +153,76 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center relative">
-            About Me
-            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary rounded-full"></span>
-          </h2>
+          <SectionTitle title={t('about.title')} />
           
           <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="md:w-1/2">
-              <h3 className="text-2xl font-bold mb-4 text-primary">Who I Am</h3>
+            <motion.div 
+              className="md:w-1/2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-4 text-primary">{t('about.subtitle')}</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-6">
-                I'm Mervine Muganguzi, a Computer Engineering graduate and Full Stack Developer with a passion for building creative technical solutions that make a real difference in people's lives.
+                {t('about.p1')}
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-6">
-                I'm multilingual, speaking English and French fluently, and I'm currently learning German. This love for languages extends to programming languages as well, where I enjoy mastering new tools and frameworks.
+                {t('about.p2')}
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                I believe that knowledge matters most when it makes someone better. That's why I'm passionate about knowledge-sharing, teamwork, and teaching—helping others grow while constantly improving myself.
+                {t('about.p3')}
               </p>
-            </div>
+            </motion.div>
             
             <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <GlowingCard 
-                title="Health & Fitness" 
-                description="Passionate about glute/abs workouts for mind-body balance."
-              />
-              <GlowingCard 
-                title="Snack of Choice" 
-                description="Salted peanuts—simple, nutritious fuel for coding sessions."
-              />
-              <GlowingCard 
-                title="Community Work" 
-                description="Active in faith-based community initiatives and service."
-              />
-              <GlowingCard 
-                title="Music Leadership" 
-                description="Involved in music programs and mentoring beginners."
-              />
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.fitness')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{t('card.fitness.desc')}</p>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.snack')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{t('card.snack.desc')}</p>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.community')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{t('card.community.desc')}</p>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4, duration: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-100 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.music')}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{t('card.music.desc')}</p>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -169,14 +231,11 @@ const Index = () => {
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center relative">
-            My Projects
-            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary rounded-full"></span>
-          </h2>
+          <SectionTitle title={t('projects.title')} />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
+              <ProjectCard key={index} {...project} index={index} />
             ))}
           </div>
         </div>
@@ -185,36 +244,10 @@ const Index = () => {
       {/* Skills Section with 3D Visualization */}
       <section id="skills" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
-          <SectionTitle title="My Skills" />
+          <SectionTitle title={t('skills.title')} />
           
           <div className="mb-10">
             <SkillsSphere categoryData={skillCategories} />
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
-            <SkillCategory 
-              title="Frontend Development"
-              skills={skillCategories[0].skills}
-              icon={<Laptop size={24} />}
-            />
-            
-            <SkillCategory 
-              title="Backend Development"
-              skills={skillCategories[1].skills}
-              icon={<Server size={24} />}
-            />
-            
-            <SkillCategory 
-              title="Database Management"
-              skills={skillCategories[2].skills}
-              icon={<Database size={24} />}
-            />
-            
-            <SkillCategory 
-              title="Tools & Others"
-              skills={skillCategories[3].skills}
-              icon={<Code size={24} />}
-            />
           </div>
         </div>
       </section>
@@ -224,16 +257,21 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <SectionTitle 
-              title="Experience & Education" 
-              subtitle="My professional journey and educational background" 
+              title={t('resume.title')} 
+              subtitle={t('resume.subtitle')} 
             />
-            <Button 
-              onClick={handleResumeDownload} 
-              className="flex items-center gap-2 bg-primary hover:bg-primary-dark"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <FileDown size={16} />
-              Download Resume
-            </Button>
+              <Button 
+                onClick={handleResumeDownload} 
+                className="flex items-center gap-2 bg-primary hover:bg-primary-dark"
+              >
+                <FileDown size={16} />
+                {t('resume.download')}
+              </Button>
+            </motion.div>
           </div>
           
           <ResumeTimeline />
@@ -243,23 +281,32 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center relative">
-            Get In Touch
-            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary rounded-full"></span>
-          </h2>
+          <SectionTitle title={t('contact.title')} />
           
           <div className="flex flex-col md:flex-row gap-10">
-            <div className="md:w-1/2">
+            <motion.div 
+              className="md:w-1/2"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               <ContactForm />
-            </div>
+            </motion.div>
             
-            <div className="md:w-1/2">
+            <motion.div 
+              className="md:w-1/2"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               <div className="bg-secondary/30 dark:bg-primary/5 rounded-lg p-8 h-full">
-                <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
+                <h3 className="text-2xl font-bold mb-6">{t('contact.info')}</h3>
                 
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Email</h4>
+                    <h4 className="font-semibold text-lg mb-2">{t('contact.email')}</h4>
                     <a 
                       href="mailto:mervine@example.com"
                       className="text-primary hover:underline"
@@ -269,24 +316,24 @@ const Index = () => {
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Location</h4>
+                    <h4 className="font-semibold text-lg mb-2">{t('contact.location')}</h4>
                     <p className="dark:text-gray-300">Montreal, Canada</p>
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Connect With Me</h4>
+                    <h4 className="font-semibold text-lg mb-2">{t('contact.connect')}</h4>
                     <SocialDock />
                   </div>
                 </div>
                 
                 <div className="mt-8 p-6 bg-white dark:bg-zinc-800 rounded-lg shadow-inner">
-                  <h4 className="font-semibold text-lg mb-4">My Philosophy</h4>
+                  <h4 className="font-semibold text-lg mb-4">{t('contact.philosophy')}</h4>
                   <p className="italic text-gray-700 dark:text-gray-300">
-                    "I believe that knowledge matters most when it makes someone better. Let's collaborate and create something meaningful together."
+                    {t('contact.philosophy.quote')}
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

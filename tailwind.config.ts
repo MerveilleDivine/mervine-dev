@@ -4,7 +4,7 @@ import type { Config } from "tailwindcss";
 // Fixed function to properly handle the parameters
 function addVariablesForColors({ addBase, theme }: any) {
   // Check if theme and theme("colors") are defined before proceeding
-  const colors = theme("colors");
+  let colors = theme("colors");
   if (!colors) return;
   
   // Helper function to flatten color palette
