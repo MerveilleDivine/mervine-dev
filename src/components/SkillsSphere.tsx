@@ -38,6 +38,7 @@ const SkillSphere = ({ skills, color, images = [] }: SkillSphereProps) => {
               position={[x, y, z]}
               image={images[index]}
               name={skill}
+              color={color}
             />
           );
         }
@@ -63,17 +64,24 @@ interface TechBallProps {
   position: [number, number, number];
   image: string;
   name: string;
+  color: string;
 }
 
-const TechBall = ({ position, image, name }: TechBallProps) => {
+const TechBall = ({ position, image, name, color }: TechBallProps) => {
   const [hovered, setHovered] = useState(false);
   const matRef = useRef<MeshStandardMaterial>(null);
   const meshRef = useRef<any>(null);
   const originalPosition = useRef(new Vector3(...position));
   const originalScale = useRef(new Vector3(1, 1, 1));
   
-  // Load texture
-  const texture = useTexture(image);
+  // Load texture with error handling
+  let texture;
+  try {
+    texture = useTexture(image);
+  } catch (error) {
+    console.warn(`Failed to load texture: ${image}`, error);
+    // We'll handle missing textures in the material
+  }
   
   useFrame(() => {
     if (!meshRef.current) return;
@@ -106,6 +114,7 @@ const TechBall = ({ position, image, name }: TechBallProps) => {
         <meshStandardMaterial 
           ref={matRef}
           map={texture} 
+          color={texture ? undefined : new Color(color)}
           roughness={0.4}
           metalness={0.5}
           emissive={hovered ? new Color(color) : new Color(0x000000)}
