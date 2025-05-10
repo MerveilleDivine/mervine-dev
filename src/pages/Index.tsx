@@ -1,16 +1,18 @@
-
 import React from 'react';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
 import SkillCategory from '../components/SkillCategory';
+import SkillsSphere from '../components/SkillsSphere';
 import ContactForm from '../components/ContactForm';
 import ChatWidget from '../components/ChatWidget';
 import { TubelightNavbar } from '../components/TubelightNavbar';
 import { BackgroundAurora } from '../components/ui/background-aurora';
-import { Code, Database, Server, Laptop } from 'lucide-react';
+import { Code, Database, Server, Laptop, FileDown } from 'lucide-react';
 import { ResumeTimeline } from '../components/ResumeTimeline';
 import { GlowingCard } from '../components/GlowingCard';
 import { SocialDock } from '../components/SocialDock';
+import SectionTitle from '../components/SectionTitle';
+import { Button } from '../components/ui/button';
 
 const Index = () => {
   const projects = [
@@ -47,6 +49,39 @@ const Index = () => {
       imageUrl: '/placeholder.svg'
     }
   ];
+
+  const skillCategories = [
+    {
+      title: "Frontend Development",
+      skills: ['JavaScript', 'TypeScript', 'React', 'Redux', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive Design'],
+      color: "#7E69AB"
+    },
+    {
+      title: "Backend Development",
+      skills: ['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization'],
+      color: "#FEC6A1"
+    },
+    {
+      title: "Database Management",
+      skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling', 'Query Optimization'],
+      color: "#9b87f5"
+    },
+    {
+      title: "Tools & Others",
+      skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving'],
+      color: "#F1F1F1"
+    }
+  ];
+
+  const handleResumeDownload = () => {
+    // In a real scenario, you would have the actual resume file path here
+    const link = document.createElement('a');
+    link.href = '/mervine_muganguzi_resume.pdf'; // This should be the actual path to your resume
+    link.download = 'Mervine_Muganguzi_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   return (
     <>
@@ -147,49 +182,59 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section */}
+      {/* Skills Section with 3D Visualization */}
       <section id="skills" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center relative">
-            My Skills
-            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary rounded-full"></span>
-          </h2>
+          <SectionTitle title="My Skills" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="mb-10">
+            <SkillsSphere categoryData={skillCategories} />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
             <SkillCategory 
               title="Frontend Development"
-              skills={['JavaScript', 'TypeScript', 'React', 'Redux', 'HTML5', 'CSS3', 'Tailwind CSS', 'Responsive Design']}
+              skills={skillCategories[0].skills}
               icon={<Laptop size={24} />}
             />
             
             <SkillCategory 
               title="Backend Development"
-              skills={['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization']}
+              skills={skillCategories[1].skills}
               icon={<Server size={24} />}
             />
             
             <SkillCategory 
               title="Database Management"
-              skills={['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling', 'Query Optimization']}
+              skills={skillCategories[2].skills}
               icon={<Database size={24} />}
             />
             
             <SkillCategory 
               title="Tools & Others"
-              skills={['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving']}
+              skills={skillCategories[3].skills}
               icon={<Code size={24} />}
             />
           </div>
         </div>
       </section>
 
-      {/* Resume Timeline Section (replacing Teaching & Mentoring) */}
+      {/* Resume Timeline Section with Download Button */}
       <section id="teaching" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center relative">
-            Experience & Education
-            <span className="absolute bottom-[-10px] left-1/2 transform -translate-x-1/2 w-20 h-1 bg-primary rounded-full"></span>
-          </h2>
+          <div className="flex justify-between items-center mb-8">
+            <SectionTitle 
+              title="Experience & Education" 
+              subtitle="My professional journey and educational background" 
+            />
+            <Button 
+              onClick={handleResumeDownload} 
+              className="flex items-center gap-2 bg-primary hover:bg-primary-dark"
+            >
+              <FileDown size={16} />
+              Download Resume
+            </Button>
+          </div>
           
           <ResumeTimeline />
         </div>
