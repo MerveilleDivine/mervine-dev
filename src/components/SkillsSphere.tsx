@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, OrbitControls, useTexture } from '@react-three/drei';
 import { Color, MeshStandardMaterial, Vector3 } from 'three';
@@ -69,19 +69,25 @@ interface TechBallProps {
 
 const TechBall = ({ position, image, name, color }: TechBallProps) => {
   const [hovered, setHovered] = useState(false);
+  const [textureLoaded, setTextureLoaded] = useState(false);
   const matRef = useRef<MeshStandardMaterial>(null);
   const meshRef = useRef<any>(null);
   const originalPosition = useRef(new Vector3(...position));
   const originalScale = useRef(new Vector3(1, 1, 1));
   
-  // Load texture with error handling
-  let texture;
-  try {
-    texture = useTexture(image);
-  } catch (error) {
+  // Use fallback texture if specific one fails
+  const fallbackTexture = '/placeholder.svg';
+  const [textureUrl, setTextureUrl] = useState(image);
+  
+  // Load texture with better error handling
+  const texture = useTexture(textureUrl, (texture) => {
+    // Success callback
+    setTextureLoaded(true);
+  }, (error) => {
+    // Error callback - use fallback
     console.warn(`Failed to load texture: ${image}`, error);
-    // We'll handle missing textures in the material
-  }
+    setTextureUrl(fallbackTexture);
+  });
   
   useFrame(() => {
     if (!meshRef.current) return;
@@ -113,8 +119,8 @@ const TechBall = ({ position, image, name, color }: TechBallProps) => {
         <sphereGeometry args={[0.6, 32, 32]} />
         <meshStandardMaterial 
           ref={matRef}
-          map={texture} 
-          color={texture ? undefined : new Color(color)}
+          map={textureLoaded ? texture : undefined} 
+          color={textureLoaded ? undefined : new Color(color)}
           roughness={0.4}
           metalness={0.5}
           emissive={hovered ? new Color(color) : new Color(0x000000)}
@@ -149,7 +155,10 @@ interface SkillsSphereProps {
 
 export const SkillsSphere = ({ categoryData }: SkillsSphereProps) => {
   return (
-    <Canvas camera={{ position: [0, 0, 10], fov: 50 }} className="w-full h-[500px] bg-transparent shadow-lg border border-gray-200 dark:border-gray-700 rounded-lg">
+    <Canvas 
+      camera={{ position: [0, 0, 10], fov: 50 }} 
+      className="w-full h-[500px] bg-gray-50 dark:bg-zinc-800/50 shadow-lg border border-gray-200 dark:border-gray-700 rounded-lg"
+    >
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} intensity={1} />
       

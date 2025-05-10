@@ -1,9 +1,11 @@
 
 import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { SocialDock } from './SocialDock';
+import { StarBorder } from './ui/star-border';
+import { Button } from './ui/button';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -29,13 +31,63 @@ const Footer = () => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <footer className="bg-gray-900 text-white py-12 relative overflow-hidden">
+    <footer className="bg-gray-900 text-white pt-16 relative overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/10 opacity-20"></div>
       
+      {/* Let's Start Section inspired by the reference image */}
+      <div className="container mx-auto px-4 text-center mb-16 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="max-w-3xl mx-auto"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">Let's start</h2>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <a href="mailto:mervine@example.com" className="text-xl hover:text-primary transition-colors border-b border-gray-700 pb-1">
+              mervine@example.com
+            </a>
+            <StarBorder 
+              as="a" 
+              href="#contact" 
+              className="hover:scale-105 transition-transform"
+              color="#9b87f5"
+            >
+              Get a quote
+            </StarBorder>
+            <a href="tel:+421902468085" className="text-xl hover:text-primary transition-colors border-b border-gray-700 pb-1">
+              +421 902 468 085
+            </a>
+          </div>
+          <div className="mt-16 flex justify-center">
+            <div className="flex gap-4">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="bg-gray-800 hover:bg-primary/30 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                <Github size={18} />
+              </a>
+              <a href="#" target="_blank" rel="noopener noreferrer" className="bg-gray-800 hover:bg-primary/30 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                <Linkedin size={18} />
+              </a>
+              <a href="mailto:mervine@example.com" className="bg-gray-800 hover:bg-primary/30 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                <Mail size={18} />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Main Footer Content */}
       <motion.div 
-        className="container mx-auto px-4 relative z-10"
+        className="container mx-auto px-4 relative z-10 border-t border-gray-800 pt-12"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -109,18 +161,38 @@ const Footer = () => {
 
         <motion.div 
           variants={itemVariants}
-          className="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-gray-400 mb-4 md:mb-0">
             &copy; {currentYear} Mervine Muganguzi. {t('footer.rights')}
           </p>
-          <div className="text-gray-400 text-sm">
-            <span className="italic before:content-['\u201C'] after:content-['\u201D']">
-              {t('contact.philosophy.quote').split('.')[0]}.
-            </span>
+          <div className="flex items-center gap-4">
+            <div className="text-gray-400 text-sm">
+              <span className="italic before:content-['\u201C'] after:content-['\u201D']">
+                {t('contact.philosophy.quote').split('.')[0]}.
+              </span>
+            </div>
+            <Button 
+              variant="outline" 
+              size="icon"
+              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20"
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+            >
+              <ArrowUp size={16} />
+            </Button>
           </div>
         </motion.div>
       </motion.div>
+
+      {/* Green Sidebar */}
+      <div className="hidden md:block absolute left-0 top-1/3 h-1/3 w-12 bg-primary rounded-r-lg transform -translate-y-1/2">
+        <div className="h-full w-full flex items-center justify-center">
+          <p className="text-white font-bold text-sm transform rotate-90 whitespace-nowrap">
+            Send a message
+          </p>
+        </div>
+      </div>
     </footer>
   );
 };

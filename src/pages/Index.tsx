@@ -236,7 +236,9 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} index={index} />
+              <div key={index} className="border border-gray-200 dark:border-zinc-700 rounded-lg shadow-lg overflow-hidden">
+                <ProjectCard key={index} {...project} index={index} />
+              </div>
             ))}
           </div>
         </div>
@@ -329,6 +331,12 @@ const Index = () => {
                   <p className="italic text-gray-700 dark:text-gray-300">
                     {t('contact.philosophy.quote')}
                   </p>
+                </div>
+
+                <div className="mt-8 flex justify-center">
+                  <StarBorder as="a" href="#contact" color="#FEC6A1" className="inline-block">
+                    Get in touch
+                  </StarBorder>
                 </div>
               </div>
             </motion.div>
