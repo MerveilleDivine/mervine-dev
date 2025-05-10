@@ -115,7 +115,7 @@ const Footer = () => {
             &copy; {currentYear} Mervine Muganguzi. {t('footer.rights')}
           </p>
           <div className="text-gray-400 text-sm">
-            <span className="before:content-['"'] after:content-['"'] italic">
+            <span className="italic before:content-['\u201C'] after:content-['\u201D']">
               {t('contact.philosophy.quote').split('.')[0]}.
             </span>
           </div>
