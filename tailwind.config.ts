@@ -1,13 +1,36 @@
 
 import type { Config } from "tailwindcss";
-import { flattenColorPalette } from "tailwindcss/lib/util/flattenColorPalette";
 
+// Fixed function to properly handle the parameters
 function addVariablesForColors({ addBase, theme }: any) {
-  let allColors = flattenColorPalette(theme("colors"));
+  // Check if theme and theme("colors") are defined before proceeding
+  const colors = theme("colors");
+  if (!colors) return;
+  
+  // Helper function to flatten color palette
+  const flattenColorPalette = (colors: any) => {
+    const result: Record<string, string> = {};
+    
+    const flattenColors = (obj: any, prefix = "") => {
+      for (const key in obj) {
+        const value = obj[key];
+        if (typeof value === "string") {
+          result[prefix + key] = value;
+        } else if (typeof value === "object") {
+          flattenColors(value, `${prefix}${key}-`);
+        }
+      }
+    };
+    
+    flattenColors(colors);
+    return result;
+  };
+  
+  let allColors = flattenColorPalette(colors);
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
-
+  
   addBase({
     ":root": newVars,
   });

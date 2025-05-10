@@ -1,5 +1,5 @@
 
-import { Home, User, Briefcase, FileText } from 'lucide-react';
+import { Home, User, Briefcase, FileText, Mail } from 'lucide-react';
 import { NavBar } from "@/components/ui/tubelight-navbar";
 
 const navItems = [
@@ -9,8 +9,6 @@ const navItems = [
   { name: 'Resume', url: '#teaching', icon: FileText },
   { name: 'Contact', url: '#contact', icon: Mail }
 ];
-
-import { Mail } from 'lucide-react';
 
 export function TubelightNavbar() {
   return <NavBar items={navItems} />;
