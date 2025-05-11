@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -17,6 +16,7 @@ import { Button } from '../components/ui/button';
 import { techLogos, getTechImage } from '../components/TechIcons';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingCard } from '../components/GlowingCard';
+import { GlowingEffect } from '../components/ui/glowing-effect';
 
 const Index = () => {
   const { t } = useTranslation();
