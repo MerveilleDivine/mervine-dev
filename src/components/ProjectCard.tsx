@@ -39,7 +39,7 @@ const ProjectCard = ({
         y: -5,
         transition: { duration: 0.3 }
       }}
-      className="project-card bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-zinc-700"
+      className="project-card bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-zinc-700 h-full flex flex-col"
     >
       <div className="h-48 bg-gray-200 relative overflow-hidden border-b border-gray-200 dark:border-zinc-700">
         <motion.img 
@@ -53,9 +53,9 @@ const ProjectCard = ({
         />
       </div>
       
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{title}</h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 flex-grow">{description}</p>
         
         <div className="flex flex-wrap gap-2 mb-4">
           {techStack.map((tech, index) => (
@@ -71,7 +71,7 @@ const ProjectCard = ({
           ))}
         </div>
         
-        <div className="project-card-links flex justify-end space-x-4">
+        <div className="project-card-links flex justify-end space-x-4 mt-auto">
           <motion.a 
             href={githubUrl} 
             target="_blank" 

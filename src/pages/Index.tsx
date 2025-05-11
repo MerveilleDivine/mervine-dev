@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -8,14 +9,12 @@ import ChatWidget from '../components/ChatWidget';
 import { TubelightNavbar } from '../components/TubelightNavbar';
 import { BackgroundAurora } from '../components/ui/background-aurora';
 import { Code, Database, Server, Laptop, FileDown } from 'lucide-react';
-import { ResumeTimeline } from '../components/ResumeTimeline';
 import { SocialDock } from '../components/SocialDock';
 import SectionTitle from '../components/SectionTitle';
 import { StarBorder } from '../components/ui/star-border';
 import { Button } from '../components/ui/button';
 import { techLogos, getTechImage } from '../components/TechIcons';
 import SkillCategory from '../components/SkillCategory';
-import { GlowingCard } from '../components/GlowingCard';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 
 const Index = () => {
@@ -152,80 +151,40 @@ const Index = () => {
         </section>
       </BackgroundAurora>
 
-      {/* About Section with GlowingCard */}
+      {/* About Section with simplified design */}
       <section id="about" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('about.title')} />
           
-          <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="max-w-3xl mx-auto">
             <motion.div 
-              className="md:w-1/2"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              className="prose prose-lg dark:prose-invert max-w-none"
             >
               <h3 className="text-2xl font-bold mb-4 text-primary">{t('about.subtitle')}</h3>
-              <p className="text-gray-700 dark:text-gray-300 mb-6">
+              <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
                 {t('about.p1')}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 mb-6">
+              <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
                 {t('about.p2')}
               </p>
-              <p className="text-gray-700 dark:text-gray-300">
+              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                 {t('about.p3')}
               </p>
+              
+              <div className="mt-10 flex justify-center">
+                <Button 
+                  onClick={handleResumeDownload} 
+                  className="flex items-center gap-2 bg-primary hover:bg-primary/90"
+                >
+                  <FileDown size={18} />
+                  {t('resume.download')}
+                </Button>
+              </div>
             </motion.div>
-            
-            <div className="md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <GlowingCard 
-                  title={t('card.fitness')}
-                  description={t('card.fitness.desc')}
-                />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <GlowingCard 
-                  title={t('card.snack')}
-                  description={t('card.snack.desc')}
-                />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <GlowingCard 
-                  title={t('card.community')}
-                  description={t('card.community.desc')}
-                />
-              </motion.div>
-              
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.5 }}
-                viewport={{ once: true }}
-              >
-                <GlowingCard 
-                  title={t('card.music')}
-                  description={t('card.music.desc')}
-                />
-              </motion.div>
-            </div>
           </div>
         </div>
       </section>
@@ -233,21 +192,23 @@ const Index = () => {
       {/* Projects Section with GlowingCard */}
       <section id="projects" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
-          <SectionTitle title={t('projects.title')} />
+          <SectionTitle title={t('projects.things_built')} />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="relative rounded-xl overflow-hidden">
-                <div className="relative rounded-xl border-[0.75px] border-border p-2">
-                  <GlowingEffect
-                    spread={40}
-                    glow={true}
-                    disabled={false}
-                    proximity={64}
-                    inactiveZone={0.01}
-                    borderWidth={2}
-                  />
-                  <ProjectCard {...project} index={index} />
+              <div key={index} className="h-full">
+                <div className="relative h-full rounded-xl overflow-hidden">
+                  <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">
+                    <GlowingEffect
+                      spread={40}
+                      glow={true}
+                      disabled={false}
+                      proximity={64}
+                      inactiveZone={0.01}
+                      borderWidth={2}
+                    />
+                    <ProjectCard {...project} index={index} />
+                  </div>
                 </div>
               </div>
             ))}
@@ -262,43 +223,21 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             {skillCategories.map((category, index) => (
-              <SkillCategory
-                key={index}
-                title={category.title}
-                skills={category.skills}
-                icon={category.icon}
-                color={category.color}
-              />
+              <div key={index} className="h-full">
+                <SkillCategory
+                  title={category.title}
+                  skills={category.skills}
+                  icon={category.icon}
+                  color={category.color}
+                />
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Resume Timeline Section with Download Button */}
-      <section id="teaching" className="py-20 bg-gray-50 dark:bg-zinc-950">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center mb-8">
-            <SectionTitle 
-              title={t('resume.title')} 
-              subtitle={t('resume.subtitle')} 
-            />
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <StarBorder onClick={handleResumeDownload} className="inline-flex items-center gap-2 cursor-pointer">
-                <FileDown size={16} />
-                {t('resume.download')}
-              </StarBorder>
-            </motion.div>
-          </div>
-          
-          <ResumeTimeline />
-        </div>
-      </section>
-
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white dark:bg-zinc-900">
+      <section id="contact" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('contact.title')} />
           
@@ -327,35 +266,22 @@ const Index = () => {
                   <div>
                     <h4 className="font-semibold text-lg mb-2">{t('contact.email')}</h4>
                     <a 
-                      href="mailto:mervine@example.com"
+                      href="mailto:mervinemuganguzi1@outlook.com"
                       className="text-primary hover:underline"
                     >
-                      mervine@example.com
+                      mervinemuganguzi1@outlook.com
                     </a>
                   </div>
                   
                   <div>
                     <h4 className="font-semibold text-lg mb-2">{t('contact.location')}</h4>
-                    <p className="dark:text-gray-300">Montreal, Canada</p>
+                    <p className="dark:text-gray-300">Nicosia, North Cyprus</p>
                   </div>
                   
                   <div>
                     <h4 className="font-semibold text-lg mb-2">{t('contact.connect')}</h4>
                     <SocialDock />
                   </div>
-                </div>
-                
-                <div className="mt-8 p-6 bg-white dark:bg-zinc-800 rounded-lg shadow-inner border border-gray-200 dark:border-zinc-700">
-                  <h4 className="font-semibold text-lg mb-4">{t('contact.philosophy')}</h4>
-                  <p className="italic text-gray-700 dark:text-gray-300">
-                    {t('contact.philosophy.quote')}
-                  </p>
-                </div>
-
-                <div className="mt-8 flex justify-center">
-                  <StarBorder as="a" href="#contact" color="#FEC6A1" className="inline-block">
-                    Get in touch
-                  </StarBorder>
                 </div>
               </div>
             </motion.div>

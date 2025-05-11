@@ -26,15 +26,56 @@ export function NavBar({ items, className }: NavBarProps) {
       setIsMobile(window.innerWidth < 768);
     };
 
+    const handleScroll = () => {
+      const sections = items.map(item => ({
+        id: item.url.substring(1),
+        name: item.name,
+        element: document.getElementById(item.url.substring(1))
+      })).filter(section => section.element);
+
+      const scrollPosition = window.scrollY + 100;
+      
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const section = sections[i];
+        if (!section.element) continue;
+        
+        const sectionTop = section.element.offsetTop;
+        if (scrollPosition >= sectionTop) {
+          setActiveTab(section.name);
+          break;
+        }
+      }
+    };
+
     handleResize();
+    handleScroll();
+    
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [items]);
+
+  const handleNavClick = (item: NavItem, e: React.MouseEvent) => {
+    e.preventDefault();
+    setActiveTab(item.name);
+    
+    const target = document.querySelector(item.url);
+    if (target) {
+      window.scrollTo({
+        top: target.getBoundingClientRect().top + window.scrollY - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-50 mb-6 sm:pt-6",
+        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-40 mb-6 sm:pt-6",
         className,
       )}
     >
@@ -47,7 +88,7 @@ export function NavBar({ items, className }: NavBarProps) {
             <a
               key={item.name}
               href={item.url}
-              onClick={() => setActiveTab(item.name)}
+              onClick={(e) => handleNavClick(item, e)}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",

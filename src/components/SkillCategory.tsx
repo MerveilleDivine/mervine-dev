@@ -11,8 +11,8 @@ interface SkillCategoryProps {
 
 const SkillCategory = ({ title, skills, icon, color = "#7E69AB" }: SkillCategoryProps) => {
   return (
-    <div className="relative rounded-xl overflow-hidden">
-      <div className="relative rounded-xl border-[0.75px] border-border p-2">
+    <div className="relative h-full rounded-xl overflow-hidden">
+      <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">
         <GlowingEffect
           spread={40}
           glow={true}

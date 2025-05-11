@@ -1,5 +1,5 @@
 
-import { Home, User, Briefcase, FileText, Mail } from 'lucide-react';
+import { Home, User, Briefcase, FileText, Mail, Code } from 'lucide-react';
 import { NavBar } from "@/components/ui/tubelight-navbar";
 import { useTranslation } from 'react-i18next';
 import { ThemeToggle } from './ThemeToggle';
@@ -12,7 +12,7 @@ export function TubelightNavbar() {
     { name: t('nav.home'), url: '#home', icon: Home },
     { name: t('nav.about'), url: '#about', icon: User },
     { name: t('nav.projects'), url: '#projects', icon: Briefcase },
-    { name: t('nav.resume'), url: '#teaching', icon: FileText },
+    { name: t('nav.skills'), url: '#skills', icon: Code },
     { name: t('nav.contact'), url: '#contact', icon: Mail }
   ];
 
