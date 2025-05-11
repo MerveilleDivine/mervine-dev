@@ -75,19 +75,37 @@ const TechBall = ({ position, image, name, color }: TechBallProps) => {
   const originalPosition = useRef(new Vector3(...position));
   const originalScale = useRef(new Vector3(1, 1, 1));
   
-  // Use fallback texture if specific one fails
-  const fallbackTexture = '/placeholder.svg';
+  // Use placeholder images from unsplash as fallback
+  const placeholderImages = [
+    'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+    'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
+    'https://images.unsplash.com/photo-1498050108023-c5249f4df085'
+  ];
+  const fallbackTexture = placeholderImages[Math.floor(Math.random() * placeholderImages.length)];
   const [textureUrl, setTextureUrl] = useState(image);
   
+  // Custom error handler for texture loading
+  const onError = () => {
+    console.warn(`Failed to load texture: ${image}, using fallback`);
+    setTextureUrl(fallbackTexture);
+  };
+  
   // Load texture with better error handling
-  const texture = useTexture(textureUrl, (texture) => {
+  const texture = useTexture(textureUrl, (loadedTexture) => {
     // Success callback
     setTextureLoaded(true);
-  }, (error) => {
-    // Error callback - use fallback
-    console.warn(`Failed to load texture: ${image}`, error);
-    setTextureUrl(fallbackTexture);
   });
+  
+  // Add error handling for the texture
+  useEffect(() => {
+    const img = new Image();
+    img.onerror = onError;
+    img.src = textureUrl;
+    
+    return () => {
+      img.onerror = null; // Cleanup
+    };
+  }, [textureUrl]);
   
   useFrame(() => {
     if (!meshRef.current) return;
@@ -119,8 +137,8 @@ const TechBall = ({ position, image, name, color }: TechBallProps) => {
         <sphereGeometry args={[0.6, 32, 32]} />
         <meshStandardMaterial 
           ref={matRef}
-          map={textureLoaded ? texture : undefined} 
-          color={textureLoaded ? undefined : new Color(color)}
+          map={texture} 
+          color={!textureLoaded ? new Color(color) : undefined}
           roughness={0.4}
           metalness={0.5}
           emissive={hovered ? new Color(color) : new Color(0x000000)}
