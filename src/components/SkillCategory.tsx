@@ -9,7 +9,7 @@ interface SkillCategoryProps {
   color?: string;
 }
 
-const SkillCategory = ({ title, skills, icon, color = "#E06C00" }: SkillCategoryProps) => {
+const SkillCategory = ({ title, skills, icon, color = "#7E69AB" }: SkillCategoryProps) => {
   return (
     <div className="relative h-full rounded-xl overflow-hidden">
       <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">
@@ -33,7 +33,7 @@ const SkillCategory = ({ title, skills, icon, color = "#E06C00" }: SkillCategory
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="bg-gray-100 dark:bg-zinc-700 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm"
+                className="text-sm rounded-full px-3 py-1"
                 style={{ 
                   backgroundColor: `${color}20`,
                   color: color,

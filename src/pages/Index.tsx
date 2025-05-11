@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
@@ -59,25 +59,25 @@ const Index = () => {
     {
       title: "Frontend Development",
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
-      color: "#E06C00", // Same color as Backend Development
+      color: "#7E69AB", // Using a more visible purple
       icon: <Laptop size={24} />
     },
     {
       title: "Backend Development",
       skills: ['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization'],
-      color: "#E06C00",
+      color: "#7E69AB",
       icon: <Server size={24} />
     },
     {
       title: "Database Management",
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling'],
-      color: "#E06C00",
+      color: "#7E69AB",
       icon: <Database size={24} />
     },
     {
       title: "Tools & Others",
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving'],
-      color: "#E06C00",
+      color: "#7E69AB",
       icon: <Code size={24} />
     }
   ];
@@ -97,8 +97,8 @@ const Index = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                {t('hero.greeting')} <br />
-                <span className="text-primary">{t('hero.title')}</span>
+                <span className="text-gray-900 dark:text-gray-100">{t('hero.greeting')}</span> <br />
+                <span className="text-primary bg-clip-text">{t('hero.title')}</span>
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-lg">
                 {t('hero.subtitle')}
@@ -164,17 +164,20 @@ const Index = () => {
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                 {t('about.p3')}
               </p>
-              
-              <div className="mt-10">
-                <ResumeTimeline />
-              </div>
             </motion.div>
           </div>
         </div>
       </section>
+      
+      {/* Experience Timeline Section - Now separated from About */}
+      <section className="py-20 bg-gray-50 dark:bg-zinc-950">
+        <div className="container mx-auto px-4">
+          <ResumeTimeline />
+        </div>
+      </section>
 
       {/* Projects Section with equal-height cards */}
-      <section id="projects" className="py-20 bg-gray-50 dark:bg-zinc-950">
+      <section id="projects" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('projects.things_built')} />
           
@@ -201,7 +204,7 @@ const Index = () => {
       </section>
 
       {/* Skills Section with equal-height Grid Layout */}
-      <section id="skills" className="py-20 bg-white dark:bg-zinc-900">
+      <section id="skills" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('skills.title')} />
           
@@ -221,7 +224,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50 dark:bg-zinc-950">
+      <section id="contact" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('contact.title')} />
           
@@ -268,10 +271,8 @@ const Index = () => {
                   </div>
                   
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">{t('contact.connect')}</h4>
-                    <div className="flex justify-start items-center">
-                      <SocialDock />
-                    </div>
+                    <h4 className="font-semibold text-lg mb-2 text-left">{t('contact.connect')}</h4>
+                    <SocialDock />
                   </div>
                   
                   <div className="mt-8 text-center">

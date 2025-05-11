@@ -17,9 +17,9 @@ const frTranslation = {
   
   // About section
   "about.title": "À Propos de Moi",
-  "about.p1": "Je suis Mervine Muganguzi, diplômé en génie informatique de l'Université Internationale de Chypre avec une solide formation en systèmes techniques et un style de communication clair.",
-  "about.p2": "J'aime résoudre des problèmes, expliquer des idées complexes en termes simples et aider les autres à trouver des solutions efficaces. Avec une expérience en développement logiciel et en conception graphique, j'apporte un mélange unique de compétences techniques et créatives.",
-  "about.p3": "Je suis multilingue, parlant couramment l'anglais et le français. Avec une approche calme et analytique et un intérêt réel pour aider les gens, je suis passionné par la création de technologies qui font une réelle différence dans la vie des gens.",
+  "about.p1": "Je suis diplômé en génie informatique avec de solides bases techniques et des compétences en résolution de problèmes. Mon expérience combine le développement logiciel avec un œil créatif pour le design, me permettant de créer des solutions à la fois fonctionnelles et visuellement attrayantes.",
+  "about.p2": "J'excelle à traduire des concepts techniques complexes en langage clair et compréhensible. Mon esprit analytique et mon adaptabilité m'aident à apprendre rapidement de nouvelles technologies et à fournir des solutions efficaces.",
+  "about.p3": "Maîtrisant l'anglais et le français, j'apporte à la fois une expertise technique et de solides compétences en communication à chaque projet. Je suis passionné par la création de technologies qui résolvent de vrais problèmes et apportent une valeur réelle.",
   
   // Projects section
   "projects.title": "Mes Projets",

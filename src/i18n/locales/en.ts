@@ -17,9 +17,9 @@ const enTranslation = {
   
   // About section
   "about.title": "About Me",
-  "about.p1": "I'm Mervine Muganguzi, a Computer Engineering graduate from Cyprus International University with a strong foundation in technical systems and clear communication style.",
-  "about.p2": "I enjoy solving problems, explaining complex ideas in simple terms, and supporting others to find effective solutions. With a background in both software development and graphic design, I bring a unique blend of technical and creative skills.",
-  "about.p3": "I'm multilingual, speaking English and French fluently. With a calm, analytical approach and genuine interest in helping people, I'm passionate about creating technology that makes a real difference in people's lives.",
+  "about.p1": "I'm a Computer Engineering graduate with strong technical foundations and problem-solving skills. My experience combines software development with a creative eye for design, allowing me to build solutions that are both functional and visually appealing.",
+  "about.p2": "I excel at translating complex technical concepts into clear, understandable language. My analytical mindset and adaptability help me quickly learn new technologies and deliver efficient solutions.",
+  "about.p3": "Fluent in English and French, I bring both technical expertise and strong communication skills to every project. I'm passionate about creating technology that solves real problems and delivers genuine value.",
   
   // Projects section
   "projects.title": "My Projects",

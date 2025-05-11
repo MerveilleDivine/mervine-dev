@@ -152,6 +152,7 @@
 
 .chat-widget {
   transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 50;  /* Higher z-index to not overlap with other elements */
 }
 
 .chat-widget.closed {
@@ -270,4 +271,26 @@
 /* For smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Make footer links properly clickable */
+footer a {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure back to top button doesn't overlap with chat widget */
+.back-to-top {
+  position: fixed;
+  bottom: 80px; /* Adjusted to not overlap with chat widget */
+  right: 20px;
+  z-index: 40;
+}
+
+/* Make sure to improve responsive design */
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 100px;
+    right: 15px;
+  }
 }

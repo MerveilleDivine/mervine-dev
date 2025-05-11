@@ -3,7 +3,6 @@ import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { FileDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
 
 const timelineData = [
   {
@@ -101,21 +100,15 @@ const timelineData = [
   {
     title: "Resume",
     content: (
-      <div className="flex justify-center items-center">
-        <Button 
-          onClick={() => {
-            const link = document.createElement('a');
-            link.href = '/mervine_muganguzi_resume.pdf';
-            link.download = 'Mervine_Muganguzi_Resume.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }} 
-          className="flex items-center gap-2 bg-primary hover:bg-primary/90 py-6 px-8 text-lg"
+      <div className="flex justify-center items-center pt-4">
+        <a 
+          href="/mervine_muganguzi_resume.pdf" 
+          download="Mervine_Muganguzi_Resume.pdf"
+          className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
         >
-          <FileDown size={22} />
-          <span className="font-medium">Download Resume</span>
-        </Button>
+          <FileDown size={18} />
+          <span className="font-medium underline">Download Resume</span>
+        </a>
       </div>
     ),
   },
@@ -125,8 +118,8 @@ export function ResumeTimeline() {
   const { t } = useTranslation();
   
   return (
-    <div className="w-full">
-      <h3 className="text-2xl font-bold mb-6 text-primary">{t('timeline.title')}</h3>
+    <div className="w-full mt-16">
+      <h3 className="text-2xl md:text-3xl font-bold mb-8 text-primary">My Experience Timeline</h3>
       <Timeline data={timelineData} />
     </div>
   );
