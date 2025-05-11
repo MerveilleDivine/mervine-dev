@@ -65,10 +65,13 @@ export function NavBar({ items, className }: NavBarProps) {
     
     const target = document.querySelector(item.url);
     if (target) {
-      window.scrollTo({
-        top: target.getBoundingClientRect().top + window.scrollY - 80,
-        behavior: 'smooth'
-      });
+      // Use setTimeout to ensure the click is processed completely
+      setTimeout(() => {
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.scrollY - 80,
+          behavior: 'smooth'
+        });
+      }, 10);
     }
   };
 

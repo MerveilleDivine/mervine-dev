@@ -16,25 +16,26 @@ const socialLinks = [
   {
     title: 'Email',
     icon: <Mail className='h-full w-full text-neutral-600 dark:text-neutral-300' />,
-    href: 'mailto:mervine@example.com',
+    href: 'mailto:mervinemuganguzi1@outlook.com',
   }
 ];
 
 export function SocialDock() {
   return (
-    <div className='mx-auto max-w-fit mb-8'>
-      <Dock className='items-end pb-3'>
+    <div className='mx-auto max-w-fit'>
+      <div className='flex gap-4'>
         {socialLinks.map((item, idx) => (
-          <a key={idx} href={item.href} target="_blank" rel="noopener noreferrer">
-            <DockItem
-              className='aspect-square rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-neutral-800'
-            >
-              <DockLabel>{item.title}</DockLabel>
-              <DockIcon>{item.icon}</DockIcon>
-            </DockItem>
+          <a 
+            key={idx} 
+            href={item.href} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 dark:bg-neutral-800"
+          >
+            {item.icon}
           </a>
         ))}
-      </Dock>
+      </div>
     </div>
   );
 }

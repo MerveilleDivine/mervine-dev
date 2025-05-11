@@ -13,9 +13,9 @@ import { SocialDock } from '../components/SocialDock';
 import SectionTitle from '../components/SectionTitle';
 import { StarBorder } from '../components/ui/star-border';
 import { Button } from '../components/ui/button';
-import { techLogos, getTechImage } from '../components/TechIcons';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingEffect } from '../components/ui/glowing-effect';
+import { ResumeTimeline } from '../components/ResumeTimeline';
 
 const Index = () => {
   const { t } = useTranslation();
@@ -55,30 +55,30 @@ const Index = () => {
     }
   ];
 
-  // Skills categories for the new grid-based layout
+  // Skills categories with updated colors for better visibility in light mode
   const skillCategories = [
     {
       title: "Frontend Development",
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
-      color: "#7E69AB",
+      color: "#5B42A2", // Darker purple for better visibility
       icon: <Laptop size={24} />
     },
     {
       title: "Backend Development",
       skills: ['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization'],
-      color: "#FEC6A1",
+      color: "#E06C00", // Darker orange
       icon: <Server size={24} />
     },
     {
       title: "Database Management",
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling', 'Query Optimization'],
-      color: "#9b87f5",
+      color: "#5C4DA5", // Darker blue/purple
       icon: <Database size={24} />
     },
     {
       title: "Tools & Others",
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving'],
-      color: "#F1F1F1",
+      color: "#444444", // Darker gray
       icon: <Code size={24} />
     }
   ];
@@ -127,7 +127,7 @@ const Index = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <StarBorder as="a" href="#contact" className="inline-block" color="#FEC6A1">
-                    {t('hero.cta.contact')}
+                    <span>{t('hero.cta.contact')}</span>
                   </StarBorder>
                 </motion.div>
               </div>
@@ -175,28 +175,33 @@ const Index = () => {
                 {t('about.p3')}
               </p>
               
-              <div className="mt-10 flex justify-center">
-                <Button 
-                  onClick={handleResumeDownload} 
-                  className="flex items-center gap-2 bg-primary hover:bg-primary/90"
-                >
-                  <FileDown size={18} />
-                  {t('resume.download')}
-                </Button>
+              <div className="mt-10">
+                <h3 className="text-2xl font-bold mb-6 text-primary">{t('timeline.title')}</h3>
+                <ResumeTimeline />
+                
+                <div className="mt-6 flex justify-center">
+                  <Button 
+                    onClick={handleResumeDownload} 
+                    className="flex items-center gap-2 bg-primary hover:bg-primary/90"
+                  >
+                    <FileDown size={18} />
+                    {t('resume.download')}
+                  </Button>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section with GlowingCard */}
+      {/* Projects Section with equal-height cards */}
       <section id="projects" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('projects.things_built')} />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="h-full">
+              <div key={index} className="h-[360px]"> {/* Fixed height for all cards */}
                 <div className="relative h-full rounded-xl overflow-hidden">
                   <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">
                     <GlowingEffect
@@ -216,14 +221,14 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section with Grid Layout */}
+      {/* Skills Section with equal-height Grid Layout */}
       <section id="skills" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('skills.title')} />
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             {skillCategories.map((category, index) => (
-              <div key={index} className="h-full">
+              <div key={index} className="h-[280px]"> {/* Fixed height for all skill cards */}
                 <SkillCategory
                   title={category.title}
                   skills={category.skills}
@@ -281,6 +286,12 @@ const Index = () => {
                   <div>
                     <h4 className="font-semibold text-lg mb-2">{t('contact.connect')}</h4>
                     <SocialDock />
+                  </div>
+                  
+                  <div className="mt-8 text-center">
+                    <StarBorder as="a" href="mailto:mervinemuganguzi1@outlook.com" className="inline-block" color="#FEC6A1">
+                      {t('hero.cta.contact')}
+                    </StarBorder>
                   </div>
                 </div>
               </div>

@@ -50,7 +50,12 @@ const frTranslation = {
   "contact.connect": "Me Suivre",
   
   // Footer
-  "footer.rights": "Tous droits réservés."
+  "footer.rights": "Tous droits réservés.",
+
+  // Timeline
+  "timeline.title": "Mon Parcours",
+  "timeline.experience": "Expérience",
+  "timeline.education": "Éducation"
 };
 
 export default frTranslation;

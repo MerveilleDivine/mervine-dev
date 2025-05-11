@@ -50,7 +50,12 @@ const enTranslation = {
   "contact.connect": "Connect With Me",
   
   // Footer
-  "footer.rights": "All rights reserved."
+  "footer.rights": "All rights reserved.",
+
+  // Timeline
+  "timeline.title": "My Journey",
+  "timeline.experience": "Experience",
+  "timeline.education": "Education"
 };
 
 export default enTranslation;

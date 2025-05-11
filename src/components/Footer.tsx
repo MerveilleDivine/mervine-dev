@@ -3,32 +3,11 @@ import React from 'react';
 import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { SocialDock } from './SocialDock';
 import { Button } from './ui/button';
 
 const Footer = () => {
   const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: { 
-        staggerChildren: 0.1,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1,
-      transition: { duration: 0.5 }
-    }
-  };
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -38,29 +17,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 text-white pt-16 relative overflow-hidden">
+    <footer className="bg-gray-800 text-white pt-16 relative overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/10 opacity-20"></div>
       
       {/* Main Footer Content */}
-      <motion.div 
-        className="container mx-auto px-4 relative z-10"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <motion.div variants={itemVariants} className="mb-6 md:mb-0">
+          <div className="mb-6 md:mb-0">
             <h3 className="text-2xl font-bold mb-4">Mervine Muganguzi</h3>
             <p className="text-gray-300 mb-4">Software Developer</p>
             <div className="h-1 w-20 bg-primary rounded-full mb-4"></div>
             <p className="text-sm text-gray-400">
               Building digital experiences that make a difference.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants}>
+          <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">{t('nav.navigation')}</h4>
             <ul className="space-y-2">
               <li><a href="#home" className="text-gray-300 hover:text-primary transition-colors">{t('nav.home')}</a></li>
@@ -69,9 +42,9 @@ const Footer = () => {
               <li><a href="#skills" className="text-gray-300 hover:text-primary transition-colors">{t('nav.skills')}</a></li>
               <li><a href="#contact" className="text-gray-300 hover:text-primary transition-colors">{t('nav.contact')}</a></li>
             </ul>
-          </motion.div>
+          </div>
 
-          <motion.div variants={itemVariants}>
+          <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">{t('contact.info')}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
@@ -113,11 +86,10 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div 
-          variants={itemVariants}
+        <div 
           className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
           <p className="text-gray-400 mb-4 md:mb-0">
@@ -127,15 +99,15 @@ const Footer = () => {
             <Button 
               variant="outline" 
               size="icon"
-              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20 mb-20 md:mb-0"
+              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20 mb-4 md:mb-0"
               onClick={scrollToTop}
               aria-label="Scroll to top"
             >
               <ArrowUp size={16} />
             </Button>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
     </footer>
   );
 };
