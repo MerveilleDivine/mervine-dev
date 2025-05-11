@@ -1,8 +1,8 @@
-
 import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text, OrbitControls, useTexture } from '@react-three/drei';
 import { Color, MeshStandardMaterial, Vector3 } from 'three';
+import { GlowingEffect } from './ui/glowing-effect';
 
 interface SkillSphereProps {
   skills: string[];

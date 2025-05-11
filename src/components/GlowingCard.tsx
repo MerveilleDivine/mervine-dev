@@ -1,5 +1,5 @@
 
-import { GlowingEffect } from "@/components/ui/glowing-effect";
+import { GlowingEffect } from "./ui/glowing-effect";
 import { cn } from "@/lib/utils";
 import React from "react";
 

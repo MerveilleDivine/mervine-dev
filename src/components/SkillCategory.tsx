@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GlowingEffect } from '@/components/ui/glowing-effect';
+import { GlowingEffect } from './ui/glowing-effect';
 
 interface SkillCategoryProps {
   title: string;
