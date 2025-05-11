@@ -63,15 +63,14 @@ export function NavBar({ items, className }: NavBarProps) {
     e.preventDefault();
     setActiveTab(item.name);
     
-    const target = document.querySelector(item.url);
-    if (target) {
-      // Use setTimeout to ensure the click is processed completely
-      setTimeout(() => {
-        window.scrollTo({
-          top: target.getBoundingClientRect().top + window.scrollY - 80,
-          behavior: 'smooth'
-        });
-      }, 10);
+    const targetId = item.url.substring(1);
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 80,
+        behavior: 'smooth'
+      });
     }
   };
 

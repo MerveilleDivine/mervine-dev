@@ -9,7 +9,7 @@ interface SkillCategoryProps {
   color?: string;
 }
 
-const SkillCategory = ({ title, skills, icon, color = "#7E69AB" }: SkillCategoryProps) => {
+const SkillCategory = ({ title, skills, icon, color = "#E06C00" }: SkillCategoryProps) => {
   return (
     <div className="relative h-full rounded-xl overflow-hidden">
       <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">

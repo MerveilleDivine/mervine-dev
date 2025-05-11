@@ -17,20 +17,9 @@ const enTranslation = {
   
   // About section
   "about.title": "About Me",
-  "about.subtitle": "Who I Am",
-  "about.p1": "I'm Mervine Muganguzi, a Computer Engineering graduate and Software Developer with a passion for building creative technical solutions that make a real difference in people's lives.",
-  "about.p2": "I'm multilingual, speaking English and French fluently, and I'm currently learning German. This love for languages extends to programming languages as well, where I enjoy mastering new tools and frameworks.",
-  "about.p3": "I believe that knowledge matters most when it makes someone better. That's why I'm passionate about knowledge-sharing, teamwork, and teaching—helping others grow while constantly improving myself.",
-  
-  // Card contents
-  "card.fitness": "Health & Fitness",
-  "card.fitness.desc": "Passionate about glute/abs workouts for mind-body balance.",
-  "card.snack": "Snack of Choice",
-  "card.snack.desc": "Salted peanuts—simple, nutritious fuel for coding sessions.",
-  "card.community": "Community Work",
-  "card.community.desc": "Active in faith-based community initiatives and service.",
-  "card.music": "Music Leadership",
-  "card.music.desc": "Involved in music programs and mentoring beginners.",
+  "about.p1": "I'm Mervine Muganguzi, a Computer Engineering graduate from Cyprus International University with a strong foundation in technical systems and clear communication style.",
+  "about.p2": "I enjoy solving problems, explaining complex ideas in simple terms, and supporting others to find effective solutions. With a background in both software development and graphic design, I bring a unique blend of technical and creative skills.",
+  "about.p3": "I'm multilingual, speaking English and French fluently. With a calm, analytical approach and genuine interest in helping people, I'm passionate about creating technology that makes a real difference in people's lives.",
   
   // Projects section
   "projects.title": "My Projects",
@@ -46,6 +35,7 @@ const enTranslation = {
   "contact.title": "Get In Touch",
   "contact.info": "Contact Information",
   "contact.email": "Email",
+  "contact.phone": "Phone",
   "contact.location": "Location",
   "contact.connect": "Connect With Me",
   
@@ -53,9 +43,7 @@ const enTranslation = {
   "footer.rights": "All rights reserved.",
 
   // Timeline
-  "timeline.title": "My Journey",
-  "timeline.experience": "Experience",
-  "timeline.education": "Education"
+  "timeline.title": "My Experience Timeline"
 };
 
 export default enTranslation;

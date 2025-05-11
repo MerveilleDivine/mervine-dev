@@ -15,9 +15,19 @@ const Footer = () => {
       behavior: 'smooth'
     });
   };
+  
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
-    <footer className="bg-gray-800 text-white pt-16 relative overflow-hidden">
+    <footer className="bg-gray-700 text-white pt-16 relative overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/10 opacity-20"></div>
       
@@ -36,11 +46,11 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">{t('nav.navigation')}</h4>
             <ul className="space-y-2">
-              <li><a href="#home" className="text-gray-300 hover:text-primary transition-colors">{t('nav.home')}</a></li>
-              <li><a href="#about" className="text-gray-300 hover:text-primary transition-colors">{t('nav.about')}</a></li>
-              <li><a href="#projects" className="text-gray-300 hover:text-primary transition-colors">{t('nav.projects')}</a></li>
-              <li><a href="#skills" className="text-gray-300 hover:text-primary transition-colors">{t('nav.skills')}</a></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-primary transition-colors">{t('nav.contact')}</a></li>
+              <li><button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.home')}</button></li>
+              <li><button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.about')}</button></li>
+              <li><button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.projects')}</button></li>
+              <li><button onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.skills')}</button></li>
+              <li><button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.contact')}</button></li>
             </ul>
           </div>
 
@@ -54,6 +64,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="text-gray-300">Nicosia, North Cyprus</li>
+              <li className="text-gray-300">+90 533 889 22 70</li>
             </ul>
             
             <div className="mt-6">
@@ -69,7 +80,7 @@ const Footer = () => {
                   <Github size={20} />
                 </a>
                 <a 
-                  href="https://linkedin.com/" 
+                  href="https://www.linkedin.com/in/mervine-muganguzi-981568236/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-full hover:bg-primary/20 transition-colors"
@@ -99,7 +110,7 @@ const Footer = () => {
             <Button 
               variant="outline" 
               size="icon"
-              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20 mb-4 md:mb-0"
+              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20 mb-4 md:mb-0 z-10"
               onClick={scrollToTop}
               aria-label="Scroll to top"
             >

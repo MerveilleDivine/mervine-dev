@@ -8,11 +8,10 @@ import ContactForm from '../components/ContactForm';
 import ChatWidget from '../components/ChatWidget';
 import { TubelightNavbar } from '../components/TubelightNavbar';
 import { BackgroundAurora } from '../components/ui/background-aurora';
-import { Code, Database, Server, Laptop, FileDown } from 'lucide-react';
+import { Code, Database, Server, Laptop } from 'lucide-react';
 import { SocialDock } from '../components/SocialDock';
 import SectionTitle from '../components/SectionTitle';
 import { StarBorder } from '../components/ui/star-border';
-import { Button } from '../components/ui/button';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
@@ -55,42 +54,33 @@ const Index = () => {
     }
   ];
 
-  // Skills categories with updated colors for better visibility in light mode
+  // Skills categories with consistent colors
   const skillCategories = [
     {
       title: "Frontend Development",
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
-      color: "#5B42A2", // Darker purple for better visibility
+      color: "#E06C00", // Same color as Backend Development
       icon: <Laptop size={24} />
     },
     {
       title: "Backend Development",
       skills: ['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization'],
-      color: "#E06C00", // Darker orange
+      color: "#E06C00",
       icon: <Server size={24} />
     },
     {
       title: "Database Management",
-      skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling', 'Query Optimization'],
-      color: "#5C4DA5", // Darker blue/purple
+      skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling'],
+      color: "#E06C00",
       icon: <Database size={24} />
     },
     {
       title: "Tools & Others",
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving'],
-      color: "#444444", // Darker gray
+      color: "#E06C00",
       icon: <Code size={24} />
     }
   ];
-
-  const handleResumeDownload = () => {
-    const link = document.createElement('a');
-    link.href = '/mervine_muganguzi_resume.pdf';
-    link.download = 'Mervine_Muganguzi_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
 
   return (
     <>
@@ -141,9 +131,10 @@ const Index = () => {
             >
               <div className="avatar-blob w-64 h-64 md:w-80 md:h-80 bg-primary/10 overflow-hidden">
                 <img
-                  src="/placeholder.svg"
+                  src="/lovable-uploads/652bfb97-77e2-46e8-bab9-f06c9196ad4b.png"
                   alt="Mervine Muganguzi"
                   className="w-full h-full object-cover"
+                  style={{ objectFit: 'contain', transform: 'scale(1.1)' }}
                 />
               </div>
             </motion.div>
@@ -164,7 +155,6 @@ const Index = () => {
               viewport={{ once: true }}
               className="prose prose-lg dark:prose-invert max-w-none"
             >
-              <h3 className="text-2xl font-bold mb-4 text-primary">{t('about.subtitle')}</h3>
               <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
                 {t('about.p1')}
               </p>
@@ -176,18 +166,7 @@ const Index = () => {
               </p>
               
               <div className="mt-10">
-                <h3 className="text-2xl font-bold mb-6 text-primary">{t('timeline.title')}</h3>
                 <ResumeTimeline />
-                
-                <div className="mt-6 flex justify-center">
-                  <Button 
-                    onClick={handleResumeDownload} 
-                    className="flex items-center gap-2 bg-primary hover:bg-primary/90"
-                  >
-                    <FileDown size={18} />
-                    {t('resume.download')}
-                  </Button>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -279,13 +258,20 @@ const Index = () => {
                   </div>
                   
                   <div>
+                    <h4 className="font-semibold text-lg mb-2">{t('contact.phone')}</h4>
+                    <p className="dark:text-gray-300">+90 533 889 22 70</p>
+                  </div>
+                  
+                  <div>
                     <h4 className="font-semibold text-lg mb-2">{t('contact.location')}</h4>
                     <p className="dark:text-gray-300">Nicosia, North Cyprus</p>
                   </div>
                   
                   <div>
                     <h4 className="font-semibold text-lg mb-2">{t('contact.connect')}</h4>
-                    <SocialDock />
+                    <div className="flex justify-start items-center">
+                      <SocialDock />
+                    </div>
                   </div>
                   
                   <div className="mt-8 text-center">

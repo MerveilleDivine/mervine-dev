@@ -17,20 +17,9 @@ const frTranslation = {
   
   // About section
   "about.title": "À Propos de Moi",
-  "about.subtitle": "Qui Je Suis",
-  "about.p1": "Je suis Mervine Muganguzi, diplômé en génie informatique et développeur de logiciels passionné par la création de solutions techniques créatives qui font une réelle différence dans la vie des gens.",
-  "about.p2": "Je suis multilingue, parlant couramment l'anglais et le français, et j'apprends actuellement l'allemand. Cet amour pour les langues s'étend aussi aux langages de programmation, où j'aime maîtriser de nouveaux outils et frameworks.",
-  "about.p3": "Je crois que la connaissance importe le plus lorsqu'elle rend quelqu'un meilleur. C'est pourquoi je suis passionné par le partage des connaissances, le travail d'équipe et l'enseignement—aider les autres à grandir tout en m'améliorant constamment.",
-  
-  // Card contents
-  "card.fitness": "Santé & Fitness",
-  "card.fitness.desc": "Passionné par les exercices abdominaux/fessiers pour l'équilibre corps-esprit.",
-  "card.snack": "En-cas Préféré",
-  "card.snack.desc": "Cacahuètes salées—carburant simple et nutritif pour les sessions de codage.",
-  "card.community": "Travail Communautaire",
-  "card.community.desc": "Actif dans les initiatives et services communautaires confessionnels.",
-  "card.music": "Leadership Musical",
-  "card.music.desc": "Impliqué dans les programmes musicaux et le mentorat des débutants.",
+  "about.p1": "Je suis Mervine Muganguzi, diplômé en génie informatique de l'Université Internationale de Chypre avec une solide formation en systèmes techniques et un style de communication clair.",
+  "about.p2": "J'aime résoudre des problèmes, expliquer des idées complexes en termes simples et aider les autres à trouver des solutions efficaces. Avec une expérience en développement logiciel et en conception graphique, j'apporte un mélange unique de compétences techniques et créatives.",
+  "about.p3": "Je suis multilingue, parlant couramment l'anglais et le français. Avec une approche calme et analytique et un intérêt réel pour aider les gens, je suis passionné par la création de technologies qui font une réelle différence dans la vie des gens.",
   
   // Projects section
   "projects.title": "Mes Projets",
@@ -46,6 +35,7 @@ const frTranslation = {
   "contact.title": "Prendre Contact",
   "contact.info": "Coordonnées",
   "contact.email": "Email",
+  "contact.phone": "Téléphone",
   "contact.location": "Emplacement",
   "contact.connect": "Me Suivre",
   
@@ -53,9 +43,7 @@ const frTranslation = {
   "footer.rights": "Tous droits réservés.",
 
   // Timeline
-  "timeline.title": "Mon Parcours",
-  "timeline.experience": "Expérience",
-  "timeline.education": "Éducation"
+  "timeline.title": "Mon Parcours Professionnel"
 };
 
 export default frTranslation;

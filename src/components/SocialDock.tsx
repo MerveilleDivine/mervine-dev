@@ -1,6 +1,5 @@
 
 import { Github, Linkedin, Mail } from 'lucide-react';
-import { Dock, DockIcon, DockItem, DockLabel } from '@/components/ui/dock';
 
 const socialLinks = [
   {
@@ -11,7 +10,7 @@ const socialLinks = [
   {
     title: 'LinkedIn',
     icon: <Linkedin className='h-full w-full text-neutral-600 dark:text-neutral-300' />,
-    href: 'https://linkedin.com/',
+    href: 'https://www.linkedin.com/in/mervine-muganguzi-981568236/',
   },
   {
     title: 'Email',

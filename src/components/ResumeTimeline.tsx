@@ -1,101 +1,132 @@
 
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
+import { FileDown } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { Button } from "@/components/ui/button";
 
 const timelineData = [
   {
-    title: "2023-Present",
+    title: "2025-Present",
     content: (
       <div>
-        <h4 className="font-semibold text-xl mb-3 text-primary">Full Stack Developer</h4>
+        <h4 className="font-semibold text-xl mb-3 text-primary">Bahçeşehir Cyprus University</h4>
         <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-          Working with modern JavaScript frameworks to build responsive, user-friendly web applications
+          Teaching Assistant & Masters in Computer Engineering
         </p>
         <div className="mb-6">
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Developed and maintained client websites using React, Node.js
+            ✅ Supporting students in programming courses
           </div>
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Implemented responsive designs and optimized performance
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Collaborated with cross-functional teams to meet client requirements
+            ✅ Pursuing advanced studies in Computer Engineering
           </div>
         </div>
       </div>
     ),
   },
   {
-    title: "2020-2023",
+    title: "2024",
     content: (
       <div>
-        <h4 className="font-semibold text-xl mb-3 text-primary">Teaching Assistant - Computer Engineering</h4>
+        <h4 className="font-semibold text-xl mb-3 text-primary">Near East University AI Research Center</h4>
         <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-          Assisted professors in programming courses, providing one-on-one help to students struggling with assignments and concepts
+          AI Engineer (Internship)
         </p>
         <div className="mb-6">
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Led workshop sessions on Object-Oriented Programming
+            ✅ Applied machine learning techniques to real-world problems
           </div>
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Graded assignments and provided detailed feedback
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Created supplementary learning materials for complex topics
+            ✅ Worked with advanced AI technologies and frameworks
           </div>
         </div>
       </div>
     ),
   },
   {
-    title: "2018-2020",
+    title: "2023",
     content: (
       <div>
-        <h4 className="font-semibold text-xl mb-3 text-primary">Music Program Coordinator</h4>
+        <h4 className="font-semibold text-xl mb-3 text-primary">Cyprus Codes</h4>
         <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-          Led a community choir training program for beginners, helping members develop their skills and confidence
+          Junior Software Developer (Internship)
         </p>
         <div className="mb-6">
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Organized weekly practice sessions and performances
+            ✅ Developed web applications using modern frameworks
           </div>
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Provided individual coaching to new members
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Facilitated community outreach through music
+            ✅ Collaborated with development team on client projects
           </div>
         </div>
       </div>
     ),
   },
   {
-    title: "Education",
+    title: "2020-2025",
     content: (
       <div>
-        <h4 className="font-semibold text-xl mb-3 text-primary">Computer Engineering Degree</h4>
+        <h4 className="font-semibold text-xl mb-3 text-primary">Cyprus International University</h4>
         <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
-          Graduated with honors, specializing in software development and systems architecture
+          Bachelor in Computer Engineering
         </p>
         <div className="mb-6">
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Senior thesis on optimizing database queries for large-scale applications
+            ✅ Studied computer systems architecture and programming
           </div>
           <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Led student programming club for two years
-          </div>
-          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
-            ✅ Completed internship with local tech startup
+            ✅ Google Developer Student Club, CIU - Graphic Designer (2023-2024)
           </div>
         </div>
+      </div>
+    ),
+  },
+  {
+    title: "2022",
+    content: (
+      <div>
+        <h4 className="font-semibold text-xl mb-3 text-primary">Geneza School of Design</h4>
+        <p className="text-neutral-800 dark:text-neutral-200 text-sm md:text-base font-normal mb-4">
+          Graphic Design Certificate
+        </p>
+        <div className="mb-6">
+          <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-sm">
+            ✅ Mastered design software including Canva and Adobe Photoshop
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: "Resume",
+    content: (
+      <div className="flex justify-center items-center">
+        <Button 
+          onClick={() => {
+            const link = document.createElement('a');
+            link.href = '/mervine_muganguzi_resume.pdf';
+            link.download = 'Mervine_Muganguzi_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }} 
+          className="flex items-center gap-2 bg-primary hover:bg-primary/90 py-6 px-8 text-lg"
+        >
+          <FileDown size={22} />
+          <span className="font-medium">Download Resume</span>
+        </Button>
       </div>
     ),
   },
 ];
 
 export function ResumeTimeline() {
+  const { t } = useTranslation();
+  
   return (
     <div className="w-full">
+      <h3 className="text-2xl font-bold mb-6 text-primary">{t('timeline.title')}</h3>
       <Timeline data={timelineData} />
     </div>
   );
