@@ -35,7 +35,7 @@ const ProjectCard = ({
       }}
       viewport={{ once: true, margin: "-100px" }}
       whileHover={{ 
-        y: -10,
+        y: -5,
         transition: { duration: 0.3 }
       }}
       className="project-card bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow-lg border border-gray-200 dark:border-zinc-700"

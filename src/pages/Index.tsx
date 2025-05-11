@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
-import SkillsSphere from '../components/SkillsSphere';
 import ContactForm from '../components/ContactForm';
 import ChatWidget from '../components/ChatWidget';
 import { TubelightNavbar } from '../components/TubelightNavbar';
@@ -16,6 +15,8 @@ import SectionTitle from '../components/SectionTitle';
 import { StarBorder } from '../components/ui/star-border';
 import { Button } from '../components/ui/button';
 import { techLogos, getTechImage } from '../components/TechIcons';
+import SkillCategory from '../components/SkillCategory';
+import { GlowingCard } from '../components/GlowingCard';
 
 const Index = () => {
   const { t } = useTranslation();
@@ -55,31 +56,31 @@ const Index = () => {
     }
   ];
 
-  // Maps skills to their tech icons
+  // Skills categories for the new grid-based layout
   const skillCategories = [
     {
       title: "Frontend Development",
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
       color: "#7E69AB",
-      images: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind'].map(getTechImage)
+      icon: <Laptop size={24} />
     },
     {
       title: "Backend Development",
       skills: ['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization'],
       color: "#FEC6A1",
-      images: ['Node', 'Express', 'API', 'Authentication', 'Authorization'].map(getTechImage)
+      icon: <Server size={24} />
     },
     {
       title: "Database Management",
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling', 'Query Optimization'],
       color: "#9b87f5",
-      images: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Database', 'SQL'].map(getTechImage)
+      icon: <Database size={24} />
     },
     {
       title: "Tools & Others",
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving'],
       color: "#F1F1F1",
-      images: ['Git', 'Docker', 'CI', 'Testing', 'AWS', 'Agile', 'Code'].map(getTechImage)
+      icon: <Code size={24} />
     }
   ];
 
@@ -151,7 +152,7 @@ const Index = () => {
         </section>
       </BackgroundAurora>
 
-      {/* About Section */}
+      {/* About Section with GlowingCard */}
       <section id="about" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('about.title')} />
@@ -183,10 +184,10 @@ const Index = () => {
                 transition={{ delay: 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.fitness')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{t('card.fitness.desc')}</p>
-                </div>
+                <GlowingCard 
+                  title={t('card.fitness')}
+                  description={t('card.fitness.desc')}
+                />
               </motion.div>
               
               <motion.div
@@ -195,10 +196,10 @@ const Index = () => {
                 transition={{ delay: 0.2, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.snack')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{t('card.snack.desc')}</p>
-                </div>
+                <GlowingCard 
+                  title={t('card.snack')}
+                  description={t('card.snack.desc')}
+                />
               </motion.div>
               
               <motion.div
@@ -207,10 +208,10 @@ const Index = () => {
                 transition={{ delay: 0.3, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.community')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{t('card.community.desc')}</p>
-                </div>
+                <GlowingCard 
+                  title={t('card.community')}
+                  description={t('card.community.desc')}
+                />
               </motion.div>
               
               <motion.div
@@ -219,38 +220,56 @@ const Index = () => {
                 transition={{ delay: 0.4, duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                <div className="bg-white dark:bg-zinc-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-zinc-700 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
-                  <h3 className="text-lg font-bold mb-2 text-primary">{t('card.music')}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{t('card.music.desc')}</p>
-                </div>
+                <GlowingCard 
+                  title={t('card.music')}
+                  description={t('card.music.desc')}
+                />
               </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section with GlowingCard */}
       <section id="projects" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('projects.title')} />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {projects.map((project, index) => (
-              <div key={index} className="border border-gray-200 dark:border-zinc-700 rounded-lg shadow-lg overflow-hidden">
-                <ProjectCard key={index} {...project} index={index} />
+              <div key={index} className="relative rounded-xl overflow-hidden">
+                <div className="relative rounded-xl border-[0.75px] border-border p-2">
+                  <GlowingEffect
+                    spread={40}
+                    glow={true}
+                    disabled={false}
+                    proximity={64}
+                    inactiveZone={0.01}
+                    borderWidth={2}
+                  />
+                  <ProjectCard {...project} index={index} />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Skills Section with 3D Visualization */}
+      {/* Skills Section with Grid Layout */}
       <section id="skills" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('skills.title')} />
           
-          <div className="mb-10">
-            <SkillsSphere categoryData={skillCategories} />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+            {skillCategories.map((category, index) => (
+              <SkillCategory
+                key={index}
+                title={category.title}
+                skills={category.skills}
+                icon={category.icon}
+                color={category.color}
+              />
+            ))}
           </div>
         </div>
       </section>

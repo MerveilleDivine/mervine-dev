@@ -1,18 +1,19 @@
+
 import React from 'react';
 
-// Define technology logos with Unsplash fallbacks
+// Define technology logos with proper paths to existing files
 export const techLogos = {
   // Frontend
-  HTML: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
-  CSS: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
-  JavaScript: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-  TypeScript: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
-  React: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
-  Redux: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+  HTML: '/tech-icons/html.png',
+  CSS: '/tech-icons/css.png',
+  JavaScript: '/tech-icons/javascript.png',
+  TypeScript: '/tech-icons/typescript.png',
+  React: '/tech-icons/react.png',
+  Redux: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
   Tailwind: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
   
   // Backend
-  Node: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
+  Node: '/tech-icons/nodejs.png',
   Express: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
   MongoDB: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
   MySQL: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
@@ -33,7 +34,7 @@ export const techLogos = {
   SQL: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
   CI: 'https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7',
   Agile: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
-  Code: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+  Code: '/tech-icons/code.png',
 };
 
 export const getTechImage = (techName: string): string => {
