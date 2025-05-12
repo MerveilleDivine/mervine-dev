@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
-import { GlowingEffect } from './ui/glowing-effect';
 
 interface ProjectCardProps {
   title: string;
@@ -91,6 +90,12 @@ const ProjectCard = ({
             aria-label={`Live demo for ${title}`}
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
+            onClick={(e) => {
+              if (!liveUrl || liveUrl === '#') {
+                e.preventDefault();
+                alert('Live demo coming soon!');
+              }
+            }}
           >
             <ExternalLink size={20} />
           </motion.a>

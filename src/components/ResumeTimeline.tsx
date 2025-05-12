@@ -100,14 +100,14 @@ const timelineData = [
   {
     title: "Resume",
     content: (
-      <div className="flex justify-center items-center pt-4">
+      <div className="flex justify-start items-center pt-4">
         <a 
           href="/mervine_muganguzi_resume.pdf" 
           download="Mervine_Muganguzi_Resume.pdf"
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
         >
           <FileDown size={18} />
-          <span className="font-medium underline">Download Resume</span>
+          <span className="font-medium text-lg">Download Resume</span>
         </a>
       </div>
     ),
@@ -118,7 +118,7 @@ export function ResumeTimeline() {
   const { t } = useTranslation();
   
   return (
-    <div className="w-full mt-16">
+    <div className="w-full mt-16 container mx-auto">
       <h3 className="text-2xl md:text-3xl font-bold mb-8 text-primary">My Experience Timeline</h3>
       <Timeline data={timelineData} />
     </div>

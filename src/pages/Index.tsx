@@ -59,7 +59,7 @@ const Index = () => {
     {
       title: "Frontend Development",
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
-      color: "#7E69AB", // Using a more visible purple
+      color: "#7E69AB", 
       icon: <Laptop size={24} />
     },
     {
@@ -97,7 +97,7 @@ const Index = () => {
               transition={{ duration: 0.8 }}
             >
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="text-gray-900 dark:text-gray-100">{t('hero.greeting')}</span> <br />
+                <span className="text-gray-700 dark:text-gray-300">{t('hero.greeting')}</span> <br />
                 <span className="text-primary bg-clip-text">{t('hero.title')}</span>
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-lg mb-8 max-w-lg">
@@ -272,7 +272,9 @@ const Index = () => {
                   
                   <div>
                     <h4 className="font-semibold text-lg mb-2 text-left">{t('contact.connect')}</h4>
-                    <SocialDock />
+                    <div className="flex justify-start">
+                      <SocialDock />
+                    </div>
                   </div>
                   
                   <div className="mt-8 text-center">

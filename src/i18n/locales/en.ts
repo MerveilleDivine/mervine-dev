@@ -17,9 +17,9 @@ const enTranslation = {
   
   // About section
   "about.title": "About Me",
-  "about.p1": "I'm a Computer Engineering graduate with strong technical foundations and problem-solving skills. My experience combines software development with a creative eye for design, allowing me to build solutions that are both functional and visually appealing.",
-  "about.p2": "I excel at translating complex technical concepts into clear, understandable language. My analytical mindset and adaptability help me quickly learn new technologies and deliver efficient solutions.",
-  "about.p3": "Fluent in English and French, I bring both technical expertise and strong communication skills to every project. I'm passionate about creating technology that solves real problems and delivers genuine value.",
+  "about.p1": "I'm Mervine, a Computer Engineer based in Nicosia, North Cyprus. I specialize in both front-end and back-end development, user-focused design. My approach blends engineering precision with creative thinking to deliver work that is both reliable and engaging.",
+  "about.p2": "I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact.",
+  "about.p3": "Check my work, and let me know what we can do together!",
   
   // Projects section
   "projects.title": "My Projects",

@@ -152,7 +152,7 @@
 
 .chat-widget {
   transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 50;  /* Higher z-index to not overlap with other elements */
+  z-index: 40;  /* Lower z-index to not overlap with other elements */
 }
 
 .chat-widget.closed {
@@ -274,23 +274,56 @@ html {
 }
 
 /* Make footer links properly clickable */
-footer a {
+footer a, footer button {
   position: relative;
   z-index: 10;
+  cursor: pointer;
 }
 
 /* Ensure back to top button doesn't overlap with chat widget */
 .back-to-top {
   position: fixed;
-  bottom: 80px; /* Adjusted to not overlap with chat widget */
+  bottom: 120px; /* Adjusted to not overlap with chat widget */
   right: 20px;
   z-index: 40;
 }
 
-/* Make sure to improve responsive design */
+/* Improved responsive design */
 @media (max-width: 768px) {
   .back-to-top {
-    bottom: 100px;
+    bottom: 120px;
     right: 15px;
+  }
+  
+  /* Ensure better spacing on mobile */
+  section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  
+  /* Improve readability on small screens */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  p {
+    font-size: 0.95rem !important;
+  }
+  
+  .avatar-blob {
+    width: 220px !important;
+    height: 220px !important;
   }
 }

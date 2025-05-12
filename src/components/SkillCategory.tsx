@@ -35,9 +35,9 @@ const SkillCategory = ({ title, skills, icon, color = "#7E69AB" }: SkillCategory
                 key={index}
                 className="text-sm rounded-full px-3 py-1"
                 style={{ 
-                  backgroundColor: `${color}20`,
-                  color: color,
-                  border: `1px solid ${color}40`
+                  backgroundColor: `${color}30`,
+                  color: "#6959a5",
+                  border: `1px solid ${color}60`
                 }}
               >
                 {skill}

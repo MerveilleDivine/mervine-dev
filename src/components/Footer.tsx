@@ -27,7 +27,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-700 text-white pt-16 relative overflow-hidden">
+    <footer className="bg-gray-800 text-white pt-16 relative overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-primary/10 opacity-20"></div>
       
@@ -46,11 +46,51 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">{t('nav.navigation')}</h4>
             <ul className="space-y-2">
-              <li><button onClick={() => scrollToSection('home')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.home')}</button></li>
-              <li><button onClick={() => scrollToSection('about')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.about')}</button></li>
-              <li><button onClick={() => scrollToSection('projects')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.projects')}</button></li>
-              <li><button onClick={() => scrollToSection('skills')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.skills')}</button></li>
-              <li><button onClick={() => scrollToSection('contact')} className="text-gray-300 hover:text-primary transition-colors cursor-pointer">{t('nav.contact')}</button></li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('home')} 
+                  className="text-gray-300 hover:text-primary transition-colors cursor-pointer"
+                  aria-label="Navigate to Home section"
+                >
+                  {t('nav.home')}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('about')} 
+                  className="text-gray-300 hover:text-primary transition-colors cursor-pointer"
+                  aria-label="Navigate to About section"
+                >
+                  {t('nav.about')}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('projects')} 
+                  className="text-gray-300 hover:text-primary transition-colors cursor-pointer"
+                  aria-label="Navigate to Projects section"
+                >
+                  {t('nav.projects')}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('skills')} 
+                  className="text-gray-300 hover:text-primary transition-colors cursor-pointer"
+                  aria-label="Navigate to Skills section"
+                >
+                  {t('nav.skills')}
+                </button>
+              </li>
+              <li>
+                <button 
+                  onClick={() => scrollToSection('contact')} 
+                  className="text-gray-300 hover:text-primary transition-colors cursor-pointer"
+                  aria-label="Navigate to Contact section"
+                >
+                  {t('nav.contact')}
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -77,7 +117,7 @@ const Footer = () => {
                   className="bg-gray-800 p-2 rounded-full hover:bg-primary/20 transition-colors"
                   aria-label="GitHub"
                 >
-                  <Github size={20} />
+                  <Github size={16} />
                 </a>
                 <a 
                   href="https://www.linkedin.com/in/mervine-muganguzi-981568236/" 
@@ -86,14 +126,14 @@ const Footer = () => {
                   className="bg-gray-800 p-2 rounded-full hover:bg-primary/20 transition-colors"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin size={20} />
+                  <Linkedin size={16} />
                 </a>
                 <a 
                   href="mailto:mervinemuganguzi1@outlook.com" 
                   className="bg-gray-800 p-2 rounded-full hover:bg-primary/20 transition-colors"
                   aria-label="Email"
                 >
-                  <Mail size={20} />
+                  <Mail size={16} />
                 </a>
               </div>
             </div>
@@ -113,6 +153,7 @@ const Footer = () => {
               className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20 mb-4 md:mb-0 z-10"
               onClick={scrollToTop}
               aria-label="Scroll to top"
+              style={{ position: 'relative', zIndex: 20 }}
             >
               <ArrowUp size={16} />
             </Button>
