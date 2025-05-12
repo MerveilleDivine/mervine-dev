@@ -9,7 +9,7 @@ const enTranslation = {
   "nav.navigation": "Navigation",
   
   // Hero section
-  "hero.greeting": "Hi, I'm Mervine —",
+  "hero.greeting": "Hi, I'm Mervine",
   "hero.title": "I build smart, meaningful digital experiences.",
   "hero.subtitle": "Software Developer with a passion for creating elegant solutions to complex problems. Let's turn your ideas into reality.",
   "hero.cta.work": "View My Work",

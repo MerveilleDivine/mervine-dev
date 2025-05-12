@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -143,7 +142,7 @@ const Index = () => {
         </section>
       </BackgroundAurora>
 
-      {/* About Section with updated text */}
+      {/* About Section */}
       <section id="about" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('about.title')} />
@@ -170,14 +169,14 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Experience Timeline Section - Now separated from About */}
+      {/* Experience Timeline Section */}
       <section className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
           <ResumeTimeline />
         </div>
       </section>
 
-      {/* Projects Section with equal-height cards */}
+      {/* Projects Section */}
       <section id="projects" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('projects.things_built')} />
@@ -204,7 +203,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section with equal-height Grid Layout */}
+      {/* Skills Section */}
       <section id="skills" className="py-20 bg-gray-50 dark:bg-zinc-950">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('skills.title')} />
