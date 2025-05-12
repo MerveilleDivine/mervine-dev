@@ -25,7 +25,7 @@ const Index = () => {
       description: 'A full-stack e-commerce platform with cart functionality, user auth, and payment processing.',
       techStack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       githubUrl: 'https://github.com/',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://e-commerce-demo.vercel.app',
       imageUrl: '/placeholder.svg'
     },
     {
@@ -41,7 +41,7 @@ const Index = () => {
       description: 'Educational platform with course creation, enrollment, and progress tracking features.',
       techStack: ['React', 'Firebase', 'Node.js', 'Redux'],
       githubUrl: 'https://github.com/',
-      liveUrl: 'https://example.com',
+      liveUrl: 'https://learning-platform-demo.vercel.app',
       imageUrl: '/placeholder.svg'
     },
     {
@@ -135,6 +135,7 @@ const Index = () => {
                   alt="Mervine Muganguzi"
                   className="w-full h-full object-cover"
                   style={{ objectFit: 'contain', transform: 'scale(1.1)' }}
+                  loading="lazy"
                 />
               </div>
             </motion.div>
@@ -142,7 +143,7 @@ const Index = () => {
         </section>
       </BackgroundAurora>
 
-      {/* About Section with simplified design */}
+      {/* About Section with updated text */}
       <section id="about" className="py-20 bg-white dark:bg-zinc-900">
         <div className="container mx-auto px-4">
           <SectionTitle title={t('about.title')} />
@@ -156,10 +157,10 @@ const Index = () => {
               className="prose prose-lg dark:prose-invert max-w-none"
             >
               <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
-                {t('about.p1')}
+                I'm Mervine, a Computer Engineer based in Nicosia, North Cyprus. I specialize in both front-end and back-end development, user-focused design. My approach blends engineering precision with creative thinking to deliver work that is both reliable and engaging.
               </p>
               <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
-                {t('about.p2')}
+                I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact. Check my work, and let me know what we can do together!
               </p>
               <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
                 {t('about.p3')}
@@ -278,8 +279,8 @@ const Index = () => {
                   </div>
                   
                   <div className="mt-8 text-center">
-                    <StarBorder as="a" href="mailto:mervinemuganguzi1@outlook.com" className="inline-block" color="#FEC6A1">
-                      {t('hero.cta.contact')}
+                    <StarBorder as="a" href="/mervine_muganguzi_resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-block" color="#FEC6A1">
+                      Download Resume
                     </StarBorder>
                   </div>
                 </div>
