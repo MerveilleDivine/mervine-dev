@@ -24,43 +24,79 @@ const Index = () => {
   const projects = [
     {
       title: 'SpendWise AI',
-      description: 'Smart budgeting app with AI-powered spending analysis and personalized financial advice to help natural spenders achieve their goals.',
-      techStack: ['Next.js', 'Supabase', 'OpenAI', 'Tailwind CSS', 'Chart.js'],
+      description: 'Revolutionary AI-powered budgeting platform that transforms financial habits for natural spenders. Features intelligent spending analysis, predictive financial modeling, and personalized coaching to help users achieve their savings goals through data-driven insights.',
+      techStack: ['Next.js', 'Supabase', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'Stripe API'],
       githubUrl: 'https://github.com/mervine-muganguzi/spendwise-ai',
       liveUrl: 'https://spendwise-ai.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
-      features: ['AI Spending Analysis', 'Budget Tracking', 'Goal Setting', 'Receipt Scanner']
+      features: [
+        'AI Spending Pattern Analysis',
+        'Predictive Financial Modeling', 
+        'Smart Budget Recommendations',
+        'Receipt OCR & Auto-Categorization',
+        'Goal-Based Savings Plans',
+        'Real-time Expense Tracking',
+        'Financial Health Scoring',
+        'Personalized Coaching Tips'
+      ]
     },
     {
       title: 'Roomsy',
-      description: 'Find compatible roommates based on budget, location, habits, and interests with intelligent matching algorithms.',
-      techStack: ['Next.js', 'Supabase', 'Tailwind CSS', 'Realtime Chat'],
+      description: 'Intelligent roommate matching platform that connects compatible living partners through advanced algorithms. Features comprehensive profile systems, real-time messaging, and smart filtering to ensure perfect roommate matches based on lifestyle, budget, and preferences.',
+      techStack: ['Next.js', 'Supabase', 'Tailwind CSS', 'Socket.io', 'Google Maps API', 'Stripe Connect'],
       githubUrl: 'https://github.com/mervine-muganguzi/roomsy',
       liveUrl: 'https://roomsy-app.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
-      features: ['Smart Matching', 'Real-time Chat', 'Profile Verification', 'Location Filters']
+      features: [
+        'Smart Compatibility Matching',
+        'Real-time Secure Messaging',
+        'Advanced Profile Verification',
+        'Location-Based Filtering',
+        'Budget & Lifestyle Matching',
+        'Photo & Video Tours',
+        'Background Check Integration',
+        'Mobile-First Design'
+      ]
     },
     {
       title: 'PlanStack',
-      description: 'Sleek project management tool with drag-and-drop boards, team collaboration, and deadline tracking.',
-      techStack: ['React', 'Supabase', 'Tailwind CSS', 'DND Kit'],
+      description: 'Professional-grade project management suite with intuitive Kanban boards, advanced collaboration tools, and real-time synchronization. Built for teams who demand efficiency with drag-and-drop workflows, deadline tracking, and comprehensive project analytics.',
+      techStack: ['React', 'Supabase', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
       githubUrl: 'https://github.com/mervine-muganguzi/planstack',
       liveUrl: 'https://planstack.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
-      features: ['Drag & Drop Boards', 'Team Collaboration', 'Task Management', 'Progress Tracking']
+      features: [
+        'Drag & Drop Kanban Boards',
+        'Real-time Team Collaboration',
+        'Advanced Task Dependencies',
+        'Time Tracking & Analytics',
+        'Custom Workflow Templates',
+        'Role-Based Permissions',
+        'Integration Webhooks',
+        'Mobile Responsive Design'
+      ]
     },
     {
       title: 'QuickQuote',
-      description: 'Professional proposal and invoice generator with AI-powered content enhancement and PDF export capabilities.',
-      techStack: ['React', 'Supabase', 'jsPDF', 'OpenAI', 'Tailwind CSS'],
+      description: 'Enterprise-level proposal and invoice generation platform designed for freelancers and agencies. Features AI-enhanced content optimization, professional PDF generation, and automated client management with seamless payment processing integration.',
+      techStack: ['React', 'Supabase', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form'],
       githubUrl: 'https://github.com/mervine-muganguzi/quickquote',
       liveUrl: 'https://quickquote-app.vercel.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
       category: 'AI',
-      features: ['PDF Generation', 'AI Content Enhancement', 'Cost Breakdown', 'Template Library']
+      features: [
+        'AI-Enhanced Proposal Writing',
+        'Professional PDF Generation',
+        'Dynamic Cost Calculations',
+        'Client Management System',
+        'Template Library & Customization',
+        'E-signature Integration',
+        'Payment Processing',
+        'Analytics & Reporting'
+      ]
     }
   ];
 
@@ -206,7 +242,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
             {filteredProjects.map((project, index) => (
-              <div key={project.title} className="h-[420px]">
+              <div key={project.title} className="h-[480px]">
                 <div className="relative h-full rounded-xl overflow-hidden">
                   <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">
                     <GlowingEffect
@@ -233,7 +269,7 @@ const Index = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
             {skillCategories.map((category, index) => (
-              <div key={index} className="h-[280px]"> {/* Fixed height for all skill cards */}
+              <div key={index} className="h-[280px]">
                 <SkillCategory
                   title={category.title}
                   skills={category.skills}
@@ -298,12 +334,6 @@ const Index = () => {
                     <div className="flex justify-start">
                       <SocialDock />
                     </div>
-                  </div>
-                  
-                  <div className="mt-8 text-center">
-                    <StarBorder as="a" href="/mervine_muganguzi_resume.pdf" target="_blank" rel="noopener noreferrer" className="inline-block" color="#FEC6A1">
-                      Download Resume
-                    </StarBorder>
                   </div>
                 </div>
               </div>
