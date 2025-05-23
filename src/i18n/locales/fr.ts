@@ -28,6 +28,10 @@ const frTranslation = {
   "projects.view_code": "Voir le code",
   "projects.demo": "Démo en direct",
   "projects.tech_stack": "Technologies utilisées:",
+  "projects.filter.all": "Tous",
+  "projects.filter.ai": "IA",
+  "projects.filter.social": "Social",
+  "projects.filter.productivity": "Productivité",
   
   // Skills section
   "skills.title": "Mes Compétences",

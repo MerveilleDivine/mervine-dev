@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
@@ -14,44 +15,60 @@ import { StarBorder } from '../components/ui/star-border';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
+import ProjectFilter from '../components/ProjectFilter';
 
 const Index = () => {
   const { t } = useTranslation();
+  const [activeFilter, setActiveFilter] = useState('All');
   
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'A full-stack e-commerce platform with cart functionality, user auth, and payment processing.',
-      techStack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      githubUrl: 'https://github.com/',
-      liveUrl: 'https://e-commerce-demo.vercel.app',
-      imageUrl: '/placeholder.svg'
+      title: 'SpendWise AI',
+      description: 'Smart budgeting app with AI-powered spending analysis and personalized financial advice to help natural spenders achieve their goals.',
+      techStack: ['Next.js', 'Supabase', 'OpenAI', 'Tailwind CSS', 'Chart.js'],
+      githubUrl: 'https://github.com/mervine-muganguzi/spendwise-ai',
+      liveUrl: 'https://spendwise-ai.vercel.app',
+      imageUrl: '/lovable-uploads/spendwise-mockup.png',
+      category: 'AI',
+      features: ['AI Spending Analysis', 'Budget Tracking', 'Goal Setting', 'Receipt Scanner']
     },
     {
-      title: 'Task Management App',
-      description: 'Collaborative task management application with real-time updates and team features.',
-      techStack: ['React', 'Express', 'Socket.io', 'MySQL'],
-      githubUrl: 'https://github.com/',
-      liveUrl: 'https://example.com',
-      imageUrl: '/placeholder.svg'
+      title: 'Roomsy',
+      description: 'Find compatible roommates based on budget, location, habits, and interests with intelligent matching algorithms.',
+      techStack: ['Next.js', 'Supabase', 'Tailwind CSS', 'Realtime Chat'],
+      githubUrl: 'https://github.com/mervine-muganguzi/roomsy',
+      liveUrl: 'https://roomsy-app.vercel.app',
+      imageUrl: '/lovable-uploads/roomsy-mockup.png',
+      category: 'Social',
+      features: ['Smart Matching', 'Real-time Chat', 'Profile Verification', 'Location Filters']
     },
     {
-      title: 'Learning Platform',
-      description: 'Educational platform with course creation, enrollment, and progress tracking features.',
-      techStack: ['React', 'Firebase', 'Node.js', 'Redux'],
-      githubUrl: 'https://github.com/',
-      liveUrl: 'https://learning-platform-demo.vercel.app',
-      imageUrl: '/placeholder.svg'
+      title: 'PlanStack',
+      description: 'Sleek project management tool with drag-and-drop boards, team collaboration, and deadline tracking.',
+      techStack: ['React', 'Supabase', 'Tailwind CSS', 'DND Kit'],
+      githubUrl: 'https://github.com/mervine-muganguzi/planstack',
+      liveUrl: 'https://planstack.vercel.app',
+      imageUrl: '/lovable-uploads/planstack-mockup.png',
+      category: 'Productivity',
+      features: ['Drag & Drop Boards', 'Team Collaboration', 'Task Management', 'Progress Tracking']
     },
     {
-      title: 'Health Tracker',
-      description: 'Mobile-first app for tracking fitness goals, nutrition, and wellness metrics.',
-      techStack: ['React Native', 'Express', 'MongoDB', 'Chart.js'],
-      githubUrl: 'https://github.com/',
-      liveUrl: 'https://example.com',
-      imageUrl: '/placeholder.svg'
+      title: 'QuickQuote',
+      description: 'Professional proposal and invoice generator with AI-powered content enhancement and PDF export capabilities.',
+      techStack: ['React', 'Supabase', 'jsPDF', 'OpenAI', 'Tailwind CSS'],
+      githubUrl: 'https://github.com/mervine-muganguzi/quickquote',
+      liveUrl: 'https://quickquote-app.vercel.app',
+      imageUrl: '/lovable-uploads/quickquote-mockup.png',
+      category: 'AI',
+      features: ['PDF Generation', 'AI Content Enhancement', 'Cost Breakdown', 'Template Library']
     }
   ];
+
+  const filterCategories = ['All', 'AI', 'Social', 'Productivity'];
+
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(project => project.category === activeFilter);
 
   // Skills categories with consistent colors
   const skillCategories = [
@@ -181,9 +198,15 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <SectionTitle title={t('projects.things_built')} />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <div key={index} className="h-[360px]"> {/* Fixed height for all cards */}
+          <ProjectFilter 
+            categories={filterCategories}
+            activeFilter={activeFilter}
+            onFilterChange={setActiveFilter}
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
+            {filteredProjects.map((project, index) => (
+              <div key={project.title} className="h-[420px]">
                 <div className="relative h-full rounded-xl overflow-hidden">
                   <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">
                     <GlowingEffect
