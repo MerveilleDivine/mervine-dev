@@ -23,9 +23,9 @@ const Index = () => {
     {
       title: 'SpendWise AI',
       description: 'Revolutionary AI-powered budgeting platform that transforms financial habits for natural spenders. Features intelligent spending analysis, predictive financial modeling, and personalized coaching to help users achieve their savings goals through data-driven insights.',
-      techStack: ['Next.js', 'Supabase', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'Stripe API'],
+      techStack: ['Next.js', 'Node.js', 'MongoDB Atlas', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'AWS Lambda'],
       githubUrl: 'https://github.com/mervine-muganguzi/spendwise-ai',
-      liveUrl: 'https://spendwise-ai-demo.netlify.app',
+      liveUrl: 'https://spendwise-ai.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
       features: [
@@ -42,9 +42,9 @@ const Index = () => {
     {
       title: 'Roomsy',
       description: 'Intelligent roommate matching platform that connects compatible living partners through advanced algorithms. Features comprehensive profile systems, real-time messaging, and smart filtering to ensure perfect roommate matches based on lifestyle, budget, and preferences.',
-      techStack: ['Next.js', 'Supabase', 'Tailwind CSS', 'Socket.io', 'Google Maps API', 'Stripe Connect'],
+      techStack: ['Next.js', 'Express.js', 'PostgreSQL', 'Socket.io', 'Google Maps API', 'Redis', 'Docker'],
       githubUrl: 'https://github.com/mervine-muganguzi/roomsy',
-      liveUrl: 'https://roomsy-demo.netlify.app',
+      liveUrl: 'https://roomsy.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
       features: [
@@ -61,9 +61,9 @@ const Index = () => {
     {
       title: 'PlanStack',
       description: 'Professional-grade project management suite with intuitive Kanban boards, advanced collaboration tools, and real-time synchronization. Built for teams who demand efficiency with drag-and-drop workflows, deadline tracking, and comprehensive project analytics.',
-      techStack: ['React', 'Supabase', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
+      techStack: ['React', 'GraphQL', 'Apollo', 'PostgreSQL', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
       githubUrl: 'https://github.com/mervine-muganguzi/planstack',
-      liveUrl: 'https://planstack-demo.netlify.app',
+      liveUrl: 'https://planstack.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
       features: [
@@ -80,9 +80,9 @@ const Index = () => {
     {
       title: 'QuickQuote',
       description: 'Enterprise-level proposal and invoice generation platform designed for freelancers and agencies. Features AI-enhanced content optimization, professional PDF generation, and automated client management with seamless payment processing integration.',
-      techStack: ['React', 'Supabase', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form'],
+      techStack: ['React', 'Node.js', 'Firebase', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form', 'Stripe API'],
       githubUrl: 'https://github.com/mervine-muganguzi/quickquote',
-      liveUrl: 'https://quickquote-demo.netlify.app',
+      liveUrl: 'https://quickquote.vercel.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
       category: 'AI',
       features: [
