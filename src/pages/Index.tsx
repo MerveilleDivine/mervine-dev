@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
@@ -15,11 +15,9 @@ import { StarBorder } from '../components/ui/star-border';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
-import ProjectFilter from '../components/ProjectFilter';
 
 const Index = () => {
   const { t } = useTranslation();
-  const [activeFilter, setActiveFilter] = useState('All');
   
   const projects = [
     {
@@ -27,7 +25,7 @@ const Index = () => {
       description: 'Revolutionary AI-powered budgeting platform that transforms financial habits for natural spenders. Features intelligent spending analysis, predictive financial modeling, and personalized coaching to help users achieve their savings goals through data-driven insights.',
       techStack: ['Next.js', 'Supabase', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'Stripe API'],
       githubUrl: 'https://github.com/mervine-muganguzi/spendwise-ai',
-      liveUrl: 'https://spendwise-ai.vercel.app',
+      liveUrl: 'https://spendwise-ai-demo.netlify.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
       features: [
@@ -46,7 +44,7 @@ const Index = () => {
       description: 'Intelligent roommate matching platform that connects compatible living partners through advanced algorithms. Features comprehensive profile systems, real-time messaging, and smart filtering to ensure perfect roommate matches based on lifestyle, budget, and preferences.',
       techStack: ['Next.js', 'Supabase', 'Tailwind CSS', 'Socket.io', 'Google Maps API', 'Stripe Connect'],
       githubUrl: 'https://github.com/mervine-muganguzi/roomsy',
-      liveUrl: 'https://roomsy-app.vercel.app',
+      liveUrl: 'https://roomsy-demo.netlify.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
       features: [
@@ -65,7 +63,7 @@ const Index = () => {
       description: 'Professional-grade project management suite with intuitive Kanban boards, advanced collaboration tools, and real-time synchronization. Built for teams who demand efficiency with drag-and-drop workflows, deadline tracking, and comprehensive project analytics.',
       techStack: ['React', 'Supabase', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
       githubUrl: 'https://github.com/mervine-muganguzi/planstack',
-      liveUrl: 'https://planstack.vercel.app',
+      liveUrl: 'https://planstack-demo.netlify.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
       features: [
@@ -84,7 +82,7 @@ const Index = () => {
       description: 'Enterprise-level proposal and invoice generation platform designed for freelancers and agencies. Features AI-enhanced content optimization, professional PDF generation, and automated client management with seamless payment processing integration.',
       techStack: ['React', 'Supabase', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form'],
       githubUrl: 'https://github.com/mervine-muganguzi/quickquote',
-      liveUrl: 'https://quickquote-app.vercel.app',
+      liveUrl: 'https://quickquote-demo.netlify.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
       category: 'AI',
       features: [
@@ -99,12 +97,6 @@ const Index = () => {
       ]
     }
   ];
-
-  const filterCategories = ['All', 'AI', 'Social', 'Productivity'];
-
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
-    : projects.filter(project => project.category === activeFilter);
 
   // Skills categories with consistent colors
   const skillCategories = [
@@ -234,14 +226,8 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <SectionTitle title={t('projects.things_built')} />
           
-          <ProjectFilter 
-            categories={filterCategories}
-            activeFilter={activeFilter}
-            onFilterChange={setActiveFilter}
-          />
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-10">
-            {filteredProjects.map((project, index) => (
+            {projects.map((project, index) => (
               <div key={project.title} className="h-[480px]">
                 <div className="relative h-full rounded-xl overflow-hidden">
                   <div className="relative h-full rounded-xl border-[0.75px] border-border p-2">
