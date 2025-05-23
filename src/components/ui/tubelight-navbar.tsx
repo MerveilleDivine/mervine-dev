@@ -67,8 +67,9 @@ export function NavBar({ items, className }: NavBarProps) {
     const targetElement = document.getElementById(targetId);
     
     if (targetElement) {
+      const offsetTop = targetElement.offsetTop - 80;
       window.scrollTo({
-        top: targetElement.offsetTop - 80,
+        top: offsetTop,
         behavior: 'smooth'
       });
     }
@@ -81,30 +82,40 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
-        {items.map((item) => {
+      <motion.div 
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center gap-1 bg-white/80 dark:bg-zinc-900/80 border border-gray-200 dark:border-zinc-700 backdrop-blur-xl py-2 px-2 rounded-full shadow-2xl"
+      >
+        {items.map((item, index) => {
           const Icon = item.icon;
           const isActive = activeTab === item.name;
 
           return (
-            <a
+            <motion.button
               key={item.name}
-              href={item.url}
               onClick={(e) => handleNavClick(item, e)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
-                "text-foreground/80 hover:text-primary",
-                isActive && "bg-muted text-primary",
+                "relative cursor-pointer text-sm font-semibold px-4 py-2.5 rounded-full transition-all duration-300",
+                "text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary",
+                isActive && "text-white dark:text-white",
               )}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
             >
-              <span className="hidden md:inline">{item.name}</span>
-              <span className="md:hidden">
+              <span className="hidden md:inline relative z-10">{item.name}</span>
+              <span className="md:hidden relative z-10">
                 <Icon size={18} strokeWidth={2.5} />
               </span>
+              
               {isActive && (
                 <motion.div
-                  layoutId="lamp"
-                  className="absolute inset-0 w-full bg-primary/5 rounded-full -z-10"
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full shadow-lg"
                   initial={false}
                   transition={{
                     type: "spring",
@@ -112,17 +123,14 @@ export function NavBar({ items, className }: NavBarProps) {
                     damping: 30,
                   }}
                 >
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-t-full">
-                    <div className="absolute w-12 h-6 bg-primary/20 rounded-full blur-md -top-2 -left-2" />
-                    <div className="absolute w-8 h-6 bg-primary/20 rounded-full blur-md -top-1" />
-                    <div className="absolute w-4 h-4 bg-primary/20 rounded-full blur-sm top-0 left-2" />
-                  </div>
+                  {/* Glowing effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary to-secondary rounded-full blur-md opacity-60 animate-pulse" />
                 </motion.div>
               )}
-            </a>
+            </motion.button>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 }
