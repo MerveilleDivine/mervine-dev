@@ -153,24 +153,6 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
-
-  /* Fix for StarBorder button animations */
-  .star-border-container {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .star-border-container::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    padding: 2px;
-    background: linear-gradient(45deg, #7E69AB, #FEC6A1);
-    border-radius: inherit;
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-  }
 }
 
 .chat-widget {

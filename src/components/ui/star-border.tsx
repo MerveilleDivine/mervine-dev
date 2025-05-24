@@ -1,61 +1,54 @@
 
-import { cn } from "@/lib/utils"
-import { ElementType, ComponentPropsWithoutRef } from "react"
+"use client";
 
-interface StarBorderProps<T extends ElementType> {
-  as?: T
-  color?: string
-  speed?: string
-  className?: string
-  children: React.ReactNode
+import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import React, { useRef } from "react";
+
+interface StarBorderProps {
+  children: React.ReactNode;
+  className?: string;
+  color?: string;
+  as?: React.ElementType;
+  speed?: "slow" | "medium" | "fast";
+  [key: string]: any;
 }
 
-export function StarBorder<T extends ElementType = "button">({
-  as,
-  className,
-  color,
-  speed = "6s",
+export function StarBorder({
   children,
-  ...props
-}: StarBorderProps<T> & Omit<ComponentPropsWithoutRef<T>, keyof StarBorderProps<T>>) {
-  const Component = as || "button"
-  const defaultColor = color || "hsl(var(--foreground))"
+  className,
+  color = "#7E69AB",
+  speed = "medium",
+  as: Component = "button",
+  ...otherProps
+}: StarBorderProps) {
+  const ref = useRef<HTMLElement>(null);
+
+  const speedMap = {
+    slow: "6s",
+    medium: "4s",
+    fast: "2s",
+  };
 
   return (
-    <Component 
+    <Component
+      ref={ref}
       className={cn(
-        "relative inline-block py-[1px] overflow-hidden rounded-[20px]",
+        "relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
         className
-      )} 
-      {...props}
+      )}
+      {...otherProps}
     >
-      <div
-        className={cn(
-          "absolute w-[300%] h-[50%] bottom-[-11px] right-[-250%] rounded-full animate-star-movement-bottom z-0",
-          "opacity-20 dark:opacity-70" 
-        )}
+      <span
+        className="absolute inset-[-1000px] animate-[spin_2s_linear_infinite]"
         style={{
-          background: `radial-gradient(circle, ${defaultColor}, transparent 10%)`,
-          animationDuration: speed,
+          background: `conic-gradient(from 90deg at 50% 50%, transparent 0%, ${color} 50%, transparent 100%)`,
+          animationDuration: speedMap[speed],
         }}
       />
-      <div
-        className={cn(
-          "absolute w-[300%] h-[50%] top-[-10px] left-[-250%] rounded-full animate-star-movement-top z-0",
-          "opacity-20 dark:opacity-70"
-        )}
-        style={{
-          background: `radial-gradient(circle, ${defaultColor}, transparent 10%)`,
-          animationDuration: speed,
-        }}
-      />
-      <div className={cn(
-        "relative z-1 border text-foreground text-center text-base py-4 px-6 rounded-[20px]",
-        "bg-gradient-to-b from-background/90 to-muted/90 border-border/40",
-        "dark:from-background dark:to-muted dark:border-border"
-      )}>
+      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
         {children}
-      </div>
+      </span>
     </Component>
-  )
+  );
 }
