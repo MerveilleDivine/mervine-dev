@@ -24,7 +24,7 @@ const Index = () => {
       title: 'SpendWise AI',
       description: 'Revolutionary AI-powered budgeting platform that transforms financial habits for natural spenders. Features intelligent spending analysis, predictive financial modeling, and personalized coaching to help users achieve their savings goals through data-driven insights.',
       techStack: ['Next.js', 'Node.js', 'MongoDB Atlas', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'AWS Lambda'],
-      githubUrl: 'https://github.com/mervine-muganguzi/spendwise-ai',
+      githubUrl: 'https://github.com/MerveilleDivine/spendwise-ai',
       liveUrl: 'https://spendwise-ai-demo.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
@@ -43,7 +43,7 @@ const Index = () => {
       title: 'Roomsy',
       description: 'Intelligent roommate matching platform that connects compatible living partners through advanced algorithms. Features comprehensive profile systems, real-time messaging, and smart filtering to ensure perfect roommate matches based on lifestyle, budget, and preferences.',
       techStack: ['Next.js', 'Express.js', 'PostgreSQL', 'Socket.io', 'Google Maps API', 'Redis', 'Docker'],
-      githubUrl: 'https://github.com/mervine-muganguzi/roomsy',
+      githubUrl: 'https://github.com/MerveilleDivine/roomsy',
       liveUrl: 'https://roomsy-demo.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
@@ -62,7 +62,7 @@ const Index = () => {
       title: 'PlanStack',
       description: 'Professional-grade project management suite with intuitive Kanban boards, advanced collaboration tools, and real-time synchronization. Built for teams who demand efficiency with drag-and-drop workflows, deadline tracking, and comprehensive project analytics.',
       techStack: ['React', 'GraphQL', 'Apollo', 'PostgreSQL', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
-      githubUrl: 'https://github.com/mervine-muganguzi/planstack',
+      githubUrl: 'https://github.com/MerveilleDivine/planstack',
       liveUrl: 'https://planstack-demo.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
@@ -80,8 +80,8 @@ const Index = () => {
     {
       title: 'QuickQuote',
       description: 'Enterprise-level proposal and invoice generation platform designed for freelancers and agencies. Features AI-enhanced content optimization, professional PDF generation, and automated client management with seamless payment processing integration.',
-      techStack: ['React', 'Node.js', 'Firebase', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form', 'Stripe API'],
-      githubUrl: 'https://github.com/mervine-muganguzi/quickquote',
+      techStack: ['React', 'Node.js', 'Express.js', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form', 'Stripe API'],
+      githubUrl: 'https://github.com/MerveilleDivine/quickquote',
       liveUrl: 'https://quickquote-demo.vercel.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
       category: 'AI',
@@ -140,17 +140,6 @@ const Index = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-4"
-              >
-                <span className="inline-block px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-full text-sm font-medium text-primary mb-4">
-                  Available for Full-Time Opportunities
-                </span>
-              </motion.div>
-              
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
                 <span className="text-gray-700 dark:text-gray-300">{t('hero.greeting')}</span> <br />
                 <span className="bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent">
@@ -170,7 +159,7 @@ const Index = () => {
                   <StarBorder 
                     as="a" 
                     href="#projects" 
-                    className="inline-block px-8 py-3 text-center w-full sm:w-auto"
+                    className="inline-block px-8 py-3 text-center w-full sm:w-auto whitespace-nowrap"
                     onClick={(e) => {
                       e.preventDefault();
                       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -187,7 +176,7 @@ const Index = () => {
                   <StarBorder 
                     as="a" 
                     href="#contact" 
-                    className="inline-block px-8 py-3 text-center w-full sm:w-auto" 
+                    className="inline-block px-8 py-3 text-center w-full sm:w-auto whitespace-nowrap" 
                     color="#FEC6A1"
                     onClick={(e) => {
                       e.preventDefault();
@@ -228,23 +217,20 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <SectionTitle title={t('about.title')} />
           
-          <div className="max-w-4xl mx-auto">
+          <div className="w-full mx-auto">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-zinc-800 rounded-2xl p-8 shadow-xl border border-gray-200 dark:border-zinc-700"
+              className="bg-white dark:bg-zinc-800 rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-zinc-700 w-full"
             >
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
                   I'm Mervine, a Computer Engineer based in Nicosia, North Cyprus. I specialize in both front-end and back-end development, user-focused design. My approach blends engineering precision with creative thinking to deliver work that is both reliable and engaging.
                 </p>
-                <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
-                  I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact. Check my work, and let me know what we can do together!
-                </p>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                  {t('about.p3')}
+                  I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact. Check my work, and let me know what we can create together!
                 </p>
               </div>
             </motion.div>

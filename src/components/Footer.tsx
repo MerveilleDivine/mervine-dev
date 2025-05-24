@@ -111,7 +111,7 @@ const Footer = () => {
               <h4 className="text-lg font-semibold mb-4 text-primary">{t('contact.connect')}</h4>
               <div className="flex space-x-4">
                 <a 
-                  href="https://github.com/" 
+                  href="https://github.com/MerveilleDivine" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="bg-gray-800 p-2 rounded-full hover:bg-primary/20 transition-colors"

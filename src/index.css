@@ -148,11 +148,16 @@
       border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
     }
   }
+
+  /* Button text should stay on one line */
+  .whitespace-nowrap {
+    white-space: nowrap;
+  }
 }
 
 .chat-widget {
   transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 40;  /* Lower z-index to not overlap with other elements */
+  z-index: 40;
 }
 
 .chat-widget.closed {
@@ -283,7 +288,7 @@ footer a, footer button {
 /* Ensure back to top button doesn't overlap with chat widget */
 .back-to-top {
   position: fixed;
-  bottom: 120px; /* Adjusted to not overlap with chat widget */
+  bottom: 120px;
   right: 20px;
   z-index: 40;
 }
