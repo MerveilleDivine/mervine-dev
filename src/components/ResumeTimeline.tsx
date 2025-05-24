@@ -101,21 +101,16 @@ const timelineData = [
     title: "Resume",
     content: (
       <div className="flex justify-start items-center pt-4">
-        <button 
-          onClick={() => {
-            const link = document.createElement('a');
-            link.href = '/mervine_muganguzi_resume.pdf';
-            link.download = 'Mervine_Muganguzi_Resume.pdf';
-            link.target = '_blank';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }}
-          className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer bg-transparent border-none p-0"
+        <a 
+          href="/mervine_muganguzi_resume.pdf"
+          download="Mervine_Muganguzi_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer bg-transparent border-none p-0 font-medium text-lg hover:underline"
         >
           <FileDown size={18} />
-          <span className="font-medium text-lg">Download Resume</span>
-        </button>
+          <span>Download Resume</span>
+        </a>
       </div>
     ),
   },

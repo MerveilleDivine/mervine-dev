@@ -25,7 +25,7 @@ const Index = () => {
       description: 'Revolutionary AI-powered budgeting platform that transforms financial habits for natural spenders. Features intelligent spending analysis, predictive financial modeling, and personalized coaching to help users achieve their savings goals through data-driven insights.',
       techStack: ['Next.js', 'Node.js', 'MongoDB Atlas', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'AWS Lambda'],
       githubUrl: 'https://github.com/MerveilleDivine/spendwise-ai',
-      liveUrl: 'https://spendwise-ai-demo.vercel.app',
+      liveUrl: 'https://spendwise-ai-merveilledivine.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
       features: [
@@ -44,7 +44,7 @@ const Index = () => {
       description: 'Intelligent roommate matching platform that connects compatible living partners through advanced algorithms. Features comprehensive profile systems, real-time messaging, and smart filtering to ensure perfect roommate matches based on lifestyle, budget, and preferences.',
       techStack: ['Next.js', 'Express.js', 'PostgreSQL', 'Socket.io', 'Google Maps API', 'Redis', 'Docker'],
       githubUrl: 'https://github.com/MerveilleDivine/roomsy',
-      liveUrl: 'https://roomsy-demo.vercel.app',
+      liveUrl: 'https://roomsy-merveilledivine.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
       features: [
@@ -63,7 +63,7 @@ const Index = () => {
       description: 'Professional-grade project management suite with intuitive Kanban boards, advanced collaboration tools, and real-time synchronization. Built for teams who demand efficiency with drag-and-drop workflows, deadline tracking, and comprehensive project analytics.',
       techStack: ['React', 'GraphQL', 'Apollo', 'PostgreSQL', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
       githubUrl: 'https://github.com/MerveilleDivine/planstack',
-      liveUrl: 'https://planstack-demo.vercel.app',
+      liveUrl: 'https://planstack-merveilledivine.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
       features: [
@@ -82,7 +82,7 @@ const Index = () => {
       description: 'Enterprise-level proposal and invoice generation platform designed for freelancers and agencies. Features AI-enhanced content optimization, professional PDF generation, and automated client management with seamless payment processing integration.',
       techStack: ['React', 'Node.js', 'Express.js', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form', 'Stripe API'],
       githubUrl: 'https://github.com/MerveilleDivine/quickquote',
-      liveUrl: 'https://quickquote-demo.vercel.app',
+      liveUrl: 'https://quickquote-merveilledivine.vercel.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
       category: 'AI',
       features: [
@@ -153,13 +153,14 @@ const Index = () => {
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
                 >
                   <StarBorder 
                     as="a" 
                     href="#projects" 
-                    className="inline-block px-8 py-3 text-center w-full sm:w-auto whitespace-nowrap"
+                    className="inline-flex items-center justify-center px-8 py-3 text-center whitespace-nowrap min-w-[200px]"
                     onClick={(e) => {
                       e.preventDefault();
                       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -170,13 +171,14 @@ const Index = () => {
                 </motion.div>
                 
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="inline-block"
                 >
                   <StarBorder 
                     as="a" 
                     href="#contact" 
-                    className="inline-block px-8 py-3 text-center w-full sm:w-auto whitespace-nowrap" 
+                    className="inline-flex items-center justify-center px-8 py-3 text-center whitespace-nowrap min-w-[200px]" 
                     color="#FEC6A1"
                     onClick={(e) => {
                       e.preventDefault();
@@ -223,14 +225,14 @@ const Index = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white dark:bg-zinc-800 rounded-2xl p-8 md:p-12 shadow-xl border border-gray-200 dark:border-zinc-700 w-full"
+              className="bg-white dark:bg-zinc-800 rounded-2xl p-8 md:p-16 shadow-xl border border-gray-200 dark:border-zinc-700 w-full max-w-none"
             >
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
                   I'm Mervine, a Computer Engineer based in Nicosia, North Cyprus. I specialize in both front-end and back-end development, user-focused design. My approach blends engineering precision with creative thinking to deliver work that is both reliable and engaging.
                 </p>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                  I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact. Check my work, and let me know what we can create together!
+                  I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact. Check my work and let me know what we can create together!
                 </p>
               </div>
             </motion.div>
