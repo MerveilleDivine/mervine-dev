@@ -2,51 +2,55 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import React, { useRef } from "react";
+import React from "react";
 
 interface StarBorderProps {
   children: React.ReactNode;
   className?: string;
   color?: string;
   as?: React.ElementType;
-  speed?: "slow" | "medium" | "fast";
+  variant?: "primary" | "secondary";
   [key: string]: any;
 }
 
 export function StarBorder({
   children,
   className,
-  color = "#7E69AB",
-  speed = "medium",
+  color,
+  variant = "primary",
   as: Component = "button",
   ...otherProps
 }: StarBorderProps) {
-  const ref = useRef<HTMLElement>(null);
-
-  const speedMap = {
-    slow: "6s",
-    medium: "4s",
-    fast: "2s",
+  const getVariantStyles = () => {
+    if (variant === "primary") {
+      return {
+        background: "linear-gradient(135deg, #7E69AB 0%, #9B7EDE 100%)",
+        hover: "hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105"
+      };
+    } else {
+      return {
+        background: "linear-gradient(135deg, #FEC6A1 0%, #FFB085 100%)",
+        hover: "hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105"
+      };
+    }
   };
+
+  const styles = getVariantStyles();
 
   return (
     <Component
-      ref={ref}
       className={cn(
-        "relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50",
+        "relative inline-flex items-center justify-center px-8 py-4 text-white font-semibold rounded-full transition-all duration-300 cursor-pointer border-0 outline-none",
+        styles.hover,
+        "active:scale-95 focus:ring-4 focus:ring-purple-500/20",
         className
       )}
+      style={{
+        background: styles.background,
+      }}
       {...otherProps}
     >
-      <span
-        className="absolute inset-[-1000px] animate-[spin_2s_linear_infinite]"
-        style={{
-          background: `conic-gradient(from 90deg at 50% 50%, transparent 0%, ${color} 50%, transparent 100%)`,
-          animationDuration: speedMap[speed],
-        }}
-      />
-      <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-6 py-3 text-sm font-medium text-white backdrop-blur-3xl">
+      <span className="relative z-10 whitespace-nowrap">
         {children}
       </span>
     </Component>

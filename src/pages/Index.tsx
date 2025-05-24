@@ -25,7 +25,7 @@ const Index = () => {
       description: 'Revolutionary AI-powered budgeting platform that transforms financial habits for natural spenders. Features intelligent spending analysis, predictive financial modeling, and personalized coaching to help users achieve their savings goals through data-driven insights.',
       techStack: ['Next.js', 'Node.js', 'MongoDB Atlas', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'AWS Lambda'],
       githubUrl: 'https://github.com/MerveilleDivine/spendwise-ai',
-      liveUrl: 'https://spendwise-ai-merveilledivine.vercel.app',
+      liveUrl: 'https://spendwise-ai-beta.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
       features: [
@@ -44,7 +44,7 @@ const Index = () => {
       description: 'Intelligent roommate matching platform that connects compatible living partners through advanced algorithms. Features comprehensive profile systems, real-time messaging, and smart filtering to ensure perfect roommate matches based on lifestyle, budget, and preferences.',
       techStack: ['Next.js', 'Express.js', 'PostgreSQL', 'Socket.io', 'Google Maps API', 'Redis', 'Docker'],
       githubUrl: 'https://github.com/MerveilleDivine/roomsy',
-      liveUrl: 'https://roomsy-merveilledivine.vercel.app',
+      liveUrl: 'https://roomsy-beta.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
       features: [
@@ -63,7 +63,7 @@ const Index = () => {
       description: 'Professional-grade project management suite with intuitive Kanban boards, advanced collaboration tools, and real-time synchronization. Built for teams who demand efficiency with drag-and-drop workflows, deadline tracking, and comprehensive project analytics.',
       techStack: ['React', 'GraphQL', 'Apollo', 'PostgreSQL', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
       githubUrl: 'https://github.com/MerveilleDivine/planstack',
-      liveUrl: 'https://planstack-merveilledivine.vercel.app',
+      liveUrl: 'https://planstack-beta.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
       features: [
@@ -82,7 +82,7 @@ const Index = () => {
       description: 'Enterprise-level proposal and invoice generation platform designed for freelancers and agencies. Features AI-enhanced content optimization, professional PDF generation, and automated client management with seamless payment processing integration.',
       techStack: ['React', 'Node.js', 'Express.js', 'jsPDF', 'OpenAI API', 'Tailwind CSS', 'React Hook Form', 'Stripe API'],
       githubUrl: 'https://github.com/MerveilleDivine/quickquote',
-      liveUrl: 'https://quickquote-merveilledivine.vercel.app',
+      liveUrl: 'https://quickquote-beta.vercel.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
       category: 'AI',
       features: [
@@ -159,8 +159,9 @@ const Index = () => {
                 >
                   <StarBorder 
                     as="a" 
-                    href="#projects" 
-                    className="inline-flex items-center justify-center px-8 py-3 text-center whitespace-nowrap min-w-[200px]"
+                    href="#projects"
+                    variant="primary"
+                    className="inline-flex items-center justify-center text-center min-w-[200px]"
                     onClick={(e) => {
                       e.preventDefault();
                       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -177,9 +178,9 @@ const Index = () => {
                 >
                   <StarBorder 
                     as="a" 
-                    href="#contact" 
-                    className="inline-flex items-center justify-center px-8 py-3 text-center whitespace-nowrap min-w-[200px]" 
-                    color="#FEC6A1"
+                    href="#contact"
+                    variant="secondary"
+                    className="inline-flex items-center justify-center text-center min-w-[200px]"
                     onClick={(e) => {
                       e.preventDefault();
                       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -380,7 +381,7 @@ const Index = () => {
                   </div>
                   
                   <div className="group">
-                    <h4 className="font-semibold text-lg mb-4 text-gray-800 dark:text-gray-200">
+                    <h4 className="font-semibold text-lg mb-3 text-gray-800 dark:text-gray-200">
                       {t('contact.connect')}
                     </h4>
                     <div className="flex justify-start">
