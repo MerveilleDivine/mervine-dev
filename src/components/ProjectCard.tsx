@@ -63,9 +63,9 @@ const ProjectCard = ({
   };
 
   return (
-    <div className="project-card bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500">
+    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500">
       {/* Image Container */}
-      <div className="relative h-40 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
+      <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
         <motion.img 
           src={imageUrl || '/placeholder.svg'} 
           alt={title} 
@@ -100,22 +100,22 @@ const ProjectCard = ({
       </div>
       
       {/* Content */}
-      <div className="p-4 flex flex-col flex-grow min-h-0">
+      <div className="p-6 flex flex-col flex-grow">
         {/* Title */}
         <div className="flex items-center justify-between mb-3 flex-shrink-0">
-          <h3 className="text-lg font-bold text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors duration-300">
+          <h3 className="text-xl font-bold text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors duration-300">
             {title}
           </h3>
         </div>
         
         {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm leading-relaxed line-clamp-2 flex-shrink-0">
+        <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed line-clamp-3 flex-shrink-0">
           {description}
         </p>
 
         {/* Features */}
         {features.length > 0 && (
-          <div className="mb-3 flex-shrink-0">
+          <div className="mb-4 flex-shrink-0">
             <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
               Key Features:
             </h4>
@@ -142,7 +142,7 @@ const ProjectCard = ({
         )}
         
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 mb-4 flex-shrink-0">
+        <div className="flex flex-wrap gap-1.5 mb-6 flex-shrink-0">
           {techStack.slice(0, 3).map((tech, index) => (
             <motion.span 
               key={index}
@@ -161,27 +161,27 @@ const ProjectCard = ({
           )}
         </div>
         
-        {/* Action Buttons - Fixed positioning */}
-        <div className="flex gap-2 mt-auto pt-3 border-t border-gray-100 dark:border-zinc-700 flex-shrink-0">
+        {/* Action Buttons - Always visible at bottom */}
+        <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700">
           <motion.button 
             onClick={handleViewCode}
-            className="flex-1 flex items-center justify-center gap-1.5 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-2 px-3 rounded-lg border border-gray-200 dark:border-zinc-600 hover:border-primary/30 hover:bg-primary/5 font-medium text-sm"
+            className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg border border-gray-200 dark:border-zinc-600 hover:border-primary/30 hover:bg-primary/5 font-medium text-sm"
             aria-label={`View ${title} source code`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Github size={14} />
+            <Github size={16} />
             View Code
           </motion.button>
           
           <motion.button 
             onClick={handleLiveDemo}
-            className="flex-1 flex items-center justify-center gap-1.5 bg-gradient-to-r from-primary to-secondary text-white py-2 px-3 rounded-lg hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl"
+            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary text-white py-3 px-4 rounded-lg hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl"
             aria-label={`Open ${title} live demo`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <ExternalLink size={14} />
+            <ExternalLink size={16} />
             Live Demo
           </motion.button>
         </div>
