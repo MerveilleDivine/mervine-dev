@@ -63,7 +63,13 @@ const ProjectCard = ({
   };
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500">
+    <motion.div 
+      className="bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500 shadow-lg hover:shadow-xl"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+    >
       {/* Image Container */}
       <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
         <motion.img 
@@ -161,8 +167,8 @@ const ProjectCard = ({
           )}
         </div>
         
-        {/* Action Buttons - Always visible at bottom */}
-        <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700">
+        {/* Action Buttons */}
+        <div className="flex gap-3 mt-auto">
           <motion.button 
             onClick={handleViewCode}
             className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg border border-gray-200 dark:border-zinc-600 hover:border-primary/30 hover:bg-primary/5 font-medium text-sm"
@@ -186,7 +192,7 @@ const ProjectCard = ({
           </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
