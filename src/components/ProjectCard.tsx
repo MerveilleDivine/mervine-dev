@@ -158,7 +158,7 @@ const ProjectCard = ({
               className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-600 px-2 py-1 rounded text-xs font-medium border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/20 transition-all duration-300"
             >
               {tech}
-            </motion.span>
+            </span>
           ))}
           {techStack.length > 3 && (
             <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium bg-gray-50 dark:bg-zinc-700 rounded">
@@ -167,29 +167,23 @@ const ProjectCard = ({
           )}
         </div>
         
-        {/* Action Buttons */}
-        <div className="flex gap-3 mt-auto">
-          <motion.button 
+        {/* Action Buttons - Fixed positioning */}
+        <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700">
+          <button 
             onClick={handleViewCode}
             className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg border border-gray-200 dark:border-zinc-600 hover:border-primary/30 hover:bg-primary/5 font-medium text-sm"
-            aria-label={`View ${title} source code`}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
           >
             <Github size={16} />
             View Code
-          </motion.button>
+          </button>
           
-          <motion.button 
+          <button 
             onClick={handleLiveDemo}
             className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary text-white py-3 px-4 rounded-lg hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl"
-            aria-label={`Open ${title} live demo`}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
           >
             <ExternalLink size={16} />
             Live Demo
-          </motion.button>
+          </button>
         </div>
       </div>
     </motion.div>

@@ -101,16 +101,21 @@ const timelineData = [
     title: "Resume",
     content: (
       <div className="flex justify-start items-center pt-4">
-        <a 
-          href="/mervine_muganguzi_resume.pdf"
-          download="Mervine_Muganguzi_Resume.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button 
+          onClick={() => {
+            // Create a temporary anchor element to trigger download
+            const link = document.createElement('a');
+            link.href = '/mervine_muganguzi_resume.pdf';
+            link.download = 'Mervine_Muganguzi_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
           className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer bg-transparent border-none p-0 font-medium text-lg hover:underline"
         >
           <FileDown size={18} />
           <span>Download Resume</span>
-        </a>
+        </button>
       </div>
     ),
   },
@@ -121,7 +126,7 @@ export function ResumeTimeline() {
   
   return (
     <div className="w-full mt-16 container mx-auto">
-      <h3 className="text-2xl md:text-3xl font-bold mb-8 text-primary">My Experience Timeline</h3>
+      <h3 className="text-2xl md:text-3xl font-bold mb-8 text-primary">{t('timeline.title')}</h3>
       <Timeline data={timelineData} />
     </div>
   );

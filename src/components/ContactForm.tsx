@@ -41,6 +41,7 @@ const ContactForm = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setIsSubmitting(true);
+      console.log('Submitting form with values:', values);
       
       // First, insert the message into the Supabase database
       const { error: insertError } = await supabase
@@ -52,22 +53,35 @@ const ContactForm = () => {
         }]);
 
       if (insertError) {
+        console.error('Database insert error:', insertError);
         throw new Error(insertError.message);
       }
       
-      // Then call the edge function to potentially send an email
-      const response = await fetch('https://fiqpjsefbofwvbbvzrib.supabase.co/functions/v1/contact-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpcXBqc2VmYm9md3ZiYnZ6cmliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcwNTA5NTcsImV4cCI6MjA2MjYyNjk1N30.U-HaBtCsPIlGH08DMA9HoMMUg-oH19wOHkuqaq_BYuo'}`,
-        },
-        body: JSON.stringify(values)
-      });
+      console.log('Message saved to database successfully');
+      
+      // Then call the edge function to send an email
+      try {
+        const response = await fetch('https://fiqpjsefbofwvbbvzrib.supabase.co/functions/v1/contact-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZpcXBqc2VmYm9md3ZiYnZ6cmliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDcwNTA5NTcsImV4cCI6MjA2MjYyNjk1N30.U-HaBtCsPIlGH08DMA9HoMMUg-oH19wOHkuqaq_BYuo`,
+          },
+          body: JSON.stringify(values)
+        });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to send message');
+        console.log('Edge function response status:', response.status);
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          console.error('Edge function error:', errorData);
+          // Don't throw here, as the message was saved successfully
+        } else {
+          console.log('Email sent successfully');
+        }
+      } catch (emailError) {
+        console.error('Email sending failed:', emailError);
+        // Don't throw here, as the message was saved successfully
       }
 
       toast({
@@ -76,6 +90,8 @@ const ContactForm = () => {
       });
       
       form.reset();
+      console.log('Form reset successfully');
+      
     } catch (error: any) {
       console.error('Contact form error:', error);
       toast({
@@ -85,6 +101,7 @@ const ContactForm = () => {
       });
     } finally {
       setIsSubmitting(false);
+      console.log('Form submission completed');
     }
   };
 
@@ -170,7 +187,7 @@ const ContactForm = () => {
         <Button
           type="submit"
           disabled={isSubmitting}
-          className="btn-primary w-full flex items-center justify-center"
+          className="btn-primary w-full flex items-center justify-center py-3 px-6 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? (
             <>
