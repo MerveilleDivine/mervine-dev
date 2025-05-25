@@ -63,16 +63,10 @@ const ProjectCard = ({
   };
 
   return (
-    <motion.div 
-      className="bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500 shadow-lg hover:shadow-xl"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      viewport={{ once: true }}
-    >
+    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500 shadow-lg hover:shadow-xl">
       {/* Image Container */}
       <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
-        <motion.img 
+        <img 
           src={imageUrl || '/placeholder.svg'} 
           alt={title} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
@@ -90,15 +84,13 @@ const ProjectCard = ({
         
         {/* Live Demo Quick Access */}
         <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <motion.button
+          <button
             onClick={handleLiveDemo}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
             className="bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm text-gray-800 dark:text-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
             aria-label={`Open ${title} live demo`}
           >
             <ArrowUpRight size={16} />
-          </motion.button>
+          </button>
         </div>
         
         {/* Overlay */}
@@ -127,20 +119,17 @@ const ProjectCard = ({
             </h4>
             <div className="grid grid-cols-1 gap-1.5">
               {features.slice(0, 2).map((feature, idx) => (
-                <motion.div 
+                <div 
                   key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 * idx }}
                   className="text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-600 dark:text-gray-300 px-2 py-1.5 rounded-lg flex items-center border border-primary/10"
                 >
                   <div className="w-1 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mr-2 flex-shrink-0"></div>
                   <span className="truncate font-medium">{feature}</span>
-                </motion.div>
+                </div>
               ))}
               {features.length > 2 && (
                 <div className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium text-center">
-                  +{features.length - 2} more features
+                  +{features.length - 2} more
                 </div>
               )}
             </div>
@@ -150,15 +139,12 @@ const ProjectCard = ({
         {/* Tech Stack */}
         <div className="flex flex-wrap gap-1.5 mb-6 flex-shrink-0">
           {techStack.slice(0, 3).map((tech, index) => (
-            <motion.span 
+            <span 
               key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.3 + index * 0.05 }}
               className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-600 px-2 py-1 rounded text-xs font-medium border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/20 transition-all duration-300"
             >
               {tech}
-            </motion.span>
+            </span>
           ))}
           {techStack.length > 3 && (
             <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium bg-gray-50 dark:bg-zinc-700 rounded">
@@ -186,7 +172,7 @@ const ProjectCard = ({
           </button>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
