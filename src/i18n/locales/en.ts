@@ -18,8 +18,7 @@ const enTranslation = {
   // About section
   "about.title": "About Me",
   "about.p1": "I'm Mervine, a Computer Engineer based in Nicosia, North Cyprus. I specialize in both front-end and back-end development, user-focused design. My approach blends engineering precision with creative thinking to deliver work that is both reliable and engaging.",
-  "about.p2": "I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact.",
-  "about.p3": "Check my work, and let me know what we can do together!",
+  "about.p2": "I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact. Check my work and let me know what we can create together!",
   
   // Projects section
   "projects.title": "My Projects",
@@ -37,6 +36,7 @@ const enTranslation = {
   "contact.email": "Email",
   "contact.phone": "Phone",
   "contact.location": "Location",
+  "contact.location_value": "Nicosia, North Cyprus",
   "contact.connect": "Connect With Me",
   
   // Footer

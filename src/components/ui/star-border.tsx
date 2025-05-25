@@ -29,8 +29,8 @@ export function StarBorder({
       };
     } else {
       return {
-        background: "linear-gradient(135deg, #FEC6A1 0%, #FFB085 100%)",
-        hover: "hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105"
+        background: "linear-gradient(135deg, #7E69AB 0%, #9B7EDE 100%)",
+        hover: "hover:shadow-lg hover:shadow-purple-500/25 hover:scale-105"
       };
     }
   };

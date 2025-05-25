@@ -65,7 +65,7 @@ const ProjectCard = ({
   return (
     <div className="project-card bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500">
       {/* Image Container */}
-      <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden">
+      <div className="relative h-40 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
         <motion.img 
           src={imageUrl || '/placeholder.svg'} 
           alt={title} 
@@ -100,41 +100,41 @@ const ProjectCard = ({
       </div>
       
       {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="p-4 flex flex-col flex-grow min-h-0">
         {/* Title */}
-        <div className="flex items-center justify-between mb-4">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors duration-300">
+        <div className="flex items-center justify-between mb-3 flex-shrink-0">
+          <h3 className="text-lg font-bold text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors duration-300">
             {title}
           </h3>
         </div>
         
         {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed line-clamp-3 flex-shrink-0">
+        <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm leading-relaxed line-clamp-2 flex-shrink-0">
           {description}
         </p>
 
         {/* Features */}
         {features.length > 0 && (
-          <div className="mb-4 flex-shrink-0">
-            <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
+          <div className="mb-3 flex-shrink-0">
+            <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
               Key Features:
             </h4>
-            <div className="grid grid-cols-1 gap-2">
-              {features.slice(0, 3).map((feature, idx) => (
+            <div className="grid grid-cols-1 gap-1.5">
+              {features.slice(0, 2).map((feature, idx) => (
                 <motion.div 
                   key={idx}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 * idx }}
-                  className="text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-600 dark:text-gray-300 px-3 py-2 rounded-lg flex items-center border border-primary/10"
+                  className="text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-600 dark:text-gray-300 px-2 py-1.5 rounded-lg flex items-center border border-primary/10"
                 >
-                  <div className="w-1.5 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mr-2 flex-shrink-0"></div>
+                  <div className="w-1 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mr-2 flex-shrink-0"></div>
                   <span className="truncate font-medium">{feature}</span>
                 </motion.div>
               ))}
-              {features.length > 3 && (
-                <div className="text-xs text-gray-500 dark:text-gray-400 px-3 py-2 font-medium text-center">
-                  +{features.length - 3} more features
+              {features.length > 2 && (
+                <div className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium text-center">
+                  +{features.length - 2} more features
                 </div>
               )}
             </div>
@@ -142,46 +142,46 @@ const ProjectCard = ({
         )}
         
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mb-6 flex-shrink-0">
-          {techStack.slice(0, 4).map((tech, index) => (
+        <div className="flex flex-wrap gap-1.5 mb-4 flex-shrink-0">
+          {techStack.slice(0, 3).map((tech, index) => (
             <motion.span 
               key={index}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3 + index * 0.05 }}
-              className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-600 px-3 py-1.5 rounded-lg text-xs font-medium border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/20 transition-all duration-300"
+              className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-600 px-2 py-1 rounded text-xs font-medium border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/20 transition-all duration-300"
             >
               {tech}
             </motion.span>
           ))}
-          {techStack.length > 4 && (
-            <span className="text-xs text-gray-500 dark:text-gray-400 px-3 py-1.5 font-medium bg-gray-50 dark:bg-zinc-700 rounded-lg">
-              +{techStack.length - 4}
+          {techStack.length > 3 && (
+            <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium bg-gray-50 dark:bg-zinc-700 rounded">
+              +{techStack.length - 3}
             </span>
           )}
         </div>
         
-        {/* Action Buttons */}
-        <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700">
+        {/* Action Buttons - Fixed positioning */}
+        <div className="flex gap-2 mt-auto pt-3 border-t border-gray-100 dark:border-zinc-700 flex-shrink-0">
           <motion.button 
             onClick={handleViewCode}
-            className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg border border-gray-200 dark:border-zinc-600 hover:border-primary/30 hover:bg-primary/5 font-medium text-sm"
+            className="flex-1 flex items-center justify-center gap-1.5 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-2 px-3 rounded-lg border border-gray-200 dark:border-zinc-600 hover:border-primary/30 hover:bg-primary/5 font-medium text-sm"
             aria-label={`View ${title} source code`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <Github size={16} />
+            <Github size={14} />
             View Code
           </motion.button>
           
           <motion.button 
             onClick={handleLiveDemo}
-            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary text-white py-3 px-4 rounded-lg hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl"
+            className="flex-1 flex items-center justify-center gap-1.5 bg-gradient-to-r from-primary to-secondary text-white py-2 px-3 rounded-lg hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl"
             aria-label={`Open ${title} live demo`}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <ExternalLink size={16} />
+            <ExternalLink size={14} />
             Live Demo
           </motion.button>
         </div>

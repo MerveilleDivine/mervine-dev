@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -25,7 +24,7 @@ const Index = () => {
       description: 'Revolutionary AI-powered budgeting platform that transforms financial habits for natural spenders. Features intelligent spending analysis, predictive financial modeling, and personalized coaching to help users achieve their savings goals through data-driven insights.',
       techStack: ['Next.js', 'Node.js', 'MongoDB Atlas', 'OpenAI GPT-4', 'Tailwind CSS', 'Chart.js', 'AWS Lambda'],
       githubUrl: 'https://github.com/MerveilleDivine/spendwise-ai',
-      liveUrl: 'https://spendwise-ai-beta.vercel.app',
+      liveUrl: 'https://spendwise-ai-seven.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
       features: [
@@ -44,7 +43,7 @@ const Index = () => {
       description: 'Intelligent roommate matching platform that connects compatible living partners through advanced algorithms. Features comprehensive profile systems, real-time messaging, and smart filtering to ensure perfect roommate matches based on lifestyle, budget, and preferences.',
       techStack: ['Next.js', 'Express.js', 'PostgreSQL', 'Socket.io', 'Google Maps API', 'Redis', 'Docker'],
       githubUrl: 'https://github.com/MerveilleDivine/roomsy',
-      liveUrl: 'https://roomsy-beta.vercel.app',
+      liveUrl: 'https://roomsy-nine.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
       features: [
@@ -63,7 +62,7 @@ const Index = () => {
       description: 'Professional-grade project management suite with intuitive Kanban boards, advanced collaboration tools, and real-time synchronization. Built for teams who demand efficiency with drag-and-drop workflows, deadline tracking, and comprehensive project analytics.',
       techStack: ['React', 'GraphQL', 'Apollo', 'PostgreSQL', 'Tailwind CSS', 'DND Kit', 'React Query', 'Framer Motion'],
       githubUrl: 'https://github.com/MerveilleDivine/planstack',
-      liveUrl: 'https://planstack-beta.vercel.app',
+      liveUrl: 'https://planstack-gray.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
       features: [
@@ -230,10 +229,10 @@ const Index = () => {
             >
               <div className="prose prose-lg dark:prose-invert max-w-none">
                 <p className="text-gray-700 dark:text-gray-300 text-lg mb-6 leading-relaxed">
-                  I'm Mervine, a Computer Engineer based in Nicosia, North Cyprus. I specialize in both front-end and back-end development, user-focused design. My approach blends engineering precision with creative thinking to deliver work that is both reliable and engaging.
+                  {t('about.p1')}
                 </p>
                 <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                  I'm passionate about continuous learning, collaborative work, and using technology to make a positive impact. Check my work and let me know what we can create together!
+                  {t('about.p2')}
                 </p>
               </div>
             </motion.div>
@@ -263,7 +262,7 @@ const Index = () => {
             {projects.map((project, index) => (
               <motion.div 
                 key={project.title} 
-                className="h-[500px]"
+                className="h-[480px]"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -377,7 +376,7 @@ const Index = () => {
                     <h4 className="font-semibold text-lg mb-3 text-gray-800 dark:text-gray-200">
                       {t('contact.location')}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-lg">Nicosia, North Cyprus</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-lg">{t('contact.location_value')}</p>
                   </div>
                   
                   <div className="group">

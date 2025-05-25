@@ -9,17 +9,16 @@ const frTranslation = {
   "nav.navigation": "Navigation",
   
   // Hero section
-  "hero.greeting": "Bonjour, je suis Mervine",
+  "hero.greeting": "Salut, je suis Mervine",
   "hero.title": "Je crée des expériences numériques intelligentes et significatives.",
   "hero.subtitle": "Développeur de logiciels passionné par la création de solutions élégantes à des problèmes complexes. Transformons vos idées en réalité.",
-  "hero.cta.work": "Voir mes projets",
+  "hero.cta.work": "Voir mon travail",
   "hero.cta.contact": "Me contacter",
   
   // About section
-  "about.title": "À propos",
+  "about.title": "À propos de moi",
   "about.p1": "Je suis Mervine, un ingénieur informatique basé à Nicosie, Chypre du Nord. Je me spécialise dans le développement front-end et back-end, avec une conception centrée sur l'utilisateur. Mon approche combine précision technique et pensée créative pour livrer un travail à la fois fiable et engageant.",
-  "about.p2": "Je suis passionné par l'apprentissage continu, le travail collaboratif et l'utilisation de la technologie pour créer un impact positif.",
-  "about.p3": "Consultez mon travail et faites-moi savoir ce que nous pouvons réaliser ensemble!",
+  "about.p2": "Je suis passionné par l'apprentissage continu, le travail collaboratif et l'utilisation de la technologie pour créer un impact positif. Consultez mon travail et faites-moi savoir ce que nous pouvons réaliser ensemble !",
   
   // Projects section
   "projects.title": "Mes Projets",
@@ -27,7 +26,7 @@ const frTranslation = {
   "projects.more": "plus",
   "projects.view_code": "Voir le code",
   "projects.demo": "Démo en direct",
-  "projects.tech_stack": "Technologies utilisées:",
+  "projects.tech_stack": "Technologies utilisées :",
   "projects.filter.all": "Tous",
   "projects.filter.ai": "IA",
   "projects.filter.social": "Social",
@@ -45,6 +44,7 @@ const frTranslation = {
   "contact.email": "Email",
   "contact.phone": "Téléphone",
   "contact.location": "Localisation",
+  "contact.location_value": "Nicosie, Chypre du Nord",
   "contact.connect": "Réseaux Sociaux",
   
   // Footer
