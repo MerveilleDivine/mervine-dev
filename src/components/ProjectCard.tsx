@@ -158,7 +158,7 @@ const ProjectCard = ({
               className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-600 px-2 py-1 rounded text-xs font-medium border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/20 transition-all duration-300"
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
           {techStack.length > 3 && (
             <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium bg-gray-50 dark:bg-zinc-700 rounded">
