@@ -78,7 +78,7 @@ export function NavBar({ items, className }: NavBarProps) {
   return (
     <div
       className={cn(
-        "fixed bottom-0 sm:top-0 left-1/2 -translate-x-1/2 z-40 mb-6 sm:pt-6",
+        "fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-40",
         className,
       )}
     >
@@ -86,7 +86,7 @@ export function NavBar({ items, className }: NavBarProps) {
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className="flex items-center gap-1 bg-white/80 dark:bg-zinc-900/80 border border-gray-200 dark:border-zinc-700 backdrop-blur-xl py-2 px-2 rounded-full shadow-2xl"
+        className="flex items-center gap-1 bg-white/95 dark:bg-zinc-900/95 border border-gray-200 dark:border-zinc-700 backdrop-blur-xl py-2 px-2 rounded-full shadow-2xl"
       >
         {items.map((item, index) => {
           const Icon = item.icon;
@@ -97,7 +97,7 @@ export function NavBar({ items, className }: NavBarProps) {
               key={item.name}
               onClick={(e) => handleNavClick(item, e)}
               className={cn(
-                "relative cursor-pointer text-sm font-semibold px-4 py-2.5 rounded-full transition-all duration-300",
+                "relative cursor-pointer text-xs sm:text-sm font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300",
                 "text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary",
                 isActive && "text-white dark:text-white",
               )}
@@ -107,9 +107,9 @@ export function NavBar({ items, className }: NavBarProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <span className="hidden md:inline relative z-10">{item.name}</span>
-              <span className="md:hidden relative z-10">
-                <Icon size={18} strokeWidth={2.5} />
+              <span className="hidden sm:inline relative z-10">{item.name}</span>
+              <span className="sm:hidden relative z-10">
+                <Icon size={16} strokeWidth={2.5} />
               </span>
               
               {isActive && (
