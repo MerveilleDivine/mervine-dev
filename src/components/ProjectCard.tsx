@@ -63,116 +63,207 @@ const ProjectCard = ({
   };
 
   return (
-    <div className="bg-gradient-to-br from-white to-gray-50 dark:from-zinc-800 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col group border border-gray-200 dark:border-zinc-700 hover:border-primary/30 transition-all duration-500 shadow-lg hover:shadow-xl">
-      {/* Image Container */}
-      <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
-        <img 
-          src={imageUrl || '/placeholder.svg'} 
-          alt={title} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        
-        {/* Category Badge */}
-        {category && (
-          <div className="absolute top-4 left-4 z-10">
-            <div className={`flex items-center gap-2 ${getCategoryGradient()} text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-lg backdrop-blur-sm`}>
-              {getCategoryIcon()}
-              <span className="font-medium">{category}</span>
-            </div>
-          </div>
-        )}
-        
-        {/* Live Demo Quick Access */}
-        <div className="absolute top-4 right-4 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button
-            onClick={handleLiveDemo}
-            className="bg-white/90 dark:bg-zinc-800/90 backdrop-blur-sm text-gray-800 dark:text-white p-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            aria-label={`Open ${title} live demo`}
-          >
-            <ArrowUpRight size={16} />
-          </button>
-        </div>
-        
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-      </div>
+    <motion.div 
+      className="group relative"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -8 }}
+    >
+      {/* Animated background glow */}
+      <motion.div
+        className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        animate={{
+          background: [
+            "linear-gradient(45deg, rgba(126, 105, 171, 0.2), rgba(253, 225, 211, 0.2), rgba(126, 105, 171, 0.2))",
+            "linear-gradient(225deg, rgba(253, 225, 211, 0.2), rgba(126, 105, 171, 0.2), rgba(253, 225, 211, 0.2))",
+            "linear-gradient(45deg, rgba(126, 105, 171, 0.2), rgba(253, 225, 211, 0.2), rgba(126, 105, 171, 0.2))"
+          ]
+        }}
+        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+      />
       
-      {/* Content */}
-      <div className="p-6 flex flex-col flex-grow">
-        {/* Title */}
-        <div className="flex items-center justify-between mb-3 flex-shrink-0">
-          <h3 className="text-xl font-bold text-gray-800 dark:text-white leading-tight group-hover:text-primary transition-colors duration-300">
-            {title}
-          </h3>
-        </div>
-        
-        {/* Description */}
-        <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed line-clamp-3 flex-shrink-0">
-          {description}
-        </p>
-
-        {/* Features */}
-        {features.length > 0 && (
-          <div className="mb-4 flex-shrink-0">
-            <h4 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              Key Features:
-            </h4>
-            <div className="grid grid-cols-1 gap-1.5">
-              {features.slice(0, 2).map((feature, idx) => (
-                <div 
-                  key={idx}
-                  className="text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-600 dark:text-gray-300 px-2 py-1.5 rounded-lg flex items-center border border-primary/10"
-                >
-                  <div className="w-1 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mr-2 flex-shrink-0"></div>
-                  <span className="truncate font-medium">{feature}</span>
-                </div>
-              ))}
-              {features.length > 2 && (
-                <div className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium text-center">
-                  +{features.length - 2} more
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-        
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 mb-6 flex-shrink-0">
-          {techStack.slice(0, 3).map((tech, index) => (
-            <span 
-              key={index}
-              className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-600 px-2 py-1 rounded text-xs font-medium border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:from-primary/10 hover:to-secondary/10 hover:border-primary/20 transition-all duration-300"
-            >
-              {tech}
-            </span>
-          ))}
-          {techStack.length > 3 && (
-            <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium bg-gray-50 dark:bg-zinc-700 rounded">
-              +{techStack.length - 3}
-            </span>
-          )}
-        </div>
-        
-        {/* Action Buttons - Fixed positioning */}
-        <div className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700">
-          <button 
-            onClick={handleViewCode}
-            className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-3 px-4 rounded-lg border border-gray-200 dark:border-zinc-600 hover:border-primary/30 hover:bg-primary/5 font-medium text-sm"
-          >
-            <Github size={16} />
-            View Code
-          </button>
+      <div className="relative bg-gradient-to-br from-white via-gray-50/50 to-white dark:from-zinc-800 dark:via-zinc-850 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col border border-gray-200/50 dark:border-zinc-700/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500">
+        {/* Enhanced Image Container */}
+        <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
+          <motion.img 
+            src={imageUrl || '/placeholder.svg'} 
+            alt={title} 
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4 }}
+          />
           
-          <button 
-            onClick={handleLiveDemo}
-            className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary text-white py-3 px-4 rounded-lg hover:from-primary/90 hover:to-secondary/90 transition-all duration-300 font-semibold text-sm shadow-lg hover:shadow-xl"
+          {/* Sophisticated overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          {/* Enhanced Category Badge */}
+          {category && (
+            <motion.div 
+              className="absolute top-4 left-4 z-10"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.2 + index * 0.1, type: "spring", stiffness: 200 }}
+            >
+              <div className={`flex items-center gap-2 ${getCategoryGradient()} text-white px-4 py-2 rounded-full text-sm font-bold shadow-2xl backdrop-blur-md border border-white/20`}>
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                >
+                  {getCategoryIcon()}
+                </motion.div>
+                <span className="font-semibold tracking-wide">{category}</span>
+              </div>
+            </motion.div>
+          )}
+          
+          {/* Premium Live Demo Button */}
+          <motion.div 
+            className="absolute top-4 right-4 z-10"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ scale: 1, rotate: 0 }}
+            transition={{ delay: 0.3 + index * 0.1, type: "spring", stiffness: 150 }}
           >
-            <ExternalLink size={16} />
-            Live Demo
-          </button>
+            <motion.button
+              onClick={handleLiveDemo}
+              className="bg-white/95 dark:bg-zinc-800/95 backdrop-blur-md text-gray-800 dark:text-white p-3 rounded-full shadow-2xl border border-white/20 dark:border-zinc-600/20"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              whileTap={{ scale: 0.9 }}
+              aria-label={`Open ${title} live demo`}
+            >
+              <ArrowUpRight size={18} className="text-primary" />
+            </motion.button>
+          </motion.div>
+        </div>
+        
+        {/* Enhanced Content */}
+        <div className="p-6 flex flex-col flex-grow relative">
+          {/* Title with premium animation */}
+          <motion.div 
+            className="flex items-center justify-between mb-4 flex-shrink-0"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.4 + index * 0.1 }}
+          >
+            <h3 className="text-xl font-bold bg-gradient-to-r from-gray-800 via-gray-900 to-gray-800 dark:from-white dark:via-gray-100 dark:to-white bg-clip-text text-transparent leading-tight group-hover:from-primary group-hover:via-secondary group-hover:to-primary transition-all duration-500">
+              {title}
+            </h3>
+          </motion.div>
+          
+          {/* Enhanced Description */}
+          <motion.p 
+            className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed line-clamp-3 flex-shrink-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 + index * 0.1 }}
+          >
+            {description}
+          </motion.p>
+
+          {/* Premium Features Section */}
+          {features.length > 0 && (
+            <motion.div 
+              className="mb-4 flex-shrink-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 + index * 0.1 }}
+            >
+              <h4 className="text-xs font-bold text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text mb-3 tracking-wider uppercase">
+                Key Features
+              </h4>
+              <div className="grid grid-cols-1 gap-2">
+                {features.slice(0, 2).map((feature, idx) => (
+                  <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.7 + index * 0.1 + idx * 0.1 }}
+                    className="relative group/feature"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg blur-sm opacity-0 group-hover/feature:opacity-100 transition-opacity duration-300"></div>
+                    <div className="relative text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-lg flex items-center border border-primary/20 hover:border-primary/40 transition-all duration-300">
+                      <motion.div 
+                        className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full mr-3 flex-shrink-0"
+                        animate={{ scale: [1, 1.2, 1] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
+                      <span className="font-medium">{feature}</span>
+                    </div>
+                  </motion.div>
+                ))}
+                {features.length > 2 && (
+                  <motion.div 
+                    className="text-xs text-gray-500 dark:text-gray-400 px-3 py-1 font-medium text-center bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-800 dark:to-zinc-700 rounded-lg border border-gray-200 dark:border-zinc-600"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.9 + index * 0.1 }}
+                  >
+                    +{features.length - 2} more features
+                  </motion.div>
+                )}
+              </div>
+            </motion.div>
+          )}
+          
+          {/* Premium Tech Stack */}
+          <motion.div 
+            className="flex flex-wrap gap-2 mb-6 flex-shrink-0"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8 + index * 0.1 }}
+          >
+            {techStack.slice(0, 3).map((tech, techIndex) => (
+              <motion.span 
+                key={techIndex}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.9 + index * 0.1 + techIndex * 0.05, type: "spring", stiffness: 200 }}
+                whileHover={{ scale: 1.05, y: -2 }}
+                className="relative group/tech bg-gradient-to-r from-gray-100 via-white to-gray-100 dark:from-zinc-700 dark:via-zinc-600 dark:to-zinc-700 px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
+              >
+                <span className="relative z-10">{tech}</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full opacity-0 group-hover/tech:opacity-100 transition-opacity duration-300"></div>
+              </motion.span>
+            ))}
+            {techStack.length > 3 && (
+              <span className="text-xs text-gray-500 dark:text-gray-400 px-3 py-1.5 font-medium bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-800 dark:to-zinc-700 rounded-full border border-gray-200 dark:border-zinc-600">
+                +{techStack.length - 3}
+              </span>
+            )}
+          </motion.div>
+          
+          {/* Premium Action Buttons */}
+          <motion.div 
+            className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 + index * 0.1 }}
+          >
+            <motion.button 
+              onClick={handleViewCode}
+              className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-3 px-4 rounded-xl border border-gray-200 dark:border-zinc-600 hover:border-primary/40 hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 font-semibold text-sm backdrop-blur-sm group/btn"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Github size={16} className="group-hover/btn:rotate-12 transition-transform duration-300" />
+              <span>View Code</span>
+            </motion.button>
+            
+            <motion.button 
+              onClick={handleLiveDemo}
+              className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary via-primary/90 to-secondary text-white py-3 px-4 rounded-xl hover:from-primary/90 hover:via-secondary/90 hover:to-primary font-bold text-sm shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden group/btn"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
+              <ExternalLink size={16} className="relative z-10 group-hover/btn:rotate-12 transition-transform duration-300" />
+              <span className="relative z-10">Live Demo</span>
+            </motion.button>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
