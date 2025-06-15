@@ -64,7 +64,7 @@ const ProjectCard = ({
 
   return (
     <motion.div 
-      className="group relative"
+      className="group relative h-full"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -137,11 +137,11 @@ const ProjectCard = ({
           </motion.div>
         </div>
         
-        {/* Enhanced Content */}
-        <div className="p-6 flex flex-col flex-grow relative">
+        {/* Enhanced Content - Fixed height and proper flex layout */}
+        <div className="p-6 flex flex-col flex-1 min-h-0">
           {/* Title with premium animation */}
           <motion.div 
-            className="flex items-center justify-between mb-4 flex-shrink-0"
+            className="flex items-center justify-between mb-3 flex-shrink-0"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 + index * 0.1 }}
@@ -151,64 +151,54 @@ const ProjectCard = ({
             </h3>
           </motion.div>
           
-          {/* Enhanced Description */}
+          {/* Enhanced Description - Fixed height */}
           <motion.p 
-            className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed line-clamp-3 flex-shrink-0"
+            className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed flex-shrink-0 h-12 overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 + index * 0.1 }}
           >
-            {description}
+            {description.length > 120 ? `${description.substring(0, 120)}...` : description}
           </motion.p>
 
-          {/* Premium Features Section */}
-          {features.length > 0 && (
-            <motion.div 
-              className="mb-4 flex-shrink-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + index * 0.1 }}
-            >
-              <h4 className="text-xs font-bold text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text mb-3 tracking-wider uppercase">
-                Key Features
-              </h4>
-              <div className="grid grid-cols-1 gap-2">
-                {features.slice(0, 2).map((feature, idx) => (
-                  <motion.div 
-                    key={idx}
-                    initial={{ opacity: 0, x: -10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.7 + index * 0.1 + idx * 0.1 }}
-                    className="relative group/feature"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg blur-sm opacity-0 group-hover/feature:opacity-100 transition-opacity duration-300"></div>
-                    <div className="relative text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-700 dark:text-gray-300 px-3 py-2 rounded-lg flex items-center border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                      <motion.div 
-                        className="w-2 h-2 bg-gradient-to-r from-primary to-secondary rounded-full mr-3 flex-shrink-0"
-                        animate={{ scale: [1, 1.2, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
-                      <span className="font-medium">{feature}</span>
-                    </div>
-                  </motion.div>
-                ))}
-                {features.length > 2 && (
-                  <motion.div 
-                    className="text-xs text-gray-500 dark:text-gray-400 px-3 py-1 font-medium text-center bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-800 dark:to-zinc-700 rounded-lg border border-gray-200 dark:border-zinc-600"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.9 + index * 0.1 }}
-                  >
-                    +{features.length - 2} more features
-                  </motion.div>
-                )}
-              </div>
-            </motion.div>
-          )}
-          
-          {/* Premium Tech Stack */}
+          {/* Premium Features Section - Fixed height */}
           <motion.div 
-            className="flex flex-wrap gap-2 mb-6 flex-shrink-0"
+            className="mb-4 flex-shrink-0 h-20"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 + index * 0.1 }}
+          >
+            <h4 className="text-xs font-bold text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text mb-2 tracking-wider uppercase">
+              Key Features
+            </h4>
+            <div className="grid grid-cols-1 gap-1">
+              {features.slice(0, 2).map((feature, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.7 + index * 0.1 + idx * 0.1 }}
+                  className="relative group/feature"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg blur-sm opacity-0 group-hover/feature:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-700 dark:text-gray-300 px-2 py-1 rounded-lg flex items-center border border-primary/20 hover:border-primary/40 transition-all duration-300">
+                    <motion.div 
+                      className="w-1.5 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mr-2 flex-shrink-0"
+                      animate={{ scale: [1, 1.2, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                    <span className="font-medium truncate">
+                      {feature.length > 25 ? `${feature.substring(0, 25)}...` : feature}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+          
+          {/* Premium Tech Stack - Fixed height */}
+          <motion.div 
+            className="flex flex-wrap gap-2 mb-4 flex-shrink-0 h-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 + index * 0.1 }}
@@ -220,20 +210,20 @@ const ProjectCard = ({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9 + index * 0.1 + techIndex * 0.05, type: "spring", stiffness: 200 }}
                 whileHover={{ scale: 1.05, y: -2 }}
-                className="relative group/tech bg-gradient-to-r from-gray-100 via-white to-gray-100 dark:from-zinc-700 dark:via-zinc-600 dark:to-zinc-700 px-3 py-1.5 rounded-full text-xs font-semibold border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
+                className="relative group/tech bg-gradient-to-r from-gray-100 via-white to-gray-100 dark:from-zinc-700 dark:via-zinc-600 dark:to-zinc-700 px-2 py-1 rounded-full text-xs font-semibold border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
               >
                 <span className="relative z-10">{tech}</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full opacity-0 group-hover/tech:opacity-100 transition-opacity duration-300"></div>
               </motion.span>
             ))}
             {techStack.length > 3 && (
-              <span className="text-xs text-gray-500 dark:text-gray-400 px-3 py-1.5 font-medium bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-800 dark:to-zinc-700 rounded-full border border-gray-200 dark:border-zinc-600">
+              <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1 font-medium bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-800 dark:to-zinc-700 rounded-full border border-gray-200 dark:border-zinc-600">
                 +{techStack.length - 3}
               </span>
             )}
           </motion.div>
           
-          {/* Premium Action Buttons */}
+          {/* Premium Action Buttons - Fixed at bottom */}
           <motion.div 
             className="flex gap-3 mt-auto pt-4 border-t border-gray-100 dark:border-zinc-700"
             initial={{ opacity: 0, y: 20 }}
@@ -242,23 +232,23 @@ const ProjectCard = ({
           >
             <motion.button 
               onClick={handleViewCode}
-              className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-3 px-4 rounded-xl border border-gray-200 dark:border-zinc-600 hover:border-primary/40 hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 font-semibold text-sm backdrop-blur-sm group/btn"
+              className="flex-1 flex items-center justify-center gap-2 text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary transition-all duration-300 py-2.5 px-4 rounded-xl border border-gray-200 dark:border-zinc-600 hover:border-primary/40 hover:bg-gradient-to-r hover:from-primary/5 hover:to-secondary/5 font-semibold text-sm backdrop-blur-sm group/btn"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <Github size={16} className="group-hover/btn:rotate-12 transition-transform duration-300" />
-              <span>View Code</span>
+              <span>Code</span>
             </motion.button>
             
             <motion.button 
               onClick={handleLiveDemo}
-              className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary via-primary/90 to-secondary text-white py-3 px-4 rounded-xl hover:from-primary/90 hover:via-secondary/90 hover:to-primary font-bold text-sm shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden group/btn"
+              className="flex-1 flex items-center justify-center gap-2 bg-gradient-to-r from-primary via-primary/90 to-secondary text-white py-2.5 px-4 rounded-xl hover:from-primary/90 hover:via-secondary/90 hover:to-primary font-bold text-sm shadow-xl hover:shadow-2xl transition-all duration-500 relative overflow-hidden group/btn"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
               <ExternalLink size={16} className="relative z-10 group-hover/btn:rotate-12 transition-transform duration-300" />
-              <span className="relative z-10">Live Demo</span>
+              <span className="relative z-10">Demo</span>
             </motion.button>
           </motion.div>
         </div>
