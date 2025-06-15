@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Sparkles } from './ui/sparkles';
+import { SparklesCore } from './ui/sparkles';
 import { StarBorder } from './ui/star-border';
 import { ArrowDown, Code, Zap, Brain } from 'lucide-react';
 
@@ -19,7 +19,7 @@ const PremiumHero = () => {
     <div className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <Sparkles
+        <SparklesCore
           id="hero-sparkles"
           background="transparent"
           minSize={1}
