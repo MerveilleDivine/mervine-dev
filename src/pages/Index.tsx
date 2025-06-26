@@ -15,6 +15,8 @@ import { StarBorder } from '../components/ui/star-border';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
+import HeroScrollAnimation from '../components/ui/hero-scroll-animation';
+import GraphicDesignSection from '../components/GraphicDesignSection';
 
 const Index = () => {
   const { t } = useTranslation();
@@ -130,28 +132,33 @@ const Index = () => {
     <>
       <TubelightNavbar />
       
-      {/* Hero Section - Mobile First */}
+      {/* Hero Section with Scroll Animation */}
+      <section id="home">
+        <HeroScrollAnimation />
+      </section>
+
+      {/* Traditional Hero Content for Mobile */}
       <BackgroundAurora>
-        <section id="home" className="min-h-screen flex items-center pt-16 pb-8 px-4">
+        <section className="min-h-screen flex items-center pt-8 pb-8 px-4">
           <div className="container mx-auto flex flex-col items-center text-center">
             <motion.div 
-              className="mb-8 order-2 md:order-1 md:w-1/2 md:pr-8 md:text-left"
+              className="mb-6 order-2 md:order-1 md:w-1/2 md:pr-8 md:text-left"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                <span className="text-gray-700 dark:text-gray-300">{t('hero.greeting')}</span> <br />
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
+                <span className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl block mb-2">{t('hero.greeting')}</span>
                 <span className="bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent">
                   {t('hero.title')}
                 </span>
               </h1>
               
-              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg mb-6 max-w-lg mx-auto md:mx-0 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 max-w-lg mx-auto md:mx-0 leading-relaxed px-2 sm:px-0">
                 {t('hero.subtitle')}
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center md:justify-start px-2 sm:px-0">
                 <motion.div
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
@@ -161,7 +168,7 @@ const Index = () => {
                     as="a" 
                     href="#projects"
                     variant="primary"
-                    className="inline-flex items-center justify-center text-center w-full sm:min-w-[180px] py-3 px-6 text-base font-semibold"
+                    className="inline-flex items-center justify-center text-center w-full sm:min-w-[160px] py-2.5 sm:py-3 px-4 sm:px-6 text-sm sm:text-base font-semibold"
                     onClick={(e) => {
                       e.preventDefault();
                       document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -180,7 +187,7 @@ const Index = () => {
                     as="a" 
                     href="#contact"
                     variant="secondary"
-                    className="inline-flex items-center justify-center text-center w-full sm:min-w-[180px] py-3 px-6 text-base font-semibold"
+                    className="inline-flex items-center justify-center text-center w-full sm:min-w-[160px] py-2.5 sm:py-3 px-4 sm:px-6 text-sm sm:text-base font-semibold"
                     onClick={(e) => {
                       e.preventDefault();
                       document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -193,14 +200,14 @@ const Index = () => {
             </motion.div>
             
             <motion.div 
-              className="mb-8 order-1 md:order-2 md:w-1/2 flex justify-center"
+              className="mb-6 order-1 md:order-2 md:w-1/2 flex justify-center"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-2xl animate-pulse"></div>
-                <div className="relative avatar-blob w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden border-2 border-primary/20">
+                <div className="relative avatar-blob w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden border-2 border-primary/20">
                   <img
                     src="/lovable-uploads/652bfb97-77e2-46e8-bab9-f06c9196ad4b.png"
                     alt="Mervine Muganguzi"
@@ -215,8 +222,8 @@ const Index = () => {
         </section>
       </BackgroundAurora>
 
-      {/* About Section - Mobile Optimized */}
-      <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
+      {/* About Section */}
+      <section id="about" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('about.title')} />
           
@@ -225,13 +232,13 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="bg-white dark:bg-zinc-800 rounded-xl p-6 sm:p-8 lg:p-12 shadow-xl border border-gray-200 dark:border-zinc-700 max-w-4xl mx-auto"
+            className="bg-white dark:bg-zinc-800 rounded-xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-200 dark:border-zinc-700 max-w-4xl mx-auto"
           >
-            <div className="prose prose-base sm:prose-lg dark:prose-invert max-w-none">
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
+            <div className="prose prose-sm sm:prose-base dark:prose-invert max-w-none">
+              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-lg mb-3 sm:mb-4 lg:mb-6 leading-relaxed">
                 {t('about.p1')}
               </p>
-              <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
+              <p className="text-gray-700 dark:text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
                 {t('about.p2')}
               </p>
             </div>
@@ -239,15 +246,15 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Experience Timeline Section - Mobile Optimized */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-zinc-950 px-4">
+      {/* Experience Timeline Section */}
+      <section className="py-8 sm:py-12 lg:py-16 bg-gray-50 dark:bg-zinc-950 px-4">
         <div className="container mx-auto">
           <ResumeTimeline />
         </div>
       </section>
 
-      {/* Projects Section - Mobile First Grid */}
-      <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4">
+      {/* Projects Section */}
+      <section id="projects" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('projects.things_built')} />
           
@@ -256,12 +263,12 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-12"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8 lg:mt-12"
           >
             {projects.map((project, index) => (
               <motion.div 
                 key={project.title} 
-                className="h-[450px] sm:h-[500px]"
+                className="h-[400px] sm:h-[450px] lg:h-[500px]"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -286,8 +293,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section - Mobile Grid */}
-      <section id="skills" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 px-4">
+      {/* Graphic Design Section */}
+      <GraphicDesignSection />
+
+      {/* Skills Section */}
+      <section id="skills" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('skills.title')} />
           
@@ -296,12 +306,12 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mt-8 sm:mt-12"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mt-6 sm:mt-8 lg:mt-12"
           >
             {skillCategories.map((category, index) => (
               <motion.div 
                 key={index} 
-                className="h-[250px] sm:h-[300px]"
+                className="h-[220px] sm:h-[250px] lg:h-[300px]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -321,12 +331,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section - Mobile Stacked */}
-      <section id="contact" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
+      {/* Contact Section */}
+      <section id="contact" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('contact.title')} />
           
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 mt-8 sm:mt-12">
+          <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-12 mt-6 sm:mt-8 lg:mt-12">
             <motion.div 
               className="w-full lg:w-1/2"
               initial={{ opacity: 0, y: 30 }}
@@ -334,7 +344,7 @@ const Index = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <div className="bg-white dark:bg-zinc-800 rounded-xl p-6 sm:p-8 shadow-xl border border-gray-200 dark:border-zinc-700">
+              <div className="bg-white dark:bg-zinc-800 rounded-xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-200 dark:border-zinc-700">
                 <ContactForm />
               </div>
             </motion.div>
@@ -346,40 +356,40 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 dark:bg-gradient-to-br dark:from-primary/10 dark:to-secondary/10 rounded-xl p-6 sm:p-8 h-full border border-primary/20 dark:border-primary/30 shadow-xl">
-                <h3 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <div className="bg-gradient-to-br from-primary/5 to-secondary/5 dark:bg-gradient-to-br dark:from-primary/10 dark:to-secondary/10 rounded-xl p-4 sm:p-6 lg:p-8 h-full border border-primary/20 dark:border-primary/30 shadow-xl">
+                <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-4 sm:mb-6 lg:mb-8 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                   {t('contact.info')}
                 </h3>
                 
-                <div className="space-y-6 sm:space-y-8">
+                <div className="space-y-4 sm:space-y-6 lg:space-y-8">
                   <div className="group">
-                    <h4 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-800 dark:text-gray-200">
+                    <h4 className="font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2 lg:mb-3 text-gray-800 dark:text-gray-200">
                       {t('contact.email')}
                     </h4>
                     <a 
                       href="mailto:mervinemuganguzi1@outlook.com"
-                      className="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm sm:text-base break-all"
+                      className="text-primary hover:text-secondary transition-colors duration-300 font-medium text-xs sm:text-sm lg:text-base break-all"
                     >
                       mervinemuganguzi1@outlook.com
                     </a>
                   </div>
                   
                   <div className="group">
-                    <h4 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-800 dark:text-gray-200">
+                    <h4 className="font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2 lg:mb-3 text-gray-800 dark:text-gray-200">
                       {t('contact.phone')}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">+90 533 889 22 70</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base">+90 533 889 22 70</p>
                   </div>
                   
                   <div className="group">
-                    <h4 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-800 dark:text-gray-200">
+                    <h4 className="font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2 lg:mb-3 text-gray-800 dark:text-gray-200">
                       {t('contact.location')}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base">{t('contact.location_value')}</p>
+                    <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base">{t('contact.location_value')}</p>
                   </div>
                   
                   <div className="group">
-                    <h4 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3 text-gray-800 dark:text-gray-200">
+                    <h4 className="font-semibold text-sm sm:text-base lg:text-lg mb-1 sm:mb-2 lg:mb-3 text-gray-800 dark:text-gray-200">
                       {t('contact.connect')}
                     </h4>
                     <div className="flex justify-start">
