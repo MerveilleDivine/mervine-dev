@@ -1,9 +1,10 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
-import { VideoIcon, Palette, Layers, Zap } from 'lucide-react';
+import { VideoIcon, Palette, Layers, Zap, X } from 'lucide-react';
+import { Dialog, DialogContent, DialogClose } from "@/components/ui/dialog";
 import { 
   ContainerAnimated,
   ContainerScroll,
@@ -19,13 +20,23 @@ const DESIGN_IMAGES_1 = [
   "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=60",
   "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&auto=format&fit=crop&q=60",
   "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=60",
 ];
 
 const DESIGN_IMAGES_2 = [
-  "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=60",
   "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=60",
   "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=60",
   "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&auto=format&fit=crop&q=60",
 ];
 
 const DESIGN_IMAGES_3 = [
@@ -33,10 +44,15 @@ const DESIGN_IMAGES_3 = [
   "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=60",
   "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=60",
   "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop&q=60",
+  "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=60",
 ];
 
 const GraphicDesignSection = () => {
   const { t } = useTranslation();
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const designServices = [
     {
@@ -56,10 +72,12 @@ const GraphicDesignSection = () => {
     }
   ];
 
+  const allImages = [...DESIGN_IMAGES_1, ...DESIGN_IMAGES_2, ...DESIGN_IMAGES_3];
+
   return (
-    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden">
+    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden py-12 sm:py-16 lg:py-20">
       {/* Header Section */}
-      <div className="container mx-auto px-4 py-12 sm:py-16 lg:py-20">
+      <div className="container mx-auto px-4">
         <SectionTitle title="Graphic Design Portfolio" />
         
         <ContainerStagger className="relative z-[9999] -mb-12 place-self-center px-4 sm:px-6 pt-8 sm:pt-12 text-center">
@@ -136,10 +154,11 @@ const GraphicDesignSection = () => {
               {DESIGN_IMAGES_1.map((imageUrl, index) => (
                 <motion.img
                   key={index}
-                  className="aspect-[4/5] sm:aspect-video block h-auto max-h-full w-full rounded-lg object-cover shadow-xl"
+                  className="aspect-[4/5] sm:aspect-video block h-auto max-h-full w-full rounded-lg object-cover shadow-xl cursor-pointer hover:scale-105 transition-transform duration-300"
                   src={imageUrl}
                   alt={`Design work ${index + 1}`}
                   loading="lazy"
+                  onClick={() => setSelectedImage(imageUrl)}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -149,10 +168,11 @@ const GraphicDesignSection = () => {
               {DESIGN_IMAGES_2.map((imageUrl, index) => (
                 <motion.img
                   key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-lg object-cover shadow-xl"
+                  className="aspect-video block h-auto max-h-full w-full rounded-lg object-cover shadow-xl cursor-pointer hover:scale-105 transition-transform duration-300"
                   src={imageUrl}
                   alt={`Design work ${index + 1}`}
                   loading="lazy"
+                  onClick={() => setSelectedImage(imageUrl)}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -162,10 +182,11 @@ const GraphicDesignSection = () => {
               {DESIGN_IMAGES_3.map((imageUrl, index) => (
                 <motion.img
                   key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-lg object-cover shadow-xl"
+                  className="aspect-video block h-auto max-h-full w-full rounded-lg object-cover shadow-xl cursor-pointer hover:scale-105 transition-transform duration-300"
                   src={imageUrl}
                   alt={`Design work ${index + 1}`}
                   loading="lazy"
+                  onClick={() => setSelectedImage(imageUrl)}
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -174,6 +195,25 @@ const GraphicDesignSection = () => {
           </GalleryContainer>
         </ContainerSticky>
       </ContainerScroll>
+
+      {/* Image Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-4xl w-[90vw] h-[90vh] p-0 bg-black/95 border-none">
+          <div className="relative w-full h-full flex items-center justify-center">
+            <DialogClose className="absolute top-4 right-4 z-50 p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+              <X className="h-6 w-6 text-white" />
+            </DialogClose>
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt="Selected design work"
+                className="max-w-full max-h-full object-contain rounded-lg"
+                onClick={() => setSelectedImage(null)}
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
