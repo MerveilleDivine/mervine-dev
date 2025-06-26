@@ -1,4 +1,3 @@
-
 "use client" 
 
 import * as React from "react"
@@ -19,13 +18,14 @@ interface ContainerScrollContextValue {
 }
 
 const SPRING_CONFIG = {
-  type: "spring",
+  type: "spring" as const,
   stiffness: 100,
   damping: 16,
   mass: 0.75,
   restDelta: 0.005,
   duration: 0.3,
 }
+
 const blurVariants: Variants = {
   hidden: {
     filter: "blur(10px)",
@@ -185,7 +185,7 @@ export const ContainerAnimated = React.forwardRef<
       ref={ref}
       className={cn(className)}
       variants={blurVariants}
-      transition={SPRING_CONFIG || transition}
+      transition={transition || SPRING_CONFIG}
       {...props}
     />
   )
