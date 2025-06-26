@@ -109,13 +109,10 @@ const GraphicDesignSection = () => {
             ))}
           </ContainerAnimated>
 
-          <ContainerAnimated className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <Button className="gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 text-sm sm:text-base w-full sm:w-auto">
+          <ContainerAnimated className="flex justify-center">
+            <Button className="gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 text-sm sm:text-base">
               <VideoIcon className="size-4" />
               Book Design Consultation
-            </Button>
-            <Button variant="link" className="text-primary hover:text-primary/80 text-sm sm:text-base">
-              View Full Portfolio
             </Button>
           </ContainerAnimated>
         </ContainerStagger>

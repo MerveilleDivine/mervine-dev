@@ -3,6 +3,7 @@
 
 import { useScroll, useTransform, motion, MotionValue } from 'motion/react';
 import React, { useRef, forwardRef } from 'react';
+import { Button } from '@/components/ui/button';
 
 interface SectionProps {
   scrollYProgress: MotionValue<number>;
@@ -20,11 +21,11 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
 
       <h1 className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl px-4 sm:px-8 font-semibold text-center tracking-tight leading-[120%]'>
         <span className="bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent">
-          Full Stack Developer
+          Hi, I'm Mervine
         </span>
         <br />
-        <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-          Scroll to explore 👇
+        <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+          I build smart, meaningful digital experiences
         </span>
       </h1>
     </motion.section>
@@ -48,31 +49,36 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
             Through Innovation & Design
           </span>
         </h1>
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-4'>
-          <img
-            src='https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&auto=format&fit=crop'
-            alt='Programming'
-            className='object-cover w-full rounded-md h-32 sm:h-40 lg:h-full'
-            loading="lazy"
-          />
-          <img
-            src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&auto=format&fit=crop'
-            alt='Technology'
-            className='object-cover w-full rounded-md h-32 sm:h-40'
-            loading="lazy"
-          />
-          <img
-            src='https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=800&auto=format&fit=crop'
-            alt='Development'
-            className='object-cover w-full rounded-md h-32 sm:h-40 lg:h-full'
-            loading="lazy"
-          />
-          <img
-            src='https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&auto=format&fit=crop'
-            alt='Design'
-            className='object-cover w-full rounded-md h-32 sm:h-40 lg:h-full'
-            loading="lazy"
-          />
+        
+        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 mt-6 sm:mt-8">
+          <Button 
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-3 text-sm sm:text-base font-semibold"
+            onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Dev Portfolio
+          </Button>
+          <Button 
+            variant="outline"
+            className="border-white text-white hover:bg-white hover:text-black px-6 py-3 text-sm sm:text-base font-semibold"
+            onClick={() => document.getElementById('graphics')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Designer Portfolio
+          </Button>
+        </div>
+
+        <div className="mt-8 sm:mt-12 flex justify-center">
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-2xl animate-pulse"></div>
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl">
+              <img
+                src="/lovable-uploads/652bfb97-77e2-46e8-bab9-f06c9196ad4b.png"
+                alt="Mervine Muganguzi"
+                className="w-full h-full object-cover"
+                style={{ objectFit: 'contain', transform: 'scale(1.1)' }}
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </article>
     </motion.section>

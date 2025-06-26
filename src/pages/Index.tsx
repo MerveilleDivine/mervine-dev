@@ -137,91 +137,6 @@ const Index = () => {
         <HeroScrollAnimation />
       </section>
 
-      {/* Traditional Hero Content for Mobile */}
-      <BackgroundAurora>
-        <section className="min-h-screen flex items-center pt-8 pb-8 px-4">
-          <div className="container mx-auto flex flex-col items-center text-center">
-            <motion.div 
-              className="mb-6 order-2 md:order-1 md:w-1/2 md:pr-8 md:text-left"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
-                <span className="text-gray-700 dark:text-gray-300 text-lg sm:text-xl md:text-2xl block mb-2">{t('hero.greeting')}</span>
-                <span className="bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent">
-                  {t('hero.title')}
-                </span>
-              </h1>
-              
-              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base md:text-lg mb-4 sm:mb-6 max-w-lg mx-auto md:mx-0 leading-relaxed px-2 sm:px-0">
-                {t('hero.subtitle')}
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center md:justify-start px-2 sm:px-0">
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto"
-                >
-                  <StarBorder 
-                    as="a" 
-                    href="#projects"
-                    variant="primary"
-                    className="inline-flex items-center justify-center text-center w-full sm:min-w-[160px] py-2.5 sm:py-3 px-4 sm:px-6 text-sm sm:text-base font-semibold"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    {t('hero.cta.work')}
-                  </StarBorder>
-                </motion.div>
-                
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto"
-                >
-                  <StarBorder 
-                    as="a" 
-                    href="#contact"
-                    variant="secondary"
-                    className="inline-flex items-center justify-center text-center w-full sm:min-w-[160px] py-2.5 sm:py-3 px-4 sm:px-6 text-sm sm:text-base font-semibold"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                  >
-                    <span>{t('hero.cta.contact')}</span>
-                  </StarBorder>
-                </motion.div>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="mb-6 order-1 md:order-2 md:w-1/2 flex justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-2xl animate-pulse"></div>
-                <div className="relative avatar-blob w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden border-2 border-primary/20">
-                  <img
-                    src="/lovable-uploads/652bfb97-77e2-46e8-bab9-f06c9196ad4b.png"
-                    alt="Mervine Muganguzi"
-                    className="w-full h-full object-cover"
-                    style={{ objectFit: 'contain', transform: 'scale(1.1)' }}
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-      </BackgroundAurora>
-
       {/* About Section */}
       <section id="about" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
         <div className="container mx-auto">
@@ -293,9 +208,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Graphic Design Section */}
-      <GraphicDesignSection />
-
       {/* Skills Section */}
       <section id="skills" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 px-4">
         <div className="container mx-auto">
@@ -330,6 +242,9 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Graphic Design Section - moved after skills */}
+      <GraphicDesignSection />
 
       {/* Contact Section */}
       <section id="contact" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
