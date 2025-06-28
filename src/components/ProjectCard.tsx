@@ -47,7 +47,7 @@ const ProjectCard = ({
       viewport={{ once: true }}
       whileHover={{ y: -8 }}
     >
-      {/* Image Section - Fixed aspect ratio */}
+      {/* Image Section */}
       <div className="relative h-48 sm:h-52 lg:h-56 overflow-hidden rounded-t-2xl">
         <img 
           src={imageUrl} 
@@ -63,29 +63,29 @@ const ProjectCard = ({
         </div>
       </div>
 
-      {/* Content Section - Flex grow to fill remaining space */}
-      <div className="flex-1 flex flex-col p-4 sm:p-6 space-y-4">
+      {/* Content Section */}
+      <div className="flex-1 flex flex-col p-4 sm:p-6 lg:p-8 space-y-4 sm:space-y-5 lg:space-y-6">
         {/* Title */}
-        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-white leading-tight">
+        <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white leading-tight">
           {title}
         </h3>
         
         {/* Description */}
-        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed flex-1">
+        <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 leading-relaxed flex-1">
           {description}
         </p>
 
         {/* Features Section - Collapsible */}
         {features.length > 0 && (
-          <div className="space-y-3">
+          <div className="space-y-3 sm:space-y-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setShowFeatures(!showFeatures)}
-              className="w-full justify-between p-2 h-auto text-sm font-medium text-primary hover:text-primary hover:bg-primary/10 transition-colors"
+              className="w-full justify-between p-3 sm:p-4 h-auto text-sm sm:text-base font-medium text-primary hover:text-primary hover:bg-primary/10 transition-colors rounded-xl"
             >
               <span>Key Features</span>
-              {showFeatures ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              {showFeatures ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
             </Button>
             
             <motion.div
@@ -97,11 +97,11 @@ const ProjectCard = ({
               transition={{ duration: 0.3, ease: 'easeInOut' }}
               className="overflow-hidden"
             >
-              <div className="grid grid-cols-1 gap-2 pt-2">
+              <div className="grid grid-cols-1 gap-3 sm:gap-4 pt-2">
                 {features.slice(0, 4).map((feature, idx) => (
                   <div 
                     key={idx}
-                    className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400"
+                    className="flex items-center gap-3 text-xs sm:text-sm lg:text-base text-gray-600 dark:text-gray-400"
                   >
                     <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
                     <span className="leading-tight">{feature}</span>
@@ -113,13 +113,13 @@ const ProjectCard = ({
         )}
 
         {/* Tech Stack */}
-        <div className="space-y-3">
-          <h4 className="text-sm font-semibold text-gray-700 dark:text-gray-300">Technologies</h4>
-          <div className="flex flex-wrap gap-2">
+        <div className="space-y-3 sm:space-y-4">
+          <h4 className="text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-300">Technologies</h4>
+          <div className="flex flex-wrap gap-2 sm:gap-3">
             {techStack.map((tech, idx) => (
               <span 
                 key={idx}
-                className="px-2.5 py-1 bg-gray-100 dark:bg-zinc-700 text-gray-700 dark:text-gray-300 rounded-md text-xs font-medium border border-gray-200 dark:border-zinc-600 hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
+                className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gray-100 dark:bg-zinc-700 text-gray-700 dark:text-gray-300 rounded-lg text-xs sm:text-sm lg:text-base font-medium border border-gray-200 dark:border-zinc-600 hover:bg-gray-200 dark:hover:bg-zinc-600 transition-colors"
               >
                 {tech}
               </span>
@@ -128,13 +128,13 @@ const ProjectCard = ({
         </div>
 
         {/* Action Buttons */}
-        <div className="flex gap-3 pt-4 mt-auto">
+        <div className="flex gap-3 sm:gap-4 pt-4 sm:pt-6 mt-auto">
           <Button
             asChild
-            className="flex-1 bg-primary hover:bg-primary/90 text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg text-sm"
+            className="flex-1 bg-primary hover:bg-primary/90 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-300 hover:shadow-lg text-sm sm:text-base lg:text-lg min-h-[48px]"
           >
             <a href={liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-              <ExternalLink size={16} />
+              <ExternalLink size={18} />
               <span>Live Demo</span>
             </a>
           </Button>
@@ -142,10 +142,10 @@ const ProjectCard = ({
           <Button
             asChild
             variant="outline"
-            className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2.5 px-4 rounded-lg transition-all duration-300 hover:shadow-lg text-sm"
+            className="flex-1 border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-xl transition-all duration-300 hover:shadow-lg text-sm sm:text-base lg:text-lg min-h-[48px]"
           >
             <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-              <Github size={16} />
+              <Github size={18} />
               <span>GitHub</span>
             </a>
           </Button>
