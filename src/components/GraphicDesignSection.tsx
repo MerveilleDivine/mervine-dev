@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/animated-gallery";
 import SectionTitle from './SectionTitle';
 
-// Extended gallery with 29 high-quality design images
+// Extended gallery with 25+ high-quality design images
 const DESIGN_IMAGES_1 = [
   "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=80",
@@ -94,15 +94,8 @@ const GraphicDesignSection = () => {
     setSelectedImage(allImages[newIndex]);
   };
 
-  const scrollToContact = () => {
-    const contactElement = document.getElementById('contact');
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden py-16 sm:py-20 lg:py-24">
+    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden py-16 sm:py-20 lg:py-24" style={{ zIndex: 1 }}>
       {/* Header Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title="Graphic Design Portfolio" />
@@ -155,10 +148,7 @@ const GraphicDesignSection = () => {
           </ContainerAnimated>
 
           <ContainerAnimated className="flex justify-center mb-8 sm:mb-12">
-            <Button 
-              onClick={scrollToContact}
-              className="gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[56px] touch-manipulation"
-            >
+            <Button className="gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[56px] touch-manipulation">
               <VideoIcon className="size-5" />
               Book Design Consultation
             </Button>
@@ -166,15 +156,25 @@ const GraphicDesignSection = () => {
         </ContainerStagger>
       </div>
 
-      {/* Gallery Section - Fixed height and overflow issues */}
-      <ContainerScroll className="relative h-[280vh] sm:h-[320vh]">
-        <ContainerSticky className="h-screen overflow-visible">
-          <GalleryContainer className="gap-3 sm:gap-4 lg:gap-6 overflow-visible">
-            <GalleryCol yRange={["-15%", "5%"]} className="-mt-4 overflow-visible">
+      {/* Animated Background Blur */}
+      <div 
+        className="pointer-events-none absolute z-10 h-[50vh] sm:h-[70vh] w-full opacity-20"
+        style={{
+          background: "linear-gradient(to right, rgb(126, 105, 171), rgb(147, 51, 234), rgb(59, 130, 246))",
+          filter: "blur(60px) saturate(150%)",
+          mixBlendMode: "multiply",
+        }}
+      />
+
+      {/* Gallery Section - Reduced height to prevent overflow */}
+      <ContainerScroll className="relative h-[250vh] sm:h-[300vh]">
+        <ContainerSticky className="h-screen">
+          <GalleryContainer className="gap-3 sm:gap-4 lg:gap-6">
+            <GalleryCol yRange={["-15%", "5%"]} className="-mt-4">
               {DESIGN_IMAGES_1.map((imageUrl, index) => (
                 <motion.img
                   key={index}
-                  className="aspect-[4/5] sm:aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02] relative z-10"
+                  className="aspect-[4/5] sm:aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]"
                   src={imageUrl}
                   alt={`Design work ${index + 1}`}
                   loading="lazy"
@@ -184,11 +184,11 @@ const GraphicDesignSection = () => {
                 />
               ))}
             </GalleryCol>
-            <GalleryCol className="mt-[-20%] sm:mt-[-30%] hidden sm:flex overflow-visible" yRange={["10%", "0%"]}>
+            <GalleryCol className="mt-[-20%] sm:mt-[-30%] hidden sm:flex" yRange={["10%", "0%"]}>
               {DESIGN_IMAGES_2.map((imageUrl, index) => (
                 <motion.img
                   key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02] relative z-10"
+                  className="aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]"
                   src={imageUrl}
                   alt={`Design work ${index + 1}`}
                   loading="lazy"
@@ -198,11 +198,11 @@ const GraphicDesignSection = () => {
                 />
               ))}
             </GalleryCol>
-            <GalleryCol yRange={["-10%", "5%"]} className="-mt-4 hidden lg:flex overflow-visible">
+            <GalleryCol yRange={["-10%", "5%"]} className="-mt-4 hidden lg:flex">
               {DESIGN_IMAGES_3.map((imageUrl, index) => (
                 <motion.img
                   key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02] relative z-10"
+                  className="aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]"
                   src={imageUrl}
                   alt={`Design work ${index + 1}`}
                   loading="lazy"
@@ -216,7 +216,7 @@ const GraphicDesignSection = () => {
         </ContainerSticky>
       </ContainerScroll>
 
-      {/* Enhanced Image Modal */}
+      {/* Premium Image Modal */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
         <DialogContent className="max-w-[95vw] sm:max-w-6xl w-full h-[95vh] p-0 bg-black/95 backdrop-blur-xl border-none rounded-2xl overflow-hidden">
           <VisuallyHidden>
@@ -225,21 +225,21 @@ const GraphicDesignSection = () => {
           
           <div className="relative w-full h-full flex items-center justify-center">
             {/* Close Button */}
-            <DialogClose className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/20">
+            <DialogClose className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm">
               <X className="h-6 w-6 text-white" />
             </DialogClose>
 
             {/* Navigation Buttons */}
             <button
               onClick={() => navigateImage('prev')}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/20"
+              className="absolute left-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
             >
               <ChevronLeft className="h-6 w-6 text-white" />
             </button>
 
             <button
               onClick={() => navigateImage('next')}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/20"
+              className="absolute right-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
             >
               <ChevronRight className="h-6 w-6 text-white" />
             </button>
@@ -258,7 +258,7 @@ const GraphicDesignSection = () => {
                 />
                 
                 {/* Image Counter */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm border border-white/20">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm">
                   {selectedIndex + 1} / {allImages.length}
                 </div>
               </div>

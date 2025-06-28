@@ -33,24 +33,18 @@ export function NavBar({ items, className }: NavBarProps) {
         element: document.getElementById(item.url.substring(1))
       })).filter(section => section.element);
 
-      const scrollPosition = window.scrollY + 120;
+      const scrollPosition = window.scrollY + 100;
       
-      let currentSection = sections[0]?.name || items[0].name;
-      
-      for (let i = 0; i < sections.length; i++) {
+      for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (!section.element) continue;
         
         const sectionTop = section.element.offsetTop;
-        const sectionHeight = section.element.offsetHeight;
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          currentSection = section.name;
+        if (scrollPosition >= sectionTop) {
+          setActiveTab(section.name);
           break;
         }
       }
-      
-      setActiveTab(currentSection);
     };
 
     handleResize();
@@ -73,7 +67,7 @@ export function NavBar({ items, className }: NavBarProps) {
     const targetElement = document.getElementById(targetId);
     
     if (targetElement) {
-      const offsetTop = targetElement.offsetTop - 100;
+      const offsetTop = targetElement.offsetTop - 80;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -103,7 +97,7 @@ export function NavBar({ items, className }: NavBarProps) {
               key={item.name}
               onClick={(e) => handleNavClick(item, e)}
               className={cn(
-                "relative cursor-pointer text-xs sm:text-sm font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-500",
+                "relative cursor-pointer text-xs sm:text-sm font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300",
                 "text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary",
                 isActive && "text-white dark:text-white",
               )}
@@ -125,8 +119,8 @@ export function NavBar({ items, className }: NavBarProps) {
                   initial={false}
                   transition={{
                     type: "spring",
-                    stiffness: 400,
-                    damping: 40,
+                    stiffness: 300,
+                    damping: 30,
                   }}
                 >
                   {/* Glowing effect */}
