@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -137,8 +136,8 @@ const Index = () => {
         <HeroScrollAnimation />
       </section>
 
-      {/* About Section - Added proper spacing */}
-      <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4 mt-8 sm:mt-12 lg:mt-16">
+      {/* About Section - Added more spacing from hero */}
+      <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4 mt-16 sm:mt-20 lg:mt-24">
         <div className="container mx-auto">
           <SectionTitle title={t('about.title')} />
           
@@ -168,8 +167,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section - Added proper spacing */}
-      <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4 mt-8 sm:mt-12 lg:mt-16">
+      {/* Projects Section - Added more spacing for dark mode */}
+      <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4 mt-16 sm:mt-20 lg:mt-24">
         <div className="container mx-auto">
           <SectionTitle title={t('projects.things_built')} />
           
@@ -183,7 +182,7 @@ const Index = () => {
             {projects.map((project, index) => (
               <motion.div 
                 key={project.title} 
-                className="h-[380px] sm:h-[400px] lg:h-[420px]"
+                className="h-[360px] sm:h-[380px] lg:h-[400px]"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -223,7 +222,7 @@ const Index = () => {
             {skillCategories.map((category, index) => (
               <motion.div 
                 key={index} 
-                className="h-[220px] sm:h-[250px] lg:h-[300px]"
+                className="h-[200px] sm:h-[220px] lg:h-[250px]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -243,7 +242,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Graphic Design Section - moved after skills */}
+      {/* Graphic Design Section */}
       <GraphicDesignSection />
 
       {/* Contact Section */}

@@ -525,8 +525,6 @@ a, button, [role="button"], input, select, textarea {
 
 /* Ensure proper spacing between sections */
 #graphics {
-  margin-top: 0 !important;
-  padding-top: 4rem !important;
   position: relative;
   z-index: 10;
   isolation: isolate;
@@ -534,13 +532,13 @@ a, button, [role="button"], input, select, textarea {
 
 #about {
   position: relative;
-  z-index: 5;
+  z-index: 15;
   isolation: isolate;
 }
 
 #projects {
   position: relative;
-  z-index: 6;
+  z-index: 20;
   isolation: isolate;
 }
 
