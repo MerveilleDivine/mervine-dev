@@ -16,42 +16,28 @@ import {
 } from "@/components/ui/animated-gallery";
 import SectionTitle from './SectionTitle';
 
-// Extended gallery with 25+ high-quality design images
+// Reduced to 15 high-quality design images
 const DESIGN_IMAGES_1 = [
   "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=80",
 ];
 
 const DESIGN_IMAGES_2 = [
-  "https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=80",
 ];
 
 const DESIGN_IMAGES_3 = [
-  "https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80",
+  "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1596003906949-67221c37965c?w=800&auto=format&fit=crop&q=80",
 ];
 
@@ -94,10 +80,17 @@ const GraphicDesignSection = () => {
     setSelectedImage(allImages[newIndex]);
   };
 
+  const scrollToContact = () => {
+    const contactElement = document.getElementById('contact');
+    if (contactElement) {
+      contactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden py-16 sm:py-20 lg:py-24" style={{ zIndex: 1 }}>
+    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden py-16 sm:py-20 lg:py-24">
       {/* Header Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         <SectionTitle title="Graphic Design Portfolio" />
         
         <ContainerStagger className="relative place-self-center px-4 sm:px-6 pt-8 sm:pt-12 text-center">
@@ -137,10 +130,10 @@ const GraphicDesignSection = () => {
                 <div className="text-primary mb-4 sm:mb-6">
                   {service.icon}
                 </div>
-                <h4 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-800 dark:text-gray-200">
+                <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-gray-800 dark:text-gray-200">
                   {service.title}
                 </h4>
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -148,7 +141,10 @@ const GraphicDesignSection = () => {
           </ContainerAnimated>
 
           <ContainerAnimated className="flex justify-center mb-8 sm:mb-12">
-            <Button className="gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[56px] touch-manipulation">
+            <Button 
+              onClick={scrollToContact}
+              className="gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[56px] touch-manipulation"
+            >
               <VideoIcon className="size-5" />
               Book Design Consultation
             </Button>
@@ -156,65 +152,57 @@ const GraphicDesignSection = () => {
         </ContainerStagger>
       </div>
 
-      {/* Animated Background Blur */}
-      <div 
-        className="pointer-events-none absolute z-10 h-[50vh] sm:h-[70vh] w-full opacity-20"
-        style={{
-          background: "linear-gradient(to right, rgb(126, 105, 171), rgb(147, 51, 234), rgb(59, 130, 246))",
-          filter: "blur(60px) saturate(150%)",
-          mixBlendMode: "multiply",
-        }}
-      />
-
-      {/* Gallery Section - Reduced height to prevent overflow */}
-      <ContainerScroll className="relative h-[250vh] sm:h-[300vh]">
-        <ContainerSticky className="h-screen">
-          <GalleryContainer className="gap-3 sm:gap-4 lg:gap-6">
-            <GalleryCol yRange={["-15%", "5%"]} className="-mt-4">
-              {DESIGN_IMAGES_1.map((imageUrl, index) => (
-                <motion.img
-                  key={index}
-                  className="aspect-[4/5] sm:aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]"
-                  src={imageUrl}
-                  alt={`Design work ${index + 1}`}
-                  loading="lazy"
-                  onClick={() => openModal(imageUrl)}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-              ))}
-            </GalleryCol>
-            <GalleryCol className="mt-[-20%] sm:mt-[-30%] hidden sm:flex" yRange={["10%", "0%"]}>
-              {DESIGN_IMAGES_2.map((imageUrl, index) => (
-                <motion.img
-                  key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]"
-                  src={imageUrl}
-                  alt={`Design work ${index + 1}`}
-                  loading="lazy"
-                  onClick={() => openModal(imageUrl)}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-              ))}
-            </GalleryCol>
-            <GalleryCol yRange={["-10%", "5%"]} className="-mt-4 hidden lg:flex">
-              {DESIGN_IMAGES_3.map((imageUrl, index) => (
-                <motion.img
-                  key={index}
-                  className="aspect-video block h-auto max-h-full w-full rounded-xl object-cover shadow-2xl cursor-pointer transition-all duration-300 hover:shadow-3xl hover:scale-[1.02]"
-                  src={imageUrl}
-                  alt={`Design work ${index + 1}`}
-                  loading="lazy"
-                  onClick={() => openModal(imageUrl)}
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                />
-              ))}
-            </GalleryCol>
-          </GalleryContainer>
-        </ContainerSticky>
-      </ContainerScroll>
+      {/* Gallery Section - Reduced height and improved z-index */}
+      <div className="relative z-10">
+        <ContainerScroll className="relative h-[200vh] sm:h-[250vh]">
+          <ContainerSticky className="h-screen">
+            <GalleryContainer className="gap-2 sm:gap-3 lg:gap-4">
+              <GalleryCol yRange={["-10%", "5%"]} className="mt-0">
+                {DESIGN_IMAGES_1.map((imageUrl, index) => (
+                  <motion.img
+                    key={index}
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                    src={imageUrl}
+                    alt={`Design work ${index + 1}`}
+                    loading="lazy"
+                    onClick={() => openModal(imageUrl)}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                ))}
+              </GalleryCol>
+              <GalleryCol className="mt-[-15%] sm:mt-[-20%] hidden sm:flex" yRange={["5%", "0%"]}>
+                {DESIGN_IMAGES_2.map((imageUrl, index) => (
+                  <motion.img
+                    key={index}
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                    src={imageUrl}
+                    alt={`Design work ${index + 1}`}
+                    loading="lazy"
+                    onClick={() => openModal(imageUrl)}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                ))}
+              </GalleryCol>
+              <GalleryCol yRange={["-5%", "5%"]} className="mt-0 hidden lg:flex">
+                {DESIGN_IMAGES_3.map((imageUrl, index) => (
+                  <motion.img
+                    key={index}
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                    src={imageUrl}
+                    alt={`Design work ${index + 1}`}
+                    loading="lazy"
+                    onClick={() => openModal(imageUrl)}
+                    whileHover={{ scale: 1.02 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                ))}
+              </GalleryCol>
+            </GalleryContainer>
+          </ContainerSticky>
+        </ContainerScroll>
+      </div>
 
       {/* Premium Image Modal */}
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>

@@ -33,14 +33,16 @@ export function NavBar({ items, className }: NavBarProps) {
         element: document.getElementById(item.url.substring(1))
       })).filter(section => section.element);
 
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 150;
       
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i];
         if (!section.element) continue;
         
         const sectionTop = section.element.offsetTop;
-        if (scrollPosition >= sectionTop) {
+        const sectionBottom = sectionTop + section.element.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
           setActiveTab(section.name);
           break;
         }
@@ -67,7 +69,7 @@ export function NavBar({ items, className }: NavBarProps) {
     const targetElement = document.getElementById(targetId);
     
     if (targetElement) {
-      const offsetTop = targetElement.offsetTop - 80;
+      const offsetTop = targetElement.offsetTop - 100;
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -97,7 +99,7 @@ export function NavBar({ items, className }: NavBarProps) {
               key={item.name}
               onClick={(e) => handleNavClick(item, e)}
               className={cn(
-                "relative cursor-pointer text-xs sm:text-sm font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300",
+                "relative cursor-pointer text-xs sm:text-sm font-semibold px-3 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-500 ease-out",
                 "text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary",
                 isActive && "text-white dark:text-white",
               )}
@@ -105,7 +107,7 @@ export function NavBar({ items, className }: NavBarProps) {
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.1, duration: 0.5 }}
             >
               <span className="hidden sm:inline relative z-10">{item.name}</span>
               <span className="sm:hidden relative z-10">
@@ -119,8 +121,9 @@ export function NavBar({ items, className }: NavBarProps) {
                   initial={false}
                   transition={{
                     type: "spring",
-                    stiffness: 300,
+                    stiffness: 400,
                     damping: 30,
+                    duration: 0.6,
                   }}
                 >
                   {/* Glowing effect */}

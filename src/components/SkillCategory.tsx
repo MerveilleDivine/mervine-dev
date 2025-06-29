@@ -21,19 +21,19 @@ const SkillCategory = ({ title, skills, icon, color = "#7E69AB" }: SkillCategory
           inactiveZone={0.01}
           borderWidth={2}
         />
-        <div className="relative flex flex-col rounded-lg border-[0.75px] border-border bg-white dark:bg-zinc-800 p-6 shadow-md transition-transform hover:-translate-y-1 h-full">
-          <div className="flex items-center mb-4">
-            <div className="bg-primary/10 p-3 rounded-full mr-4 text-primary">
+        <div className="relative flex flex-col rounded-lg border-[0.75px] border-border bg-white dark:bg-zinc-800 p-4 sm:p-6 shadow-md transition-transform hover:-translate-y-1 h-full">
+          <div className="flex items-center mb-3 sm:mb-4">
+            <div className="bg-primary/10 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 text-primary flex-shrink-0">
               {icon}
             </div>
-            <h3 className="text-xl font-bold dark:text-white">{title}</h3>
+            <h3 className="text-lg sm:text-xl font-bold dark:text-white leading-tight">{title}</h3>
           </div>
           
-          <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 sm:mt-4">
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="text-sm rounded-full px-3 py-1"
+                className="text-xs sm:text-sm rounded-full px-2 sm:px-3 py-1 leading-tight"
                 style={{ 
                   backgroundColor: `${color}30`,
                   color: "#6959a5",
