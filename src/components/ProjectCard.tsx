@@ -85,8 +85,8 @@ const ProjectCard = ({
       />
       
       <div className="relative bg-gradient-to-br from-white via-gray-50/50 to-white dark:from-zinc-800 dark:via-zinc-850 dark:to-zinc-900 rounded-xl overflow-hidden h-full flex flex-col border border-gray-200/50 dark:border-zinc-700/50 backdrop-blur-sm shadow-xl hover:shadow-2xl transition-all duration-500">
-        {/* Reduced Image Container Height */}
-        <div className="relative h-24 sm:h-28 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
+        {/* Image Container - Slightly reduced height */}
+        <div className="relative h-20 sm:h-24 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-zinc-700 dark:to-zinc-800 overflow-hidden flex-shrink-0">
           <motion.img 
             src={imageUrl || '/placeholder.svg'} 
             alt={title} 
@@ -151,64 +151,29 @@ const ProjectCard = ({
             </h3>
           </motion.div>
           
-          {/* Enhanced Description - Reduced and controlled height */}
+          {/* Enhanced Description - More space allocated */}
           <motion.p 
-            className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm leading-relaxed flex-shrink-0 h-8 sm:h-10 overflow-hidden"
+            className="text-gray-600 dark:text-gray-300 mb-3 text-xs sm:text-sm leading-relaxed flex-1 overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 + index * 0.1 }}
           >
-            {description.length > 80 ? `${description.substring(0, 80)}...` : description}
+            {description.length > 120 ? `${description.substring(0, 120)}...` : description}
           </motion.p>
-
-          {/* Premium Features Section - More compact */}
+          
+          {/* Premium Tech Stack - More compact */}
           <motion.div 
-            className="mb-2 flex-shrink-0 h-12 sm:h-14"
+            className="flex flex-wrap gap-1 mb-3 flex-shrink-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 + index * 0.1 }}
           >
-            <h4 className="text-xs font-bold text-transparent bg-gradient-to-r from-primary to-secondary bg-clip-text mb-1 tracking-wider uppercase">
-              Key Features
-            </h4>
-            <div className="grid grid-cols-1 gap-1">
-              {features.slice(0, 2).map((feature, idx) => (
-                <motion.div 
-                  key={idx}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.7 + index * 0.1 + idx * 0.1 }}
-                  className="relative group/feature"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg blur-sm opacity-0 group-hover/feature:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative text-xs bg-gradient-to-r from-primary/5 to-secondary/5 dark:from-primary/10 dark:to-secondary/10 text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded-lg flex items-center border border-primary/20 hover:border-primary/40 transition-all duration-300">
-                    <motion.div 
-                      className="w-1 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mr-1.5 flex-shrink-0"
-                      animate={{ scale: [1, 1.2, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                    <span className="font-medium truncate text-xs">
-                      {feature.length > 18 ? `${feature.substring(0, 18)}...` : feature}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-          
-          {/* Premium Tech Stack - More compact */}
-          <motion.div 
-            className="flex flex-wrap gap-1 mb-2 flex-shrink-0 h-5"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 + index * 0.1 }}
-          >
-            {techStack.slice(0, 3).map((tech, techIndex) => (
+            {techStack.slice(0, 4).map((tech, techIndex) => (
               <motion.span 
                 key={techIndex}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.9 + index * 0.1 + techIndex * 0.05, type: "spring", stiffness: 200 }}
+                transition={{ delay: 0.7 + index * 0.1 + techIndex * 0.05, type: "spring", stiffness: 200 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 className="relative group/tech bg-gradient-to-r from-gray-100 via-white to-gray-100 dark:from-zinc-700 dark:via-zinc-600 dark:to-zinc-700 px-1.5 py-0.5 rounded-full text-xs font-semibold border border-gray-200 dark:border-zinc-600 text-gray-700 dark:text-gray-300 hover:border-primary/40 hover:shadow-md transition-all duration-300 cursor-default"
               >
@@ -216,9 +181,9 @@ const ProjectCard = ({
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full opacity-0 group-hover/tech:opacity-100 transition-opacity duration-300"></div>
               </motion.span>
             ))}
-            {techStack.length > 3 && (
+            {techStack.length > 4 && (
               <span className="text-xs text-gray-500 dark:text-gray-400 px-1.5 py-0.5 font-medium bg-gradient-to-r from-gray-50 to-gray-100 dark:from-zinc-800 dark:to-zinc-700 rounded-full border border-gray-200 dark:border-zinc-600">
-                +{techStack.length - 3}
+                +{techStack.length - 4}
               </span>
             )}
           </motion.div>
@@ -228,7 +193,7 @@ const ProjectCard = ({
             className="flex gap-2 mt-auto pt-2 border-t border-gray-100 dark:border-zinc-700"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 + index * 0.1 }}
+            transition={{ delay: 0.8 + index * 0.1 }}
           >
             <motion.button 
               onClick={handleViewCode}

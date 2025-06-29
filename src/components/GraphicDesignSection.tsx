@@ -64,20 +64,25 @@ const GraphicDesignSection = () => {
     }
   ];
 
-  const allImages = [...DESIGN_IMAGES_1, ...DESIGN_IMAGES_2, ...DESIGN_IMAGES_3];
+  // Reduce to 15 images - 5 per column
+  const designImages = [
+    ...DESIGN_IMAGES_1.slice(0, 5),
+    ...DESIGN_IMAGES_2.slice(0, 5),
+    ...DESIGN_IMAGES_3.slice(0, 5)
+  ];
 
   const openModal = (imageUrl: string) => {
     setSelectedImage(imageUrl);
-    setSelectedIndex(allImages.indexOf(imageUrl));
+    setSelectedIndex(designImages.indexOf(imageUrl));
   };
 
   const navigateImage = (direction: 'prev' | 'next') => {
     const newIndex = direction === 'next' 
-      ? (selectedIndex + 1) % allImages.length
-      : (selectedIndex - 1 + allImages.length) % allImages.length;
+      ? (selectedIndex + 1) % designImages.length
+      : (selectedIndex - 1 + designImages.length) % designImages.length;
     
     setSelectedIndex(newIndex);
-    setSelectedImage(allImages[newIndex]);
+    setSelectedImage(designImages[newIndex]);
   };
 
   const scrollToContact = () => {
@@ -88,9 +93,9 @@ const GraphicDesignSection = () => {
   };
 
   return (
-    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden py-16 sm:py-20 lg:py-24">
+    <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden">
       {/* Header Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-50 py-16 sm:py-20 lg:py-24">
         <SectionTitle title="Graphic Design Portfolio" />
         
         <ContainerStagger className="relative place-self-center px-4 sm:px-6 pt-8 sm:pt-12 text-center">
@@ -152,16 +157,17 @@ const GraphicDesignSection = () => {
         </ContainerStagger>
       </div>
 
-      {/* Gallery Section - Fixed z-index hierarchy */}
-      <div className="relative z-30">
-        <ContainerScroll className="relative h-[180vh] sm:h-[200vh]">
-          <ContainerSticky className="h-screen sticky top-0">
-            <GalleryContainer className="gap-2 sm:gap-3 lg:gap-4 relative z-40">
-              <GalleryCol yRange={["-15%", "10%"]} className="mt-0 relative z-41">
-                {DESIGN_IMAGES_1.map((imageUrl, index) => (
+      {/* Gallery Section - Fixed z-index and proper layering */}
+      <div className="relative">
+        <ContainerScroll className="relative h-[120vh] sm:h-[140vh] lg:h-[160vh]">
+          <ContainerSticky className="h-screen sticky top-0 overflow-hidden">
+            <div className="absolute inset-0 bg-white dark:bg-zinc-900 z-10"></div>
+            <GalleryContainer className="gap-2 sm:gap-3 lg:gap-4 relative z-20 h-full">
+              <GalleryCol yRange={["-15%", "10%"]} className="mt-0 relative z-30">
+                {DESIGN_IMAGES_1.slice(0, 5).map((imageUrl, index) => (
                   <motion.img
                     key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-42"
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-40"
                     src={imageUrl}
                     alt={`Design work ${index + 1}`}
                     loading="lazy"
@@ -171,16 +177,16 @@ const GraphicDesignSection = () => {
                     style={{ 
                       backgroundColor: '#f8f9fa',
                       position: 'relative',
-                      zIndex: 42
+                      zIndex: 40
                     }}
                   />
                 ))}
               </GalleryCol>
-              <GalleryCol className="mt-[-20%] sm:mt-[-25%] hidden sm:flex relative z-41" yRange={["10%", "-5%"]}>
-                {DESIGN_IMAGES_2.map((imageUrl, index) => (
+              <GalleryCol className="mt-[-20%] sm:mt-[-25%] hidden sm:flex relative z-30" yRange={["10%", "-5%"]}>
+                {DESIGN_IMAGES_2.slice(0, 5).map((imageUrl, index) => (
                   <motion.img
                     key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-42"
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-40"
                     src={imageUrl}
                     alt={`Design work ${index + 6}`}
                     loading="lazy"
@@ -190,16 +196,16 @@ const GraphicDesignSection = () => {
                     style={{ 
                       backgroundColor: '#f8f9fa',
                       position: 'relative',
-                      zIndex: 42
+                      zIndex: 40
                     }}
                   />
                 ))}
               </GalleryCol>
-              <GalleryCol yRange={["-10%", "10%"]} className="mt-0 hidden lg:flex relative z-41">
-                {DESIGN_IMAGES_3.map((imageUrl, index) => (
+              <GalleryCol yRange={["-10%", "10%"]} className="mt-0 hidden lg:flex relative z-30">
+                {DESIGN_IMAGES_3.slice(0, 5).map((imageUrl, index) => (
                   <motion.img
                     key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-42"
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-40"
                     src={imageUrl}
                     alt={`Design work ${index + 11}`}
                     loading="lazy"
@@ -209,7 +215,7 @@ const GraphicDesignSection = () => {
                     style={{ 
                       backgroundColor: '#f8f9fa',
                       position: 'relative',
-                      zIndex: 42
+                      zIndex: 40
                     }}
                   />
                 ))}
@@ -262,7 +268,7 @@ const GraphicDesignSection = () => {
                 
                 {/* Image Counter */}
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm">
-                  {selectedIndex + 1} / {allImages.length}
+                  {selectedIndex + 1} / {designImages.length}
                 </div>
               </div>
             )}
