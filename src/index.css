@@ -93,6 +93,8 @@
     margin: 0;
     padding-top: 0;
     padding-bottom: 0;
+    position: relative;
+    isolation: isolate;
   }
 
   .container {
@@ -525,6 +527,21 @@ a, button, [role="button"], input, select, textarea {
 #graphics {
   margin-top: 0 !important;
   padding-top: 4rem !important;
+  position: relative;
+  z-index: 10;
+  isolation: isolate;
+}
+
+#about {
+  position: relative;
+  z-index: 5;
+  isolation: isolate;
+}
+
+#projects {
+  position: relative;
+  z-index: 6;
+  isolation: isolate;
 }
 
 @media (min-width: 640px) {
@@ -539,74 +556,18 @@ a, button, [role="button"], input, select, textarea {
   }
 }
 
-/* Additional fixes for gallery and text overflow */
-#graphics {
+/* Gallery specific fixes */
+.gallery-container {
   position: relative;
-  z-index: 1;
+  z-index: 15;
+  isolation: isolate;
 }
 
-#graphics .gallery-container {
+.gallery-container img {
   position: relative;
-  z-index: 10;
-}
-
-/* Ensure proper text sizing on small screens */
-@media (max-width: 640px) {
-  .skill-category h3 {
-    font-size: 1rem !important;
-    line-height: 1.25 !important;
-  }
-  
-  .skill-category span {
-    font-size: 0.75rem !important;
-    padding: 0.25rem 0.5rem !important;
-  }
-  
-  .project-card h3 {
-    font-size: 1.125rem !important;
-    line-height: 1.375 !important;
-  }
-  
-  .project-card p {
-    font-size: 0.875rem !important;
-    line-height: 1.5 !important;
-  }
-}
-
-/* Smooth scrolling improvements */
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
-}
-
-/* Gallery z-index fixes */
-.gallery-scroll-container {
-  position: relative;
-  z-index: 10;
-}
-
-.gallery-sticky-container {
-  position: sticky;
-  z-index: 10;
-}
-
-/* Prevent background overlap */
-section {
-  position: relative;
-  z-index: 1;
-}
-
-section#graphics {
-  z-index: 2;
-}
-
-/* Navbar improvements */
-.tubelight-navbar {
-  z-index: 50;
-}
-
-.tubelight-navbar button {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 20;
+  isolation: isolate;
+  background-color: #f8f9fa;
 }
 
 /* Mobile gallery improvements */
@@ -618,6 +579,19 @@ section#graphics {
   .gallery-col img {
     aspect-ratio: 3/4 !important;
     border-radius: 0.75rem !important;
+  }
+
+  #graphics .gallery-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  #graphics .gallery-col {
+    display: flex !important;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0 !important;
   }
 }
 

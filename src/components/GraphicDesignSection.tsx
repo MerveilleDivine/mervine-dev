@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/animated-gallery";
 import SectionTitle from './SectionTitle';
 
-// Reduced to 15 high-quality design images
+// 15 high-quality design images
 const DESIGN_IMAGES_1 = [
   "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
   "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=80",
@@ -90,7 +90,7 @@ const GraphicDesignSection = () => {
   return (
     <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden py-16 sm:py-20 lg:py-24">
       {/* Header Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-30">
         <SectionTitle title="Graphic Design Portfolio" />
         
         <ContainerStagger className="relative place-self-center px-4 sm:px-6 pt-8 sm:pt-12 text-center">
@@ -140,7 +140,7 @@ const GraphicDesignSection = () => {
             ))}
           </ContainerAnimated>
 
-          <ContainerAnimated className="flex justify-center mb-8 sm:mb-12">
+          <ContainerAnimated className="flex justify-center mb-12 sm:mb-16">
             <Button 
               onClick={scrollToContact}
               className="gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[56px] touch-manipulation"
@@ -152,50 +152,62 @@ const GraphicDesignSection = () => {
         </ContainerStagger>
       </div>
 
-      {/* Gallery Section - Reduced height and improved z-index */}
-      <div className="relative z-10">
-        <ContainerScroll className="relative h-[200vh] sm:h-[250vh]">
-          <ContainerSticky className="h-screen">
+      {/* Gallery Section - Fixed z-index and improved visibility */}
+      <div className="relative z-20 bg-transparent">
+        <ContainerScroll className="relative h-[180vh] sm:h-[200vh]">
+          <ContainerSticky className="h-screen sticky top-0">
             <GalleryContainer className="gap-2 sm:gap-3 lg:gap-4">
-              <GalleryCol yRange={["-10%", "5%"]} className="mt-0">
+              <GalleryCol yRange={["-15%", "10%"]} className="mt-0">
                 {DESIGN_IMAGES_1.map((imageUrl, index) => (
                   <motion.img
                     key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-10"
                     src={imageUrl}
                     alt={`Design work ${index + 1}`}
                     loading="lazy"
                     onClick={() => openModal(imageUrl)}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
+                    style={{ 
+                      backgroundColor: '#f8f9fa',
+                      isolation: 'isolate'
+                    }}
                   />
                 ))}
               </GalleryCol>
-              <GalleryCol className="mt-[-15%] sm:mt-[-20%] hidden sm:flex" yRange={["5%", "0%"]}>
+              <GalleryCol className="mt-[-20%] sm:mt-[-25%] hidden sm:flex" yRange={["10%", "-5%"]}>
                 {DESIGN_IMAGES_2.map((imageUrl, index) => (
                   <motion.img
                     key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-10"
                     src={imageUrl}
                     alt={`Design work ${index + 1}`}
                     loading="lazy"
                     onClick={() => openModal(imageUrl)}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
+                    style={{ 
+                      backgroundColor: '#f8f9fa',
+                      isolation: 'isolate'
+                    }}
                   />
                 ))}
               </GalleryCol>
-              <GalleryCol yRange={["-5%", "5%"]} className="mt-0 hidden lg:flex">
+              <GalleryCol yRange={["-10%", "10%"]} className="mt-0 hidden lg:flex">
                 {DESIGN_IMAGES_3.map((imageUrl, index) => (
                   <motion.img
                     key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
+                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-10"
                     src={imageUrl}
                     alt={`Design work ${index + 1}`}
                     loading="lazy"
                     onClick={() => openModal(imageUrl)}
                     whileHover={{ scale: 1.02 }}
                     transition={{ duration: 0.3 }}
+                    style={{ 
+                      backgroundColor: '#f8f9fa',
+                      isolation: 'isolate'
+                    }}
                   />
                 ))}
               </GalleryCol>

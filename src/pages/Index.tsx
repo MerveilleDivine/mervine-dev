@@ -137,8 +137,8 @@ const Index = () => {
         <HeroScrollAnimation />
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
+      {/* About Section - Added proper spacing */}
+      <section id="about" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4 mt-8 sm:mt-12 lg:mt-16">
         <div className="container mx-auto">
           <SectionTitle title={t('about.title')} />
           
@@ -168,8 +168,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="py-8 sm:py-12 lg:py-16 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4">
+      {/* Projects Section - Added proper spacing */}
+      <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4 mt-8 sm:mt-12 lg:mt-16">
         <div className="container mx-auto">
           <SectionTitle title={t('projects.things_built')} />
           
@@ -183,7 +183,7 @@ const Index = () => {
             {projects.map((project, index) => (
               <motion.div 
                 key={project.title} 
-                className="h-[400px] sm:h-[450px] lg:h-[500px]"
+                className="h-[380px] sm:h-[400px] lg:h-[420px]"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
