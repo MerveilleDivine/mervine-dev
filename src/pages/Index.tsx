@@ -29,17 +29,7 @@ const Index = () => {
       githubUrl: 'https://github.com/MerveilleDivine/spendwise-ai',
       liveUrl: 'https://spendwise-ai-seven.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
-      category: 'AI',
-      features: [
-        'AI Spending Pattern Analysis',
-        'Predictive Financial Modeling', 
-        'Smart Budget Recommendations',
-        'Receipt OCR & Auto-Categorization',
-        'Goal-Based Savings Plans',
-        'Real-time Expense Tracking',
-        'Financial Health Scoring',
-        'Personalized Coaching Tips'
-      ]
+      category: 'AI'
     },
     {
       title: 'Roomsy',
@@ -48,17 +38,7 @@ const Index = () => {
       githubUrl: 'https://github.com/MerveilleDivine/roomsy',
       liveUrl: 'https://roomsy-nine.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
-      category: 'Social',
-      features: [
-        'Smart Compatibility Matching',
-        'Real-time Secure Messaging',
-        'Advanced Profile Verification',
-        'Location-Based Filtering',
-        'Budget & Lifestyle Matching',
-        'Photo & Video Tours',
-        'Background Check Integration',
-        'Mobile-First Design'
-      ]
+      category: 'Social'
     },
     {
       title: 'PlanStack',
@@ -67,17 +47,7 @@ const Index = () => {
       githubUrl: 'https://github.com/MerveilleDivine/planstack',
       liveUrl: 'https://planstack-gray.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
-      category: 'Productivity',
-      features: [
-        'Drag & Drop Kanban Boards',
-        'Real-time Team Collaboration',
-        'Advanced Task Dependencies',
-        'Time Tracking & Analytics',
-        'Custom Workflow Templates',
-        'Role-Based Permissions',
-        'Integration Webhooks',
-        'Mobile Responsive Design'
-      ]
+      category: 'Productivity'
     },
     {
       title: 'QuickQuote',
@@ -86,42 +56,32 @@ const Index = () => {
       githubUrl: 'https://github.com/MerveilleDivine/quickquote',
       liveUrl: 'https://quickquote-beta.vercel.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
-      category: 'AI',
-      features: [
-        'AI-Enhanced Proposal Writing',
-        'Professional PDF Generation',
-        'Dynamic Cost Calculations',
-        'Client Management System',
-        'Template Library & Customization',
-        'E-signature Integration',
-        'Payment Processing',
-        'Analytics & Reporting'
-      ]
+      category: 'AI'
     }
   ];
 
   // Skills categories with consistent colors
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: t('skills.frontend'),
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
       color: "#7E69AB", 
       icon: <Laptop size={20} />
     },
     {
-      title: "Backend Development",
+      title: t('skills.backend'),
       skills: ['Node.js', 'Express', 'REST API', 'Authentication', 'Authorization'],
       color: "#7E69AB",
       icon: <Server size={20} />
     },
     {
-      title: "Database Management",
+      title: t('skills.database'),
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling'],
       color: "#7E69AB",
       icon: <Database size={20} />
     },
     {
-      title: "Tools & Others",
+      title: t('skills.tools'),
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'Agile', 'Problem Solving'],
       color: "#7E69AB",
       icon: <Code size={20} />
@@ -137,9 +97,9 @@ const Index = () => {
         <HeroScrollAnimation />
       </section>
 
-      {/* About Section - Added significant spacing from hero */}
-      <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4 mt-32 sm:mt-40 lg:mt-48">
-        <div className="container mx-auto">
+      {/* About Section - Proper spacing from hero */}
+      <section id="about" className="relative bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 overflow-hidden" style={{ marginTop: '120px', paddingTop: '120px', paddingBottom: '120px' }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle title={t('about.title')} />
           
           <motion.div 
@@ -168,10 +128,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section - Added significant spacing for dark mode */}
-      <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4 mt-32 sm:mt-40 lg:mt-48">
-        <div className="container mx-auto">
-          <SectionTitle title={t('projects.things_built')} />
+      {/* Projects Section - Proper spacing for dark mode */}
+      <section id="projects" className="relative bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 overflow-hidden" style={{ marginTop: '120px', paddingTop: '120px', paddingBottom: '120px' }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle title={t('projects.title')} />
           
           <motion.div 
             initial={{ opacity: 0, y: 40 }}

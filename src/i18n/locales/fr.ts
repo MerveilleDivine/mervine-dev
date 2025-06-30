@@ -21,7 +21,7 @@ const frTranslation = {
   "about.p2": "Je suis passionné par l'apprentissage continu, le travail collaboratif et l'utilisation de la technologie pour créer un impact positif. Consultez mon travail et faites-moi savoir ce que nous pouvons réaliser ensemble !",
   
   // Projects section
-  "projects.title": "Mes Projets",
+  "projects.title": "Quelques projets que j'ai réalisés",
   "projects.things_built": "Quelques projets que j'ai réalisés",
   "projects.more": "plus",
   "projects.view_code": "Voir le code",
@@ -34,6 +34,25 @@ const frTranslation = {
   
   // Skills section
   "skills.title": "Mes Compétences",
+  "skills.frontend": "Développement Frontend",
+  "skills.backend": "Développement Backend",
+  "skills.database": "Gestion de Base de Données",
+  "skills.tools": "Outils et Autres",
+  
+  // Graphics section
+  "graphics.title": "Portfolio de Design Graphique",
+  "graphics.creative": "Solutions Visuelles",
+  "graphics.visual_solutions": "Créatives",
+  "graphics.drive_results": "Qui Donnent des Résultats",
+  "graphics.description": "De l'identité de marque aux graphiques numériques, je crée des designs visuels convaincants qui communiquent votre message efficacement et laissent des impressions durables.",
+  "graphics.brand_identity": "Identité de Marque",
+  "graphics.brand_identity_desc": "Packages d'identité de marque complets incluant logos, schémas de couleurs et directives visuelles.",
+  "graphics.print_design": "Design d'Impression",
+  "graphics.print_design_desc": "Matériaux d'impression professionnels des cartes de visite aux affichages grand format.",
+  "graphics.digital_graphics": "Graphiques Numériques",
+  "graphics.digital_graphics_desc": "Graphiques web, éléments de médias sociaux et matériaux de marketing numérique.",
+  "graphics.book_consultation": "Réserver une Consultation Design",
+  "graphics.portfolio_image": "Image du Portfolio de Design",
   
   // Resume section
   "resume.download": "Télécharger CV",

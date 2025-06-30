@@ -3,6 +3,7 @@
 
 import { useScroll, useTransform, motion, MotionValue } from 'motion/react';
 import React, { useRef, forwardRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Button } from '@/components/ui/button';
 
 interface SectionProps {
@@ -10,8 +11,10 @@ interface SectionProps {
 }
 
 const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
+  const { t } = useTranslation();
   const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
   const rotate = useTransform(scrollYProgress, [0, 1], [0, -5]);
+  
   return (
     <motion.section
       style={{ scale, rotate }}
@@ -32,7 +35,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <span className="bg-gradient-to-r from-primary via-purple-600 to-secondary bg-clip-text text-transparent">
-            Hi, I'm Mervine
+            {t('hero.greeting') || 'Hi, I\'m Mervine'}
           </span>
         </motion.h1>
         
@@ -42,7 +45,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          I build smart, meaningful digital experiences
+          {t('hero.title') || 'I build smart, meaningful digital experiences'}
         </motion.p>
 
         {/* Scroll Indicator - Positioned after text with proper spacing */}
@@ -53,7 +56,9 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
           transition={{ delay: 1 }}
         >
           <div className="flex flex-col items-center text-gray-400">
-            <span className="text-sm sm:text-base mb-3 sm:mb-4">Scroll to explore</span>
+            <span className="text-sm sm:text-base mb-3 sm:mb-4">
+              {t('hero.scroll') || 'Scroll to explore'}
+            </span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
@@ -73,6 +78,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
 };
 
 const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
+  const { t } = useTranslation();
   const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1]);
   const rotate = useTransform(scrollYProgress, [0, 1], [5, 0]);
 
@@ -97,9 +103,9 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Building Digital Excellence{" "}
+              {t('hero.building') || 'Building Digital Excellence'}{" "}
               <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-300 font-light mt-2 sm:mt-4">
-                Through Innovation & Design
+                {t('hero.innovation') || 'Through Innovation & Design'}
               </span>
             </motion.h1>
             
@@ -114,14 +120,14 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
                 className="bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[48px] sm:min-h-[56px] touch-manipulation"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Dev Portfolio
+                {t('hero.dev_portfolio') || 'Dev Portfolio'}
               </Button>
               <Button 
                 variant="outline"
                 className="border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[48px] sm:min-h-[56px] touch-manipulation"
                 onClick={() => document.getElementById('graphics')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Designer Portfolio
+                {t('hero.designer_portfolio') || 'Designer Portfolio'}
               </Button>
             </motion.div>
           </div>
