@@ -137,8 +137,8 @@ const Index = () => {
         <HeroScrollAnimation />
       </section>
 
-      {/* About Section - Added significant spacing from hero */}
-      <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4 mt-32 sm:mt-40 lg:mt-48">
+      {/* About Section - Proper spacing from hero */}
+      <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4" style={{ marginTop: '90px' }}>
         <div className="container mx-auto">
           <SectionTitle title={t('about.title')} />
           
@@ -168,8 +168,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section - Added significant spacing for dark mode */}
-      <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4 mt-32 sm:mt-40 lg:mt-48">
+      {/* Projects Section - Proper spacing for separation */}
+      <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4" style={{ marginTop: '90px' }}>
         <div className="container mx-auto">
           <SectionTitle title={t('projects.things_built')} />
           

@@ -52,7 +52,23 @@ const frTranslation = {
   "footer.madewith": "Fait avec",
 
   // Timeline
-  "timeline.title": "Mon parcours professionnel"
+  "timeline.title": "Mon parcours professionnel",
+
+  // Graphics/Design section
+  "graphics.title": "Portfolio de Design Graphique",
+  "graphics.creative": "Solutions",
+  "graphics.visual_solutions": "Visuelles Créatives",
+  "graphics.drive_results": "Qui Génèrent des Résultats",
+  "graphics.description": "De l'identité de marque aux graphiques numériques, je crée des designs visuels convaincants qui communiquent efficacement votre message et laissent des impressions durables.",
+  "graphics.services.brand_identity": "Identité de Marque",
+  "graphics.services.brand_identity_desc": "Packages complets d'identité de marque incluant logos, schémas de couleurs et directives visuelles.",
+  "graphics.services.print_design": "Design d'Impression",
+  "graphics.services.print_design_desc": "Matériel d'impression professionnel, des cartes de visite aux affichages grand format.",
+  "graphics.services.digital_graphics": "Graphiques Numériques",
+  "graphics.services.digital_graphics_desc": "Graphiques web, ressources pour réseaux sociaux et matériel de marketing numérique.",
+  "graphics.book_consultation": "Réserver une Consultation Design",
+  "graphics.portfolio_gallery": "Galerie de Portfolio",
+  "graphics.interactive_gallery": "Explorez mon travail créatif dans cette galerie interactive 3D. Cliquez et faites glisser pour naviguer."
 };
 
 export default frTranslation;

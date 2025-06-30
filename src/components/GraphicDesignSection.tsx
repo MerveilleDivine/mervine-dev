@@ -1,89 +1,36 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Button } from "@/components/ui/button";
-import { VideoIcon, Palette, Layers, Zap, X, ChevronLeft, ChevronRight } from 'lucide-react';
-import { Dialog, DialogContent, DialogClose, DialogTitle } from "@/components/ui/dialog";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
+import { VideoIcon, Palette, Layers, Zap } from 'lucide-react';
 import { 
   ContainerAnimated,
-  ContainerScroll,
   ContainerStagger,
-  ContainerSticky,
-  GalleryCol,
-  GalleryContainer 
 } from "@/components/ui/animated-gallery";
 import SectionTitle from './SectionTitle';
-
-// 15 high-quality design images - distributed across 3 columns
-const DESIGN_IMAGES_1 = [
-  "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1572044162444-ad60f128bdea?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&auto=format&fit=crop&q=80",
-];
-
-const DESIGN_IMAGES_2 = [
-  "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1559028006-448665bd7c7f?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1634942537034-2531766767d1?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?w=800&auto=format&fit=crop&q=80",
-];
-
-const DESIGN_IMAGES_3 = [
-  "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1579952363873-27d3bfad9c0d?w=800&auto=format&fit=crop&q=80",
-  "https://images.unsplash.com/photo-1596003906949-67221c37965c?w=800&auto=format&fit=crop&q=80",
-];
+import { ThreeDPhotoCarouselDemo } from "@/components/ui/demo";
 
 const GraphicDesignSection = () => {
   const { t } = useTranslation();
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
   const designServices = [
     {
       icon: <Palette size={24} />,
-      title: "Brand Identity",
-      description: "Complete brand identity packages including logos, color schemes, and visual guidelines."
+      title: t('graphics.services.brand_identity'),
+      description: t('graphics.services.brand_identity_desc')
     },
     {
       icon: <Layers size={24} />,
-      title: "Print Design",
-      description: "Professional print materials from business cards to large format displays."
+      title: t('graphics.services.print_design'),
+      description: t('graphics.services.print_design_desc')
     },
     {
       icon: <Zap size={24} />,
-      title: "Digital Graphics",
-      description: "Web graphics, social media assets, and digital marketing materials."
+      title: t('graphics.services.digital_graphics'),
+      description: t('graphics.services.digital_graphics_desc')
     }
   ];
-
-  // Reduce to 15 images - 5 per column
-  const designImages = [
-    ...DESIGN_IMAGES_1.slice(0, 5),
-    ...DESIGN_IMAGES_2.slice(0, 5),
-    ...DESIGN_IMAGES_3.slice(0, 5)
-  ];
-
-  const openModal = (imageUrl: string) => {
-    setSelectedImage(imageUrl);
-    setSelectedIndex(designImages.indexOf(imageUrl));
-  };
-
-  const navigateImage = (direction: 'prev' | 'next') => {
-    const newIndex = direction === 'next' 
-      ? (selectedIndex + 1) % designImages.length
-      : (selectedIndex - 1 + designImages.length) % designImages.length;
-    
-    setSelectedIndex(newIndex);
-    setSelectedImage(designImages[newIndex]);
-  };
 
   const scrollToContact = () => {
     const contactElement = document.getElementById('contact');
@@ -95,29 +42,28 @@ const GraphicDesignSection = () => {
   return (
     <section id="graphics" className="relative bg-white dark:bg-zinc-900 overflow-hidden">
       {/* Header Section */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-50 py-16 sm:py-20 lg:py-24">
-        <SectionTitle title="Graphic Design Portfolio" />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 sm:py-20 lg:py-24">
+        <SectionTitle title={t('graphics.title')} />
         
         <ContainerStagger className="relative place-self-center px-4 sm:px-6 pt-8 sm:pt-12 text-center">
           <ContainerAnimated>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light mb-4 sm:mb-6">
-              Creative{" "}
+              {t('graphics.creative')}{" "}
               <span className="font-light text-primary">
-                Visual Solutions
+                {t('graphics.visual_solutions')}
               </span>
             </h2>
           </ContainerAnimated>
           
           <ContainerAnimated>
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-6 sm:mb-8">
-              That Drive Results
+              {t('graphics.drive_results')}
             </h3>
           </ContainerAnimated>
 
           <ContainerAnimated className="my-8 sm:my-10">
             <p className="text-base sm:text-lg leading-relaxed tracking-tight text-muted-foreground max-w-3xl mx-auto">
-              From brand identity to digital graphics, I create compelling visual designs 
-              that communicate your message effectively and leave lasting impressions.
+              {t('graphics.description')}
             </p>
           </ContainerAnimated>
 
@@ -151,130 +97,41 @@ const GraphicDesignSection = () => {
               className="gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[56px] touch-manipulation"
             >
               <VideoIcon className="size-5" />
-              Book Design Consultation
+              {t('graphics.book_consultation')}
             </Button>
           </ContainerAnimated>
         </ContainerStagger>
       </div>
 
-      {/* Gallery Section - Fixed z-index and proper layering */}
-      <div className="relative">
-        <ContainerScroll className="relative h-[120vh] sm:h-[140vh] lg:h-[160vh]">
-          <ContainerSticky className="h-screen sticky top-0 overflow-hidden">
-            <div className="absolute inset-0 bg-white dark:bg-zinc-900 z-10"></div>
-            <GalleryContainer className="gap-2 sm:gap-3 lg:gap-4 relative z-20 h-full">
-              <GalleryCol yRange={["-15%", "10%"]} className="mt-0 relative z-30">
-                {DESIGN_IMAGES_1.slice(0, 5).map((imageUrl, index) => (
-                  <motion.img
-                    key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-40"
-                    src={imageUrl}
-                    alt={`Design work ${index + 1}`}
-                    loading="lazy"
-                    onClick={() => openModal(imageUrl)}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ 
-                      backgroundColor: '#f8f9fa',
-                      position: 'relative',
-                      zIndex: 40
-                    }}
-                  />
-                ))}
-              </GalleryCol>
-              <GalleryCol className="mt-[-20%] sm:mt-[-25%] hidden sm:flex relative z-30" yRange={["10%", "-5%"]}>
-                {DESIGN_IMAGES_2.slice(0, 5).map((imageUrl, index) => (
-                  <motion.img
-                    key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-40"
-                    src={imageUrl}
-                    alt={`Design work ${index + 6}`}
-                    loading="lazy"
-                    onClick={() => openModal(imageUrl)}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ 
-                      backgroundColor: '#f8f9fa',
-                      position: 'relative',
-                      zIndex: 40
-                    }}
-                  />
-                ))}
-              </GalleryCol>
-              <GalleryCol yRange={["-10%", "10%"]} className="mt-0 hidden lg:flex relative z-30">
-                {DESIGN_IMAGES_3.slice(0, 5).map((imageUrl, index) => (
-                  <motion.img
-                    key={index}
-                    className="aspect-[3/4] block h-auto max-h-full w-full rounded-xl object-cover shadow-xl cursor-pointer transition-all duration-300 hover:shadow-2xl hover:scale-[1.02] relative z-40"
-                    src={imageUrl}
-                    alt={`Design work ${index + 11}`}
-                    loading="lazy"
-                    onClick={() => openModal(imageUrl)}
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ duration: 0.3 }}
-                    style={{ 
-                      backgroundColor: '#f8f9fa',
-                      position: 'relative',
-                      zIndex: 40
-                    }}
-                  />
-                ))}
-              </GalleryCol>
-            </GalleryContainer>
-          </ContainerSticky>
-        </ContainerScroll>
-      </div>
-
-      {/* Premium Image Modal */}
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-[95vw] sm:max-w-6xl w-full h-[95vh] p-0 bg-black/95 backdrop-blur-xl border-none rounded-2xl overflow-hidden">
-          <VisuallyHidden>
-            <DialogTitle>Design Portfolio Image</DialogTitle>
-          </VisuallyHidden>
+      {/* 3D Carousel Gallery Section */}
+      <div className="relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-800 dark:to-zinc-900">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-gray-800 dark:text-gray-200">
+              {t('graphics.portfolio_gallery')}
+            </h3>
+            <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              {t('graphics.interactive_gallery')}
+            </p>
+          </motion.div>
           
-          <div className="relative w-full h-full flex items-center justify-center">
-            {/* Close Button */}
-            <DialogClose className="absolute top-6 right-6 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm">
-              <X className="h-6 w-6 text-white" />
-            </DialogClose>
-
-            {/* Navigation Buttons */}
-            <button
-              onClick={() => navigateImage('prev')}
-              className="absolute left-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
-            >
-              <ChevronLeft className="h-6 w-6 text-white" />
-            </button>
-
-            <button
-              onClick={() => navigateImage('next')}
-              className="absolute right-6 top-1/2 -translate-y-1/2 z-50 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
-            >
-              <ChevronRight className="h-6 w-6 text-white" />
-            </button>
-
-            {/* Image Container */}
-            {selectedImage && (
-              <div className="relative w-full h-full flex items-center justify-center p-6 sm:p-12">
-                <motion.img
-                  key={selectedImage}
-                  src={selectedImage}
-                  alt="Selected design work"
-                  className="max-w-full max-h-full object-contain rounded-xl shadow-2xl"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
-                
-                {/* Image Counter */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white text-sm">
-                  {selectedIndex + 1} / {designImages.length}
-                </div>
-              </div>
-            )}
-          </div>
-        </DialogContent>
-      </Dialog>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex justify-center"
+          >
+            <ThreeDPhotoCarouselDemo />
+          </motion.div>
+        </div>
+      </div>
     </section>
   );
 };
