@@ -79,8 +79,8 @@ const designImages = [
 ];
 
 const duration = 0.15
-const transition = { duration, ease: [0.32, 0.72, 0, 1] }
-const transitionOverlay = { duration: 0.5, ease: [0.32, 0.72, 0, 1] }
+const transition = { duration, ease: "easeOut" as const }
+const transitionOverlay = { duration: 0.5, ease: "easeOut" as const }
 
 const Carousel = memo(
   ({
@@ -216,7 +216,7 @@ function ThreeDPhotoCarousel() {
               transition={{
                 delay: 0.5,
                 duration: 0.5,
-                ease: [0.25, 0.1, 0.25, 1],
+                ease: "easeOut",
               }}
               style={{
                 willChange: "transform",
@@ -225,7 +225,7 @@ function ThreeDPhotoCarousel() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[500px] w-full overflow-hidden">
+      <div className="relative h-[350px] sm:h-[450px] md:h-[500px] lg:h-[550px] w-full overflow-hidden">
         <Carousel
           handleClick={handleClick}
           controls={controls}
