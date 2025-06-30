@@ -79,7 +79,7 @@ const designImages = [
 ];
 
 const duration = 0.15
-const transition = { duration, ease: [0.32, 0.72, 0, 1], filter: "blur(4px)" }
+const transition = { duration, ease: [0.32, 0.72, 0, 1] }
 const transitionOverlay = { duration: 0.5, ease: [0.32, 0.72, 0, 1] }
 
 const Carousel = memo(
@@ -158,9 +158,9 @@ const Carousel = memo(
                 alt={`Design work ${i + 1}`}
                 layoutId={`img-${imgUrl}`}
                 className="pointer-events-none w-full rounded-xl object-cover aspect-square shadow-xl hover:shadow-2xl transition-all duration-300"
-                initial={{ filter: "blur(4px)" }}
+                initial={{ opacity: 0 }}
                 layout="position"
-                animate={{ filter: "blur(0px)" }}
+                animate={{ opacity: 1 }}
                 transition={transition}
               />
             </motion.div>
@@ -225,7 +225,7 @@ function ThreeDPhotoCarousel() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[500px] w-full overflow-hidden">
+      <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-[500px] w-full overflow-hidden">
         <Carousel
           handleClick={handleClick}
           controls={controls}

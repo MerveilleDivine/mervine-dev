@@ -102,21 +102,18 @@
     @apply mx-auto max-w-7xl px-3 sm:px-4;
   }
 
-  /* Premium Image Optimization */
   img {
     @apply max-w-full h-auto;
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
 
-  /* Touch-friendly interactions */
   button, [role="button"], input[type="button"], input[type="submit"] {
     @apply touch-manipulation;
     min-height: 44px;
     min-width: 44px;
   }
 
-  /* Improve tap targets on mobile */
   @media (max-width: 768) {
     button, [role="button"], input[type="button"], input[type="submit"] {
       min-height: 48px;
@@ -187,12 +184,10 @@
     }
   }
 
-  /* Premium Glass Morphism Effect */
   .glass {
     @apply backdrop-blur-md bg-white/10 border border-white/20 shadow-lg;
   }
 
-  /* Enhanced Card Hover Effects */
   .premium-card {
     @apply transition-all duration-500 hover:shadow-2xl hover:-translate-y-2;
   }
@@ -201,7 +196,6 @@
     box-shadow: 0 25px 50px -12px rgba(126, 105, 171, 0.25);
   }
 
-  /* Gradient Text Animation */
   .gradient-text {
     @apply bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent;
     background-size: 200% 200%;
@@ -213,7 +207,6 @@
     50% { background-position: 100% 50%; }
   }
 
-  /* Premium Button Animations */
   .btn-premium {
     @apply relative overflow-hidden transition-all duration-300 touch-manipulation;
     min-height: 48px;
@@ -230,179 +223,62 @@
     transform: translateX(100%) skewX(-15deg);
   }
 
-  /* Better shadow for luxury feel */
   .shadow-3xl {
     box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
   }
 }
 
-/* Premium Mobile Optimizations */
-@media (max-width: 640px) {
+/* Enhanced Back to Top and Chat Widget Positioning */
+@media (min-width: 1024px) {
   .back-to-top {
-    bottom: 100px;
-    right: 12px;
-    min-height: 48px;
-    min-width: 48px;
-  }
-  
-  .container {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-  
-  h1 {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
-  }
-  
-  h2 {
-    font-size: 1.75rem !important;
-    line-height: 1.3 !important;
-  }
-  
-  p {
-    font-size: 0.95rem !important;
-    line-height: 1.6 !important;
-  }
-
-  /* Improve button accessibility on mobile */
-  button, [role="button"] {
-    min-height: 48px !important;
-    min-width: 48px !important;
-    padding: 12px 16px !important;
-  }
-
-  /* Reduce motion on mobile for better performance */
-  .avatar-blob {
-    animation-duration: 15s;
+    bottom: 140px !important;
+    right: 24px !important;
+    z-index: 40;
   }
 }
 
-/* Ultra small devices - performance first */
-@media (max-width: 375px) {
-  .container {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  
-  h1 {
-    font-size: 1.75rem !important;
-  }
-  
-  h2 {
-    font-size: 1.5rem !important;
-  }
-
-  button, [role="button"] {
-    min-height: 44px !important;
-    min-width: 44px !important;
-    padding: 10px 14px !important;
-    font-size: 0.875rem !important;
+@media (min-width: 768px) and (max-width: 1023px) {
+  .back-to-top {
+    bottom: 120px !important;
+    right: 20px !important;
+    z-index: 40;
   }
 }
 
-/* Accessibility and Performance */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .avatar-blob {
-    animation: none !important;
+@media (max-width: 767px) {
+  .back-to-top {
+    bottom: 140px !important;
+    right: 16px !important;
+    z-index: 40;
   }
 }
 
-/* Premium Loading States */
-.loading-shimmer {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* Enhanced Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-800;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-primary/60 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-primary/80;
-}
-
-/* Remove white gaps and improve spacing */
-section + section {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-}
-
-/* Ensure proper z-index layering */
-.fixed {
-  z-index: 50;
-}
-
-/* Navigation should be above everything */
-nav, [role="navigation"] {
-  z-index: 100 !important;
-}
-
-/* Modal should be highest */
-[role="dialog"] {
-  z-index: 200 !important;
-}
-
-/* AI Chat Widget - Optimized positioning for all screen sizes */
+/* Enhanced AI Chat Widget */
 .chat-widget {
   position: fixed;
   z-index: 45;
   transition: all 0.3s ease;
 }
 
-/* Large screens - bottom right, avoiding back-to-top */
 @media (min-width: 1024px) {
   .chat-widget {
     bottom: 2rem;
     right: 2rem;
   }
-  
-  .back-to-top {
-    bottom: 2rem;
-    right: 6rem; /* Move left to avoid chat widget */
-  }
 }
 
-/* Medium screens - bottom right with spacing */
 @media (min-width: 768px) and (max-width: 1023px) {
   .chat-widget {
     bottom: 1.5rem;
     right: 1.5rem;
   }
-  
-  .back-to-top {
-    bottom: 1.5rem;
-    right: 5rem; /* Move left to avoid chat widget */
-  }
 }
 
-/* Small screens - slide-out panel from right */
 @media (max-width: 767px) {
   .chat-widget {
     bottom: auto;
     top: 50%;
-    right: -280px; /* Hidden by default */
+    right: -320px;
     transform: translateY(-50%);
     width: 320px;
     height: 500px;
@@ -412,10 +288,9 @@ nav, [role="navigation"] {
   }
   
   .chat-widget.open {
-    right: 0; /* Slide in when open */
+    right: 0;
   }
   
-  /* Chat toggle button for mobile */
   .chat-toggle-mobile {
     position: fixed;
     top: 50%;
@@ -438,11 +313,6 @@ nav, [role="navigation"] {
   .chat-toggle-mobile:hover {
     transform: translateY(-50%) scale(1.1);
     box-shadow: 0 6px 20px rgba(126, 105, 171, 0.4);
-  }
-  
-  .back-to-top {
-    bottom: 6rem; /* Move up to avoid navbar */
-    right: 1rem;
   }
 }
 
@@ -547,34 +417,41 @@ nav, [role="navigation"] {
   }
 }
 
-.project-card {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+/* Footer Enhancement to Avoid Navbar Clashes */
+footer {
+  position: relative;
+  z-index: 10;
+  padding-bottom: 120px !important;
 }
 
-.project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 16px rgba(126, 105, 171, 0.15);
+@media (max-width: 767px) {
+  footer {
+    padding-bottom: 100px !important;
+  }
 }
 
-.project-card-links a {
-  transition: opacity 0.2s ease;
-  min-height: 44px;
-  min-width: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Remove white gaps */
+section + section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
 }
 
-.project-card-links a:hover {
-  opacity: 0.75;
+.fixed {
+  z-index: 50;
 }
 
-/* Smooth scrolling */
+nav, [role="navigation"] {
+  z-index: 100 !important;
+}
+
+[role="dialog"] {
+  z-index: 200 !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Mobile-first footer and back to top */
 footer a, footer button {
   position: relative;
   z-index: 10;
@@ -586,12 +463,10 @@ footer a, footer button {
   justify-content: center;
 }
 
-/* Improve touch targets for all interactive elements */
 a, button, [role="button"], input, select, textarea {
   touch-action: manipulation;
 }
 
-/* Ensure proper spacing between sections */
 #graphics {
   position: relative;
   z-index: 10;
@@ -608,4 +483,98 @@ a, button, [role="button"], input, select, textarea {
   position: relative;
   z-index: 20;
   isolation: isolate;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+  }
+  
+  p {
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+  }
+
+  button, [role="button"] {
+    min-height: 48px !important;
+    min-width: 48px !important;
+    padding: 12px 16px !important;
+  }
+
+  .avatar-blob {
+    animation-duration: 15s;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  
+  h1 {
+    font-size: 1.75rem !important;
+  }
+  
+  h2 {
+    font-size: 1.5rem !important;
+  }
+
+  button, [role="button"] {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    padding: 10px 14px !important;
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .avatar-blob {
+    animation: none !important;
+  }
+}
+
+.loading-shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/60 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/80;
 }

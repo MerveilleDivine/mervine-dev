@@ -7,11 +7,9 @@ import ProjectCard from '../components/ProjectCard';
 import ContactForm from '../components/ContactForm';
 import ChatWidget from '../components/ChatWidget';
 import { TubelightNavbar } from '../components/TubelightNavbar';
-import { BackgroundAurora } from '../components/ui/background-aurora';
 import { Code, Database, Server, Laptop } from 'lucide-react';
 import { SocialDock } from '../components/SocialDock';
 import SectionTitle from '../components/SectionTitle';
-import { StarBorder } from '../components/ui/star-border';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
@@ -30,16 +28,6 @@ const Index = () => {
       liveUrl: 'https://spendwise-ai-seven.vercel.app',
       imageUrl: '/lovable-uploads/spendwise-mockup.png',
       category: 'AI',
-      features: [
-        'AI Spending Pattern Analysis',
-        'Predictive Financial Modeling', 
-        'Smart Budget Recommendations',
-        'Receipt OCR & Auto-Categorization',
-        'Goal-Based Savings Plans',
-        'Real-time Expense Tracking',
-        'Financial Health Scoring',
-        'Personalized Coaching Tips'
-      ]
     },
     {
       title: 'Roomsy',
@@ -49,16 +37,6 @@ const Index = () => {
       liveUrl: 'https://roomsy-nine.vercel.app',
       imageUrl: '/lovable-uploads/roomsy-mockup.png',
       category: 'Social',
-      features: [
-        'Smart Compatibility Matching',
-        'Real-time Secure Messaging',
-        'Advanced Profile Verification',
-        'Location-Based Filtering',
-        'Budget & Lifestyle Matching',
-        'Photo & Video Tours',
-        'Background Check Integration',
-        'Mobile-First Design'
-      ]
     },
     {
       title: 'PlanStack',
@@ -68,16 +46,6 @@ const Index = () => {
       liveUrl: 'https://planstack-gray.vercel.app',
       imageUrl: '/lovable-uploads/planstack-mockup.png',
       category: 'Productivity',
-      features: [
-        'Drag & Drop Kanban Boards',
-        'Real-time Team Collaboration',
-        'Advanced Task Dependencies',
-        'Time Tracking & Analytics',
-        'Custom Workflow Templates',
-        'Role-Based Permissions',
-        'Integration Webhooks',
-        'Mobile Responsive Design'
-      ]
     },
     {
       title: 'QuickQuote',
@@ -87,16 +55,6 @@ const Index = () => {
       liveUrl: 'https://quickquote-beta.vercel.app',
       imageUrl: '/lovable-uploads/quickquote-mockup.png',
       category: 'AI',
-      features: [
-        'AI-Enhanced Proposal Writing',
-        'Professional PDF Generation',
-        'Dynamic Cost Calculations',
-        'Client Management System',
-        'Template Library & Customization',
-        'E-signature Integration',
-        'Payment Processing',
-        'Analytics & Reporting'
-      ]
     }
   ];
 
@@ -138,7 +96,7 @@ const Index = () => {
       </section>
 
       {/* About Section - Proper spacing from hero */}
-      <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4" style={{ marginTop: '90px' }}>
+      <section id="about" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4" style={{ marginTop: '95px' }}>
         <div className="container mx-auto">
           <SectionTitle title={t('about.title')} />
           
@@ -169,7 +127,7 @@ const Index = () => {
       </section>
 
       {/* Projects Section - Proper spacing for separation */}
-      <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4" style={{ marginTop: '90px' }}>
+      <section id="projects" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4" style={{ marginTop: '95px' }}>
         <div className="container mx-auto">
           <SectionTitle title={t('projects.things_built')} />
           
@@ -183,7 +141,7 @@ const Index = () => {
             {projects.map((project, index) => (
               <motion.div 
                 key={project.title} 
-                className="h-[280px] sm:h-[300px] lg:h-[320px]"
+                className="h-[380px] sm:h-[420px] lg:h-[450px]"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -223,7 +181,7 @@ const Index = () => {
             {skillCategories.map((category, index) => (
               <motion.div 
                 key={index} 
-                className="h-[200px] sm:h-[220px] lg:h-[250px]"
+                className="h-[260px] sm:h-[280px] lg:h-[300px]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
