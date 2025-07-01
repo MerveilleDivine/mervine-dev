@@ -9,6 +9,36 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      analytics: {
+        Row: {
+          created_at: string
+          event_data: Json | null
+          event_type: string
+          id: string
+          ip_address: unknown | null
+          referrer: string | null
+          user_agent: string | null
+        }
+        Insert: {
+          created_at?: string
+          event_data?: Json | null
+          event_type: string
+          id?: string
+          ip_address?: unknown | null
+          referrer?: string | null
+          user_agent?: string | null
+        }
+        Update: {
+          created_at?: string
+          event_data?: Json | null
+          event_type?: string
+          id?: string
+          ip_address?: unknown | null
+          referrer?: string | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           created_at: string
@@ -30,6 +60,93 @@ export type Database = {
           id?: string
           message?: string
           name?: string
+        }
+        Relationships: []
+      }
+      projects: {
+        Row: {
+          category: string | null
+          created_at: string
+          description: string
+          display_order: number | null
+          features: string[] | null
+          github_url: string
+          id: string
+          image_url: string | null
+          is_featured: boolean | null
+          live_url: string
+          tech_stack: string[]
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          description: string
+          display_order?: number | null
+          features?: string[] | null
+          github_url: string
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          live_url: string
+          tech_stack: string[]
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          description?: string
+          display_order?: number | null
+          features?: string[] | null
+          github_url?: string
+          id?: string
+          image_url?: string | null
+          is_featured?: boolean | null
+          live_url?: string
+          tech_stack?: string[]
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      testimonials: {
+        Row: {
+          avatar_url: string | null
+          company: string | null
+          content: string
+          created_at: string
+          display_order: number | null
+          id: string
+          is_featured: boolean | null
+          name: string
+          rating: number | null
+          role: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          company?: string | null
+          content: string
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_featured?: boolean | null
+          name: string
+          rating?: number | null
+          role: string
+        }
+        Update: {
+          avatar_url?: string | null
+          company?: string | null
+          content?: string
+          created_at?: string
+          display_order?: number | null
+          id?: string
+          is_featured?: boolean | null
+          name?: string
+          rating?: number | null
+          role?: string
         }
         Relationships: []
       }

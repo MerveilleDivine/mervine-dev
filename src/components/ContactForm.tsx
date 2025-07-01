@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Mail, User, MessageSquare } from 'lucide-react';
 import { useToast } from '../hooks/use-toast';
 import { supabase } from '../integrations/supabase/client';
+import { useAnalytics } from '../hooks/useAnalytics';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -28,6 +29,7 @@ const formSchema = z.object({
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+  const { trackEvent } = useAnalytics();
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -41,7 +43,13 @@ const ContactForm = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setIsSubmitting(true);
-      console.log('Submitting form with values:', values);
+      console.log('Submitting contact form with values:', values);
+      
+      // Track analytics event
+      await trackEvent('contact_form', {
+        name: values.name,
+        email: values.email
+      });
       
       // First, insert the message into the Supabase database
       const { error: insertError } = await supabase
@@ -59,9 +67,9 @@ const ContactForm = () => {
       
       console.log('Message saved to database successfully');
       
-      // Then call the edge function to send an email
+      // Send email notifications
       try {
-        const response = await fetch('https://fiqpjsefbofwvbbvzrib.supabase.co/functions/v1/contact-email', {
+        const response = await fetch('https://fiqpjsefbofwvbbvzrib.supabase.co/functions/v1/send-notification-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -70,18 +78,16 @@ const ContactForm = () => {
           body: JSON.stringify(values)
         });
 
-        console.log('Edge function response status:', response.status);
+        console.log('Email notification response status:', response.status);
 
         if (!response.ok) {
           const errorData = await response.json();
-          console.error('Edge function error:', errorData);
-          // Don't throw here, as the message was saved successfully
+          console.error('Email notification error:', errorData);
         } else {
-          console.log('Email sent successfully');
+          console.log('Email notifications sent successfully');
         }
       } catch (emailError) {
-        console.error('Email sending failed:', emailError);
-        // Don't throw here, as the message was saved successfully
+        console.error('Email notification failed:', emailError);
       }
 
       toast({
