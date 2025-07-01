@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Sparkles } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 import { ThreeDPhotoCarouselDemo } from "@/components/ui/demo";
 import SectionTitle from './SectionTitle';
 
@@ -25,15 +25,15 @@ const GraphicDesignSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-8"
+          className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
-          <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed">
             Explore my creative design work showcasing visual storytelling, branding, and digital art.
           </p>
         </motion.div>
 
         {/* 3D Carousel Gallery Section */}
-        <div className="relative py-8 sm:py-12 lg:py-16">
+        <div className="relative py-12 sm:py-16 lg:py-20">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -45,30 +45,23 @@ const GraphicDesignSection = () => {
           </motion.div>
         </div>
 
-        {/* Book Consultation Button */}
+        {/* Professional Book Consultation Button */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="text-center mt-16 sm:mt-20 lg:mt-24"
         >
           <motion.button
             onClick={handleBookConsultation}
-            className="group relative bg-gradient-to-r from-primary via-primary/90 to-secondary text-white px-8 py-4 rounded-full font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-500 overflow-hidden"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
+            className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/20 hover:border-primary/30"
+            whileHover={{ scale: 1.02, y: -1 }}
+            whileTap={{ scale: 0.98 }}
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-            <div className="relative z-10 flex items-center gap-3">
-              <Calendar size={20} className="group-hover:rotate-12 transition-transform duration-300" />
-              <span>Book a Design Consultation</span>
-              <Sparkles size={20} className="group-hover:rotate-12 transition-transform duration-300" />
-            </div>
+            <Calendar size={20} className="transition-transform duration-300" />
+            <span>Book a Design Consultation</span>
           </motion.button>
-          <p className="text-gray-500 dark:text-gray-400 text-sm mt-4">
-            Let's discuss your creative vision and bring it to life
-          </p>
         </motion.div>
       </div>
     </section>
