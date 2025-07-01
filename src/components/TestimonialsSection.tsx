@@ -12,7 +12,7 @@ const TestimonialsSection = () => {
 
   if (isLoading) {
     return (
-      <section className="py-8 sm:py-12 lg:py-16 bg-gray-50 dark:bg-zinc-950 px-4">
+      <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
         <div className="container mx-auto">
           <SectionTitle title="What People Say" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
@@ -41,7 +41,7 @@ const TestimonialsSection = () => {
   }
 
   return (
-    <section className="py-8 sm:py-12 lg:py-16 bg-gray-50 dark:bg-zinc-950 px-4">
+    <section className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
       <div className="container mx-auto">
         <SectionTitle title="What People Say" />
         
