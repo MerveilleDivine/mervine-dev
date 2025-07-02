@@ -13,7 +13,7 @@ import SectionTitle from '../components/SectionTitle';
 import SkillCategory from '../components/SkillCategory';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
-import PremiumHero from '../components/PremiumHero';
+import HeroScrollAnimation from '../components/ui/hero-scroll-animation';
 import GraphicDesignSection from '../components/GraphicDesignSection';
 import { useFeaturedProjects } from '../hooks/useProjects';
 import { useAnalytics } from '../hooks/useAnalytics';
@@ -67,13 +67,13 @@ const Index = () => {
     <>
       <TubelightNavbar />
       
-      {/* Hero Section - Back to PremiumHero */}
+      {/* Hero Section with Scroll Animation */}
       <section id="home">
-        <PremiumHero />
+        <HeroScrollAnimation />
       </section>
 
       {/* About Section - Enhanced spacing and responsive design */}
-      <section id="about" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
+      <section id="about" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4" style={{ marginTop: '120px' }}>
         <div className="container mx-auto">
           <SectionTitle title={t('about.title')} />
           
@@ -105,7 +105,7 @@ const Index = () => {
       </section>
 
       {/* Projects Section - Enhanced spacing and responsive design */}
-      <section id="projects" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4">
+      <section id="projects" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4" style={{ marginTop: '120px' }}>
         <div className="container mx-auto">
           <SectionTitle title={t('projects.things_built')} />
           

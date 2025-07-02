@@ -53,47 +53,13 @@ const frTranslation = {
 
   // Timeline
   "timeline.title": "Mon parcours professionnel",
-  "timeline.present": "Présent",
-  
-  // Timeline - BCU
-  "timeline.bcu.title": "Université Bahçeşehir Chypre",
-  "timeline.bcu.role": "Assistant d'Enseignement & Master en Génie Informatique",
-  "timeline.bcu.task1": "Soutien aux étudiants dans les cours de programmation",
-  "timeline.bcu.task2": "Poursuite d'études avancées en génie informatique",
-  
-  // Timeline - NEU
-  "timeline.neu.title": "Centre de Recherche IA de l'Université du Proche-Orient",
-  "timeline.neu.role": "Ingénieur IA (Stage)",
-  "timeline.neu.task1": "Application de techniques d'apprentissage automatique à des problèmes réels",
-  "timeline.neu.task2": "Travail avec des technologies et frameworks IA avancés",
-  
-  // Timeline - Cyprus Codes
-  "timeline.cyprus_codes.title": "Cyprus Codes",
-  "timeline.cyprus_codes.role": "Développeur de Logiciels Junior (Stage)",
-  "timeline.cyprus_codes.task1": "Développement d'applications web avec des frameworks modernes",
-  "timeline.cyprus_codes.task2": "Collaboration avec l'équipe de développement sur les projets clients",
-  
-  // Timeline - CIU
-  "timeline.ciu.title": "Université Internationale de Chypre",
-  "timeline.ciu.degree": "Licence en Génie Informatique",
-  "timeline.ciu.task1": "Étude de l'architecture des systèmes informatiques et de la programmation",
-  "timeline.ciu.task2": "Google Developer Student Club, CIU - Designer Graphique (2023-2024)",
-  
-  // Timeline - Geneza
-  "timeline.geneza.title": "École de Design Geneza",
-  "timeline.geneza.certificate": "Certificat de Design Graphique",
-  "timeline.geneza.task1": "Maîtrise des logiciels de design incluant Canva et Adobe Photoshop",
-  
-  // Timeline - Resume
-  "timeline.resume.title": "CV",
-  "timeline.resume.download": "Télécharger le CV",
 
   // Graphics/Design section
-  "graphics.title": "Portfolio de Design Créatif",
+  "graphics.title": "Portfolio de Design Graphique",
   "graphics.creative": "Solutions",
   "graphics.visual_solutions": "Visuelles Créatives",
   "graphics.drive_results": "Qui Génèrent des Résultats",
-  "graphics.description": "Explorez mon travail de design créatif présentant la narration visuelle, l'image de marque et l'art numérique.",
+  "graphics.description": "De l'identité de marque aux graphiques numériques, je crée des designs visuels convaincants qui communiquent efficacement votre message et laissent des impressions durables.",
   "graphics.services.brand_identity": "Identité de Marque",
   "graphics.services.brand_identity_desc": "Packages complets d'identité de marque incluant logos, schémas de couleurs et directives visuelles.",
   "graphics.services.print_design": "Design d'Impression",
