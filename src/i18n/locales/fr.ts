@@ -15,7 +15,6 @@ const frTranslation = {
   "hero.subtitle": "Développeur de logiciels passionné par la création de solutions élégantes à des problèmes complexes. Transformons vos idées en réalité.",
   "hero.cta.work": "Voir mon travail",
   "hero.cta.contact": "Me contacter",
-  "hero.cta.designer": "Portfolio Design",
   "hero.building": "Construire l'Excellence Numérique",
   "hero.through": "Grâce à l'Innovation et au Design",
   "hero.scroll": "Faites défiler pour explorer",
@@ -87,10 +86,7 @@ const frTranslation = {
   "contact.error_message": "Quelque chose s'est mal passé. Veuillez réessayer.",
   
   // Footer
-  "footer.rights": "Tous droits réservés.",
-
-  // Timeline
-  "timeline.title": "Mon Parcours d'Expérience"
+  "footer.rights": "Tous droits réservés"
 };
 
 export default frTranslation;
