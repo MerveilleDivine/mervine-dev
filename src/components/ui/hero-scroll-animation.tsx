@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useScroll, useTransform, motion, MotionValue } from 'motion/react';
@@ -40,7 +39,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <span className="bg-gradient-to-r from-primary via-purple-600 to-secondary bg-clip-text text-transparent font-extrabold">
-              Hi, I'm Mervine
+              {t('hero.greeting')}
             </span>
           </motion.h1>
           
@@ -50,7 +49,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            I build smart, meaningful digital experiences.
+            {t('hero.title')}
           </motion.p>
 
           {/* Scroll Indicator - Positioned after text with proper spacing */}
@@ -61,7 +60,7 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
             transition={{ delay: 1 }}
           >
             <div className="flex flex-col items-center text-gray-500 dark:text-gray-400">
-              <span className="text-sm sm:text-base mb-3 sm:mb-4 font-medium">Scroll to explore</span>
+              <span className="text-sm sm:text-base mb-3 sm:mb-4 font-medium">{t('scroll.explore')}</span>
               <motion.div
                 animate={{ y: [0, 8, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
@@ -107,9 +106,9 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Building Digital Excellence{" "}
+              {t('hero.title')}{" "}
               <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-300 font-light mt-2 sm:mt-4">
-                Through Innovation & Design
+                {t('hero.subtitle')}
               </span>
             </motion.h1>
             
@@ -131,7 +130,7 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
                 className="border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[48px] sm:min-h-[56px] touch-manipulation"
                 onClick={() => document.getElementById('graphics')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Designer Portfolio
+                {t('button.designer_portfolio')}
               </Button>
             </motion.div>
           </div>

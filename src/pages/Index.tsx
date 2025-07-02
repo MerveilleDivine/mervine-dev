@@ -31,25 +31,25 @@ const Index = () => {
   // Updated skills categories with better organization and new technologies
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: t('skills.frontend'),
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
       color: "#7E69AB", 
       icon: <Laptop size={20} />
     },
     {
-      title: "Backend Development",
+      title: t('skills.backend'),
       skills: ['Node.js', 'Express', 'Python', 'REST API', 'Authentication', 'Authorization'],
       color: "#7E69AB",
       icon: <Server size={20} />
     },
     {
-      title: "Database Management",
+      title: t('skills.database'),
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling'],
       color: "#7E69AB",
       icon: <Database size={20} />
     },
     {
-      title: "Tools & Others",
+      title: t('skills.tools'),
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'C/C++', 'Problem Solving'],
       color: "#7E69AB",
       icon: <Wrench size={20} />
