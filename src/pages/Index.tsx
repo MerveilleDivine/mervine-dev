@@ -7,7 +7,7 @@ import ProjectCard from '../components/ProjectCard';
 import ContactForm from '../components/ContactForm';
 import ChatWidget from '../components/ChatWidget';
 import { TubelightNavbar } from '../components/TubelightNavbar';
-import { Code, Database, Server, Laptop, Wrench } from 'lucide-react';
+import { Code, Database, Server, Laptop, Wrench, Mail } from 'lucide-react';
 import { SocialDock } from '../components/SocialDock';
 import SectionTitle from '../components/SectionTitle';
 import SkillCategory from '../components/SkillCategory';
