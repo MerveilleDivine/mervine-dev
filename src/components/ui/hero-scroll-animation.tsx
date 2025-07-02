@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useScroll, useTransform, motion, MotionValue } from 'motion/react';
@@ -26,54 +27,47 @@ const Section1: React.FC<SectionProps> = ({ scrollYProgress }) => {
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-gradient-to-r from-secondary/20 to-primary/20 rounded-full blur-3xl animate-pulse"></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-7xl">
-        <motion.div
-          className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 lg:p-12 shadow-2xl border border-gray-200/50 dark:border-gray-700/50"
-          initial={{ opacity: 0, y: 30, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
+        <motion.h1 
+          className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-center tracking-tight leading-[110%] mb-4 sm:mb-6'
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <motion.h1 
-            className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-center tracking-tight leading-[110%] mb-4 sm:mb-6 text-gray-900 dark:text-white'
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            <span className="bg-gradient-to-r from-primary via-purple-600 to-secondary bg-clip-text text-transparent font-extrabold">
-              {t('hero.greeting')}
-            </span>
-          </motion.h1>
-          
-          <motion.p 
-            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-700 dark:text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12 lg:mb-16 font-medium"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            {t('hero.title')}
-          </motion.p>
+          <span className="bg-gradient-to-r from-primary via-purple-600 to-secondary bg-clip-text text-transparent">
+            {t('hero.greeting')}
+          </span>
+        </motion.h1>
+        
+        <motion.p 
+          className="text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gray-600 dark:text-gray-300 max-w-5xl mx-auto leading-relaxed mb-12 sm:mb-16 lg:mb-20"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          {t('hero.title')}
+        </motion.p>
 
-          {/* Scroll Indicator - Positioned after text with proper spacing */}
-          <motion.div
-            className="flex justify-center mt-4 sm:mt-6 lg:mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <div className="flex flex-col items-center text-gray-500 dark:text-gray-400">
-              <span className="text-sm sm:text-base mb-3 sm:mb-4 font-medium">{t('scroll.explore')}</span>
+        {/* Scroll Indicator - Positioned after text with proper spacing */}
+        <motion.div
+          className="flex justify-center mt-8 sm:mt-12 lg:mt-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <div className="flex flex-col items-center text-gray-400">
+            <span className="text-sm sm:text-base mb-3 sm:mb-4">Scroll to explore</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+              className="w-6 h-10 sm:w-7 sm:h-12 border-2 border-gray-300 rounded-full flex justify-center"
+            >
               <motion.div
-                animate={{ y: [0, 8, 0] }}
+                animate={{ y: [0, 12, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
-                className="w-6 h-10 sm:w-7 sm:h-12 border-2 border-gray-400 dark:border-gray-500 rounded-full flex justify-center"
-              >
-                <motion.div
-                  animate={{ y: [0, 12, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                  className="w-1 h-3 sm:h-4 bg-gray-500 dark:bg-gray-400 rounded-full mt-2"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
+                className="w-1 h-3 sm:h-4 bg-gray-400 rounded-full mt-2"
+              />
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </motion.section>
@@ -100,15 +94,15 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
           {/* Left Content - Takes more space on large screens */}
           <div className="lg:col-span-7 space-y-6 sm:space-y-8">
             <motion.h1 
-              className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight text-white'
+              className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight'
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              {t('hero.title')}{" "}
-              <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-gray-300 font-light mt-2 sm:mt-4">
-                {t('hero.subtitle')}
+              Building Digital Excellence{" "}
+              <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-gray-300 font-light mt-2 sm:mt-4">
+                Through Innovation & Design
               </span>
             </motion.h1>
             
@@ -130,7 +124,7 @@ const Section2: React.FC<SectionProps> = ({ scrollYProgress }) => {
                 className="border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 min-h-[48px] sm:min-h-[56px] touch-manipulation"
                 onClick={() => document.getElementById('graphics')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                {t('button.designer_portfolio')}
+                Designer Portfolio
               </Button>
             </motion.div>
           </div>

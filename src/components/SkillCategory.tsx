@@ -21,19 +21,19 @@ const SkillCategory = ({ title, skills, icon, color = "#7E69AB" }: SkillCategory
           inactiveZone={0.01}
           borderWidth={2}
         />
-        <div className="relative flex flex-col rounded-lg border-[0.75px] border-border bg-white dark:bg-zinc-800 p-4 sm:p-5 lg:p-6 shadow-md transition-transform hover:-translate-y-1 h-full overflow-hidden">
-          <div className="flex items-center mb-4 sm:mb-5 lg:mb-6 flex-shrink-0">
+        <div className="relative flex flex-col rounded-lg border-[0.75px] border-border bg-white dark:bg-zinc-800 p-5 sm:p-6 lg:p-7 shadow-md transition-transform hover:-translate-y-1 h-full">
+          <div className="flex items-center mb-4 sm:mb-5 lg:mb-6">
             <div className="bg-primary/10 p-2.5 sm:p-3 rounded-full mr-3 sm:mr-4 text-primary flex-shrink-0">
               {icon}
             </div>
-            <h3 className="text-base sm:text-lg lg:text-xl font-bold dark:text-white leading-tight min-w-0 flex-1 break-words">{title}</h3>
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold dark:text-white leading-tight">{title}</h3>
           </div>
           
-          <div className="flex flex-wrap gap-2 sm:gap-2.5 mt-auto overflow-hidden flex-1 content-start">
+          <div className="flex flex-wrap gap-2.5 sm:gap-3 mt-auto overflow-hidden">
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="text-xs sm:text-sm lg:text-xs rounded-full px-2.5 sm:px-3 lg:px-3.5 py-1 sm:py-1.5 leading-tight font-medium transition-all duration-200 hover:scale-105 flex-shrink-0 break-words max-w-full"
+                className="text-sm sm:text-base lg:text-sm rounded-full px-3 sm:px-3.5 lg:px-4 py-1.5 sm:py-2 leading-tight font-medium transition-all duration-200 hover:scale-105"
                 style={{ 
                   backgroundColor: `${color}20`,
                   color: "#6959a5",

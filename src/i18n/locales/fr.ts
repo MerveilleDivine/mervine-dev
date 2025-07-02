@@ -54,25 +54,6 @@ const frTranslation = {
   // Timeline
   "timeline.title": "Mon parcours professionnel",
 
-  // Timeline positions and roles
-  "timeline.position.teaching_assistant": "Assistant d'Enseignement",
-  "timeline.position.masters": "Master en Génie Informatique",
-  "timeline.position.ai_engineer": "Ingénieur IA (Stage)",
-  "timeline.position.junior_developer": "Développeur Junior (Stage)",
-  "timeline.position.bachelor": "Licence en Génie Informatique",
-  "timeline.position.graphic_design": "Certificat en Design Graphique",
-  "timeline.position.gdsc_designer": "Designer Graphique",
-
-  // Timeline descriptions
-  "timeline.desc.supporting_students": "Soutenir les étudiants dans les cours de programmation",
-  "timeline.desc.pursuing_studies": "Poursuivre des études avancées en génie informatique",
-  "timeline.desc.ml_techniques": "Application de techniques d'apprentissage automatique à des problèmes réels",
-  "timeline.desc.ai_technologies": "Travailler avec des technologies et frameworks IA avancés",
-  "timeline.desc.web_development": "Développer des applications web avec des frameworks modernes",
-  "timeline.desc.team_collaboration": "Collaborer avec l'équipe de développement sur des projets clients",
-  "timeline.desc.computer_systems": "Étudier l'architecture des systèmes informatiques et la programmation",
-  "timeline.desc.design_software": "Maîtriser les logiciels de design incluant Canva et Adobe Photoshop",
-
   // Graphics/Design section
   "graphics.title": "Portfolio de Design Graphique",
   "graphics.creative": "Solutions",
@@ -87,30 +68,7 @@ const frTranslation = {
   "graphics.services.digital_graphics_desc": "Graphiques web, ressources pour réseaux sociaux et matériel de marketing numérique.",
   "graphics.book_consultation": "Réserver une Consultation Design",
   "graphics.portfolio_gallery": "Galerie de Portfolio",
-  "graphics.interactive_gallery": "Explorez mon travail créatif dans cette galerie interactive 3D. Cliquez et faites glisser pour naviguer.",
-
-  // Skills categories
-  "skills.frontend": "Développement Frontend",
-  "skills.backend": "Développement Backend", 
-  "skills.database": "Gestion de Base de Données",
-  "skills.tools": "Outils et Autres",
-
-  // Contact form
-  "contact.form.name": "Nom",
-  "contact.form.email": "Email",
-  "contact.form.message": "Message",
-  "contact.form.send": "Envoyer le Message",
-  "contact.form.sending": "Envoi en cours...",
-  "contact.form.success": "Message envoyé avec succès !",
-  "contact.form.error": "Erreur lors de l'envoi du message",
-
-  // Scroll indicators
-  "scroll.explore": "Faites défiler pour explorer",
-
-  // Buttons and actions
-  "button.view_work": "Voir mon travail",
-  "button.contact_me": "Me contacter",
-  "button.designer_portfolio": "Portfolio Designer"
+  "graphics.interactive_gallery": "Explorez mon travail créatif dans cette galerie interactive 3D. Cliquez et faites glisser pour naviguer."
 };
 
 export default frTranslation;

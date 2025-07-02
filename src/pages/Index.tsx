@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -15,6 +14,7 @@ import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
 import HeroScrollAnimation from '../components/ui/hero-scroll-animation';
 import GraphicDesignSection from '../components/GraphicDesignSection';
+import TestimonialsSection from '../components/TestimonialsSection';
 import { useFeaturedProjects } from '../hooks/useProjects';
 import { useAnalytics } from '../hooks/useAnalytics';
 
@@ -31,25 +31,25 @@ const Index = () => {
   // Updated skills categories with better organization and new technologies
   const skillCategories = [
     {
-      title: t('skills.frontend'),
+      title: "Frontend Development",
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
       color: "#7E69AB", 
       icon: <Laptop size={20} />
     },
     {
-      title: t('skills.backend'),
+      title: "Backend Development",
       skills: ['Node.js', 'Express', 'Python', 'REST API', 'Authentication', 'Authorization'],
       color: "#7E69AB",
       icon: <Server size={20} />
     },
     {
-      title: t('skills.database'),
+      title: "Database Management",
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling'],
       color: "#7E69AB",
       icon: <Database size={20} />
     },
     {
-      title: t('skills.tools'),
+      title: "Tools & Others",
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'C/C++', 'Problem Solving'],
       color: "#7E69AB",
       icon: <Wrench size={20} />
@@ -172,7 +172,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section - Enhanced spacing and responsive design with improved mobile layout */}
+      {/* Skills Section - Enhanced spacing and responsive design */}
       <section id="skills" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('skills.title')} />
@@ -182,19 +182,19 @@ const Index = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mt-8 sm:mt-12 lg:mt-16 max-w-6xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 mt-8 sm:mt-12 lg:mt-16"
             onViewportEnter={() => trackEvent('section_view', { section: 'skills' })}
           >
             {skillCategories.map((category, index) => (
               <motion.div 
                 key={index} 
-                className="min-h-[280px] sm:min-h-[300px] lg:min-h-[320px]"
+                className="h-[280px] sm:h-[300px] lg:h-[320px]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="relative h-full rounded-xl border border-gray-200 dark:border-zinc-700 p-2 sm:p-3 lg:p-4 bg-white dark:bg-zinc-800 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+                <div className="relative h-full rounded-xl border border-gray-200 dark:border-zinc-700 p-3 sm:p-4 bg-white dark:bg-zinc-800 shadow-lg hover:shadow-xl transition-all duration-300">
                   <SkillCategory
                     title={category.title}
                     skills={category.skills}
@@ -208,13 +208,18 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Graphic Design Section - Enhanced spacing and background consistency */}
-      <div className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950">
+      {/* Graphic Design Section - Enhanced spacing */}
+      <div className="py-16 sm:py-20 lg:py-24">
         <GraphicDesignSection />
       </div>
 
+      {/* Testimonials Section - Enhanced spacing */}
+      <div className="py-16 sm:py-20 lg:py-24">
+        <TestimonialsSection />
+      </div>
+
       {/* Contact Section - Enhanced spacing and responsive design */}
-      <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 px-4">
+      <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('contact.title')} />
           

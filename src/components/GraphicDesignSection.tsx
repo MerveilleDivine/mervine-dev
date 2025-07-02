@@ -4,11 +4,8 @@ import { motion } from 'framer-motion';
 import { Calendar } from 'lucide-react';
 import { ThreeDPhotoCarouselDemo } from "@/components/ui/demo";
 import SectionTitle from './SectionTitle';
-import { useTranslation } from 'react-i18next';
 
 const GraphicDesignSection = () => {
-  const { t } = useTranslation();
-  
   const handleBookConsultation = () => {
     // Scroll to contact section
     const contactSection = document.getElementById('contact');
@@ -18,9 +15,9 @@ const GraphicDesignSection = () => {
   };
 
   return (
-    <section id="graphics" className="relative overflow-hidden">
+    <section id="graphics" className="relative bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionTitle title={t('graphics.title')} />
+        <SectionTitle title="Creative Design Portfolio" />
         
         {/* Description */}
         <motion.div
@@ -31,7 +28,7 @@ const GraphicDesignSection = () => {
           className="text-center mb-12 sm:mb-16 lg:mb-20"
         >
           <p className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto leading-relaxed">
-            {t('graphics.description')}
+            Explore my creative design work showcasing visual storytelling, branding, and digital art.
           </p>
         </motion.div>
 
@@ -58,17 +55,12 @@ const GraphicDesignSection = () => {
         >
           <motion.button
             onClick={handleBookConsultation}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 border border-primary/20 hover:border-primary/30 backdrop-blur-sm"
-            whileHover={{ scale: 1.05, y: -2 }}
+            className="inline-flex items-center gap-3 bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/20 hover:border-primary/30"
+            whileHover={{ scale: 1.02, y: -1 }}
             whileTap={{ scale: 0.98 }}
           >
-            <motion.div
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-            >
-              <Calendar size={20} className="transition-transform duration-300" />
-            </motion.div>
-            <span>{t('graphics.book_consultation')}</span>
+            <Calendar size={20} className="transition-transform duration-300" />
+            <span>Book a Design Consultation</span>
           </motion.button>
         </motion.div>
       </div>
