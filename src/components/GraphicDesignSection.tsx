@@ -15,7 +15,7 @@ const GraphicDesignSection = () => {
   };
 
   return (
-    <section id="graphics" className="relative bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 overflow-hidden">
+    <section id="graphics" className="relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle title="Creative Design Portfolio" />
         
