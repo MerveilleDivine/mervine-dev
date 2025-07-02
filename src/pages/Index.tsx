@@ -208,7 +208,7 @@ const Index = () => {
       </section>
 
       {/* Graphic Design Section - Enhanced spacing */}
-      <div className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-zinc-900">
+      <div className="py-16 sm:py-20 lg:py-24 bg-gray-50 dark:bg-zinc-950">
         <GraphicDesignSection />
       </div>
 
@@ -250,7 +250,7 @@ const Index = () => {
                     </h4>
                     <a 
                       href="mailto:mervinemuganguzi1@outlook.com"
-                      className="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm sm:text-base lg:text-lg break-all"
+                      className="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm sm:text-base lg:text-lg break-words"
                       onClick={() => trackEvent('social_click', { social_platform: 'email' })}
                     >
                       mervinemuganguzi1@outlook.com

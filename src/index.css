@@ -143,15 +143,17 @@ html {
     min-height: 44px;
     min-width: 44px;
   }
-  
-  /* Hide scrollbar on mobile */
-  body {
+}
+
+/* Hide scrollbar on mobile */
+@media (max-width: 768px) {
+  html {
     overflow-x: hidden;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
   }
   
-  body::-webkit-scrollbar {
+  html::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
 }

@@ -153,7 +153,7 @@ const ProjectCard = ({
           
           {/* Enhanced Description - More space allocated */}
           <motion.p 
-            className="text-gray-600 dark:text-gray-300 mb-3 text-xs sm:text-sm leading-relaxed flex-1 overflow-hidden"
+            className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm leading-relaxed flex-1 overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 + index * 0.1 }}
@@ -163,7 +163,7 @@ const ProjectCard = ({
           
           {/* Premium Tech Stack - More compact */}
           <motion.div 
-            className="flex flex-wrap gap-1 mb-3 flex-shrink-0"
+            className="flex flex-wrap gap-1 mb-2 flex-shrink-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 + index * 0.1 }}
