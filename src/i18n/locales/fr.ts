@@ -14,6 +14,10 @@ const frTranslation = {
   "hero.subtitle": "Développeur de logiciels passionné par la création de solutions élégantes à des problèmes complexes. Transformons vos idées en réalité.",
   "hero.cta.work": "Voir mon travail",
   "hero.cta.contact": "Me contacter",
+  "hero.cta.designer": "Portfolio Graphique",
+  "hero.building": "Construire l'Excellence Numérique",
+  "hero.through": "Grâce à l'Innovation et au Design",
+  "hero.scroll": "Faites défiler pour explorer",
   
   // About section
   "about.title": "À propos de moi",
@@ -34,9 +38,34 @@ const frTranslation = {
   
   // Skills section
   "skills.title": "Mes Compétences",
+  "skills.frontend.title": "Développement Frontend",
+  "skills.backend.title": "Développement Backend",
+  "skills.database.title": "Gestion de Base de Données",
+  "skills.tools.title": "Outils et Autres",
   
   // Resume section
   "resume.download": "Télécharger CV",
+  "resume.timeline": "Mon Parcours Professionnel",
+  "resume.present": "Présent",
+  "resume.bcu.title": "Université Bahçeşehir Chypre",
+  "resume.bcu.role": "Assistant d'Enseignement & Master en Génie Informatique",
+  "resume.bcu.desc1": "Soutien aux étudiants dans les cours de programmation",
+  "resume.bcu.desc2": "Poursuite d'études avancées en génie informatique",
+  "resume.neu.title": "Centre de Recherche IA de l'Université du Proche-Orient",
+  "resume.neu.role": "Ingénieur IA (Stage)",
+  "resume.neu.desc1": "Application de techniques d'apprentissage automatique à des problèmes du monde réel",
+  "resume.neu.desc2": "Travail avec des technologies et frameworks IA avancés",
+  "resume.cc.title": "Cyprus Codes",
+  "resume.cc.role": "Développeur Logiciel Junior (Stage)",
+  "resume.cc.desc1": "Développement d'applications web utilisant des frameworks modernes",
+  "resume.cc.desc2": "Collaboration avec l'équipe de développement sur des projets clients",
+  "resume.ciu.title": "Université Internationale de Chypre",
+  "resume.ciu.role": "Licence en Génie Informatique",
+  "resume.ciu.desc1": "Étude de l'architecture des systèmes informatiques et de la programmation",
+  "resume.ciu.desc2": "Google Developer Student Club, CIU - Graphiste (2023-2024)",
+  "resume.geneza.title": "École de Design Geneza",
+  "resume.geneza.role": "Certificat en Design Graphique",
+  "resume.geneza.desc1": "Maîtrise des logiciels de design incluant Canva et Adobe Photoshop",
   
   // Contact section
   "contact.title": "Contactez-moi",
@@ -55,11 +84,11 @@ const frTranslation = {
   "timeline.title": "Mon parcours professionnel",
 
   // Graphics/Design section
-  "graphics.title": "Portfolio de Design Graphique",
+  "graphics.title": "Portfolio de Design Créatif",
   "graphics.creative": "Solutions",
   "graphics.visual_solutions": "Visuelles Créatives",
   "graphics.drive_results": "Qui Génèrent des Résultats",
-  "graphics.description": "De l'identité de marque aux graphiques numériques, je crée des designs visuels convaincants qui communiquent efficacement votre message et laissent des impressions durables.",
+  "graphics.description": "Explorez mon travail de design créatif mettant en valeur la narration visuelle, l'image de marque et l'art numérique.",
   "graphics.services.brand_identity": "Identité de Marque",
   "graphics.services.brand_identity_desc": "Packages complets d'identité de marque incluant logos, schémas de couleurs et directives visuelles.",
   "graphics.services.print_design": "Design d'Impression",

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -14,7 +15,6 @@ import { GlowingEffect } from '../components/ui/glowing-effect';
 import { ResumeTimeline } from '../components/ResumeTimeline';
 import HeroScrollAnimation from '../components/ui/hero-scroll-animation';
 import GraphicDesignSection from '../components/GraphicDesignSection';
-import TestimonialsSection from '../components/TestimonialsSection';
 import { useFeaturedProjects } from '../hooks/useProjects';
 import { useAnalytics } from '../hooks/useAnalytics';
 
@@ -31,25 +31,25 @@ const Index = () => {
   // Updated skills categories with better organization and new technologies
   const skillCategories = [
     {
-      title: "Frontend Development",
+      title: t('skills.frontend.title'),
       skills: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'React', 'Redux', 'Tailwind CSS'],
       color: "#7E69AB", 
       icon: <Laptop size={20} />
     },
     {
-      title: "Backend Development",
+      title: t('skills.backend.title'),
       skills: ['Node.js', 'Express', 'Python', 'REST API', 'Authentication', 'Authorization'],
       color: "#7E69AB",
       icon: <Server size={20} />
     },
     {
-      title: "Database Management",
+      title: t('skills.database.title'),
       skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Firebase', 'Data Modeling'],
       color: "#7E69AB",
       icon: <Database size={20} />
     },
     {
-      title: "Tools & Others",
+      title: t('skills.tools.title'),
       skills: ['Git', 'Docker', 'CI/CD', 'Testing', 'AWS', 'C/C++', 'Problem Solving'],
       color: "#7E69AB",
       icon: <Wrench size={20} />
@@ -116,7 +116,7 @@ const Index = () => {
                   <div className="h-48 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
                   <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
                   <div className="h-20 bg-gray-200 dark:bg-gray-700 rounded mb-4"></div>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 flex-wrap">
                     {[1, 2, 3].map((j) => (
                       <div key={j} className="h-6 w-16 bg-gray-200 dark:bg-gray-700 rounded"></div>
                     ))}
@@ -194,7 +194,7 @@ const Index = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="relative h-full rounded-xl border border-gray-200 dark:border-zinc-700 p-3 sm:p-4 bg-white dark:bg-zinc-800 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="relative h-full rounded-xl border border-gray-200 dark:border-zinc-700 p-3 sm:p-4 bg-white dark:bg-zinc-800 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
                   <SkillCategory
                     title={category.title}
                     skills={category.skills}
@@ -209,13 +209,8 @@ const Index = () => {
       </section>
 
       {/* Graphic Design Section - Enhanced spacing */}
-      <div className="py-16 sm:py-20 lg:py-24">
+      <div className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900">
         <GraphicDesignSection />
-      </div>
-
-      {/* Testimonials Section - Enhanced spacing */}
-      <div className="py-16 sm:py-20 lg:py-24">
-        <TestimonialsSection />
       </div>
 
       {/* Contact Section - Enhanced spacing and responsive design */}
