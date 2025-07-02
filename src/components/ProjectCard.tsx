@@ -151,9 +151,9 @@ const ProjectCard = ({
             </h3>
           </motion.div>
           
-          {/* Enhanced Description - More space allocated */}
+          {/* Enhanced Description - REDUCED MARGIN BOTTOM */}
           <motion.p 
-            className="text-gray-600 dark:text-gray-300 mb-2 text-xs sm:text-sm leading-relaxed flex-1 overflow-hidden"
+            className="text-gray-600 dark:text-gray-300 mb-1 text-xs sm:text-sm leading-relaxed flex-1 overflow-hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 + index * 0.1 }}
@@ -161,9 +161,9 @@ const ProjectCard = ({
             {description.length > 120 ? `${description.substring(0, 120)}...` : description}
           </motion.p>
           
-          {/* Premium Tech Stack - More compact */}
+          {/* Premium Tech Stack - REDUCED MARGIN BOTTOM */}
           <motion.div 
-            className="flex flex-wrap gap-1 mb-2 flex-shrink-0"
+            className="flex flex-wrap gap-1 mb-1 flex-shrink-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 + index * 0.1 }}
