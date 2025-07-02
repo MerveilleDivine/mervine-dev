@@ -199,6 +199,27 @@ function ThreeDPhotoCarousel() {
     }
   }
 
+  // Global click handler to close image when clicking anywhere
+  useEffect(() => {
+    const handleGlobalClick = (e: MouseEvent) => {
+      if (activeImg) {
+        const target = e.target as HTMLElement
+        // Check if the click is not on the image or its container
+        if (!target.closest('[data-gallery-image]')) {
+          handleClose()
+        }
+      }
+    }
+
+    if (activeImg) {
+      document.addEventListener('click', handleGlobalClick)
+    }
+
+    return () => {
+      document.removeEventListener('click', handleGlobalClick)
+    }
+  }, [activeImg])
+
   return (
     <motion.div layout className="relative">
       <AnimatePresence mode="sync">
@@ -221,6 +242,7 @@ function ThreeDPhotoCarousel() {
               initial={{ scale: 0.5 }}
               animate={{ scale: 1 }}
               onClick={handleClose}
+              data-gallery-image
               transition={{
                 delay: 0.5,
                 duration: 0.5,
