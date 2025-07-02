@@ -59,7 +59,7 @@ const GraphicDesignSection = () => {
           <motion.button
             onClick={handleBookConsultation}
             className="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 border border-primary/20 hover:border-primary/30 backdrop-blur-sm"
-            whileHover({ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
           >
             <motion.div
