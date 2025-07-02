@@ -15,6 +15,7 @@ const enTranslation = {
   "hero.subtitle": "Software Developer with a passion for creating elegant solutions to complex problems. Let's turn your ideas into reality.",
   "hero.cta.work": "View My Work",
   "hero.cta.contact": "Get In Touch",
+  "hero.cta.designer": "Design Portfolio",
   "hero.building": "Building Digital Excellence",
   "hero.through": "Through Innovation and Design",
   "hero.scroll": "Scroll to explore",
