@@ -15,6 +15,7 @@ const frTranslation = {
   "hero.subtitle": "Développeur de logiciels passionné par la création de solutions élégantes à des problèmes complexes. Transformons vos idées en réalité.",
   "hero.cta.work": "Voir mon travail",
   "hero.cta.contact": "Me contacter",
+  "hero.cta.designer": "Voir Graphiques",
   "hero.building": "Construire l'Excellence Numérique",
   "hero.through": "Grâce à l'Innovation et au Design",
   "hero.scroll": "Faites défiler pour explorer",
