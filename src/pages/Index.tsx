@@ -208,7 +208,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Graphic Design Section - FIXED BACKGROUND FOR BOTH LIGHT AND DARK MODE */}
+      {/* Graphic Design Section - COMPLETELY FIXED BACKGROUND */}
       <section id="graphics" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-zinc-900 px-4">
         <div className="container mx-auto">
           <GraphicDesignSection />
@@ -251,13 +251,16 @@ const Index = () => {
                     <h4 className="font-semibold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3 lg:mb-4 text-gray-800 dark:text-gray-200">
                       {t('contact.email')}
                     </h4>
-                    <a 
-                      href="mailto:mervinemuganguzi1@outlook.com"
-                      className="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm sm:text-base lg:text-lg break-words"
-                      onClick={() => trackEvent('social_click', { social_platform: 'email' })}
-                    >
-                      mervinemuganguzi1@outlook.com
-                    </a>
+                    <div className="flex items-start gap-2">
+                      <Mail size={16} className="text-primary flex-shrink-0 mt-0.5" />
+                      <a 
+                        href="mailto:mervinemuganguzi1@outlook.com"
+                        className="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm sm:text-base lg:text-lg break-words"
+                        onClick={() => trackEvent('social_click', { social_platform: 'email' })}
+                      >
+                        mervinemuganguzi1@outlook.com
+                      </a>
+                    </div>
                   </div>
                   
                   <div className="group">

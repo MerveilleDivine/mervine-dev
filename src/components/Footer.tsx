@@ -97,8 +97,8 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-primary">{t('contact.info')}</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <Mail size={16} className="text-primary flex-shrink-0" />
+              <li className="flex items-start gap-2">
+                <Mail size={16} className="text-primary flex-shrink-0 mt-0.5" />
                 <a href="mailto:mervinemuganguzi1@outlook.com" className="text-gray-300 hover:text-primary transition-colors break-words">
                   mervinemuganguzi1@outlook.com
                 </a>
