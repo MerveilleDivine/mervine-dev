@@ -151,7 +151,10 @@ const Carousel = memo(
                   i * (360 / faceCount)
                 }deg) translateZ(${radius}px)`,
               }}
-              onClick={() => handleClick(imgUrl, i)}
+              onClick={(e) => {
+                e.stopPropagation()
+                handleClick(imgUrl, i)
+              }}
             >
               <motion.img
                 src={imgUrl}
@@ -204,15 +207,23 @@ function ThreeDPhotoCarousel() {
     const handleGlobalClick = (e: MouseEvent) => {
       if (activeImg) {
         const target = e.target as HTMLElement
-        // Check if the click is not on the image or its container
-        if (!target.closest('[data-gallery-image]')) {
+        // Check if the click is not on the image or its container, and not on carousel images
+        if (!target.closest('[data-gallery-image]') && !target.closest('.carousel-image')) {
           handleClose()
         }
       }
     }
 
     if (activeImg) {
-      document.addEventListener('click', handleGlobalClick)
+      // Use a small delay to prevent immediate closure when opening
+      const timeoutId = setTimeout(() => {
+        document.addEventListener('click', handleGlobalClick)
+      }, 100)
+      
+      return () => {
+        clearTimeout(timeoutId)
+        document.removeEventListener('click', handleGlobalClick)
+      }
     }
 
     return () => {
@@ -255,7 +266,7 @@ function ThreeDPhotoCarousel() {
           </motion.div>
         )}
       </AnimatePresence>
-      <div className="relative h-[280px] sm:h-[380px] md:h-[450px] lg:h-[420px] w-full overflow-hidden">
+      <div className="relative h-[280px] sm:h-[380px] md:h-[450px] lg:h-[420px] w-full overflow-hidden carousel-image">
         <Carousel
           handleClick={handleClick}
           controls={controls}
