@@ -73,7 +73,7 @@ const Index = () => {
       </section>
 
       {/* About Section - Enhanced spacing and responsive design */}
-      <section id="about" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4" style={{ marginTop: '120px' }}>
+      <section id="about" className="py-20 sm:py-24 lg:py-32 bg-white dark:bg-zinc-900 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('about.title')} />
           
@@ -105,7 +105,7 @@ const Index = () => {
       </section>
 
       {/* Projects Section - Enhanced spacing and responsive design */}
-      <section id="projects" className="py-20 sm:py-24 lg:py-32 bg-gradient-to-b from-white via-gray-50 to-white dark:from-zinc-900 dark:via-zinc-950 dark:to-zinc-900 px-4" style={{ marginTop: '120px' }}>
+      <section id="projects" className="py-20 sm:py-24 lg:py-32 bg-white dark:bg-zinc-900 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('projects.things_built')} />
           
@@ -208,7 +208,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Graphic Design Section - COMPLETELY FIXED BACKGROUND */}
+      {/* Graphic Design Section */}
       <section id="graphics" className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-zinc-900 px-4">
         <div className="container mx-auto">
           <GraphicDesignSection />
@@ -216,7 +216,7 @@ const Index = () => {
       </section>
 
       {/* Contact Section - Enhanced spacing and responsive design */}
-      <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white to-gray-50 dark:from-zinc-900 dark:to-zinc-950 px-4">
+      <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-gray-50 dark:bg-zinc-950 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('contact.title')} />
           
@@ -251,8 +251,8 @@ const Index = () => {
                     <h4 className="font-semibold text-base sm:text-lg lg:text-xl mb-2 sm:mb-3 lg:mb-4 text-gray-800 dark:text-gray-200">
                       {t('contact.email')}
                     </h4>
-                    <div className="flex items-start gap-2">
-                      <Mail size={16} className="text-primary flex-shrink-0 mt-0.5" />
+                    <div className="flex items-center gap-2">
+                      <Mail size={16} className="text-primary flex-shrink-0" />
                       <a 
                         href="mailto:mervinemuganguzi1@outlook.com"
                         className="text-primary hover:text-secondary transition-colors duration-300 font-medium text-sm sm:text-base lg:text-lg break-words"
