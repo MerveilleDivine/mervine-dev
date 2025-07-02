@@ -34,7 +34,7 @@ const PremiumHero = () => {
       {floatingIcons.map((item, index) => (
         <motion.div
           key={index}
-          className="absolute opacity-10 dark:opacity-20"
+          className="absolute opacity-10 dark:opacity-20 hidden md:block"
           style={item.position}
           initial={{ opacity: 0, scale: 0 }}
           animate={{ 
@@ -54,9 +54,9 @@ const PremiumHero = () => {
       ))}
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center relative z-10">
         <motion.div 
-          className="md:w-1/2 md:pr-8 mb-10 md:mb-0"
+          className="w-full md:w-1/2 md:pr-8 mb-8 md:mb-0 text-center md:text-left"
           initial={{ opacity: 0, x: -100 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
@@ -68,7 +68,7 @@ const PremiumHero = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-4"
           >
-            <span className="inline-flex items-center gap-2 text-primary/80 text-lg font-semibold tracking-wide">
+            <span className="inline-flex items-center gap-2 text-primary/80 text-base sm:text-lg lg:text-xl font-semibold tracking-wide">
               <motion.div
                 animate={{ rotate: [0, 10, -10, 0] }}
                 transition={{ duration: 2, repeat: Infinity }}
@@ -79,9 +79,9 @@ const PremiumHero = () => {
             </span>
           </motion.div>
 
-          {/* Enhanced Title */}
+          {/* Enhanced Title - Improved responsiveness */}
           <motion.h1 
-            className="text-4xl md:text-5xl lg:text-7xl font-bold mb-8 leading-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
@@ -111,7 +111,7 @@ const PremiumHero = () => {
           
           {/* Enhanced Subtitle */}
           <motion.p 
-            className="text-gray-600 dark:text-gray-300 text-xl mb-10 max-w-2xl leading-relaxed"
+            className="text-gray-600 dark:text-gray-300 text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 max-w-2xl mx-auto md:mx-0 leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -121,7 +121,7 @@ const PremiumHero = () => {
           
           {/* Enhanced CTA Buttons */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-6"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
@@ -135,7 +135,7 @@ const PremiumHero = () => {
                 as="a" 
                 href="#projects"
                 variant="primary"
-                className="inline-flex items-center justify-center text-center min-w-[220px] py-4 px-8 text-lg font-bold relative overflow-hidden group"
+                className="inline-flex items-center justify-center text-center w-full sm:w-auto min-w-[200px] sm:min-w-[220px] py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg font-bold relative overflow-hidden group"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -157,7 +157,7 @@ const PremiumHero = () => {
                 as="a" 
                 href="#contact"
                 variant="secondary"
-                className="inline-flex items-center justify-center text-center min-w-[220px] py-4 px-8 text-lg font-bold backdrop-blur-sm border-2 border-primary/30 hover:border-primary/50 transition-all duration-300"
+                className="inline-flex items-center justify-center text-center w-full sm:w-auto min-w-[200px] sm:min-w-[220px] py-3 sm:py-4 px-6 sm:px-8 text-base sm:text-lg font-bold backdrop-blur-sm border-2 border-primary/30 hover:border-primary/50 transition-all duration-300"
                 onClick={(e) => {
                   e.preventDefault();
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -170,7 +170,7 @@ const PremiumHero = () => {
 
           {/* Scroll Indicator */}
           <motion.div
-            className="flex items-center gap-2 mt-12 text-gray-500 dark:text-gray-400"
+            className="flex items-center justify-center md:justify-start gap-2 mt-8 sm:mt-12 text-gray-500 dark:text-gray-400"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
@@ -187,7 +187,7 @@ const PremiumHero = () => {
         
         {/* Enhanced Avatar */}
         <motion.div 
-          className="md:w-1/2 flex justify-center md:justify-end"
+          className="w-full md:w-1/2 flex justify-center md:justify-end"
           initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1.2, delay: 0.4, type: "spring", stiffness: 100 }}
@@ -208,9 +208,9 @@ const PremiumHero = () => {
             {/* Glow effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full blur-3xl animate-pulse scale-150"></div>
             
-            {/* Main avatar */}
+            {/* Main avatar - Responsive sizing */}
             <motion.div 
-              className="relative avatar-blob w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500"
+              className="relative avatar-blob w-64 h-64 sm:w-80 sm:h-80 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-gradient-to-br from-primary/10 to-secondary/10 overflow-hidden border-4 border-primary/20 group-hover:border-primary/40 transition-all duration-500"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 200 }}
             >
@@ -231,7 +231,7 @@ const PremiumHero = () => {
             {[...Array(6)].map((_, i) => (
               <motion.div
                 key={i}
-                className="absolute w-2 h-2 bg-primary/60 rounded-full"
+                className="absolute w-2 h-2 bg-primary/60 rounded-full hidden md:block"
                 style={{
                   top: `${20 + Math.random() * 60}%`,
                   left: `${20 + Math.random() * 60}%`,
