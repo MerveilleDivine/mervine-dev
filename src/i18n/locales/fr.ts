@@ -54,39 +54,6 @@ const frTranslation = {
   // Timeline
   "timeline.title": "Mon parcours professionnel",
 
-  // Timeline content in French
-  "timeline.2025_present": "2025-Présent",
-  "timeline.bau_title": "Université Bahçeşehir de Chypre",
-  "timeline.bau_role": "Assistant d'Enseignement & Master en Génie Informatique",
-  "timeline.bau_task1": "Soutien aux étudiants dans les cours de programmation",
-  "timeline.bau_task2": "Poursuite d'études avancées en Génie Informatique",
-  
-  "timeline.2024": "2024",
-  "timeline.neu_title": "Centre de Recherche IA de l'Université du Proche-Orient",
-  "timeline.neu_role": "Ingénieur IA (Stage)",
-  "timeline.neu_task1": "Application de techniques d'apprentissage automatique à des problèmes réels",
-  "timeline.neu_task2": "Travail avec des technologies et frameworks IA avancés",
-  
-  "timeline.2023": "2023",
-  "timeline.cyprus_codes_title": "Cyprus Codes",
-  "timeline.cyprus_codes_role": "Développeur Logiciel Junior (Stage)",
-  "timeline.cyprus_codes_task1": "Développement d'applications web avec des frameworks modernes",
-  "timeline.cyprus_codes_task2": "Collaboration avec l'équipe de développement sur des projets clients",
-  
-  "timeline.2020_2025": "2020-2025",
-  "timeline.ciu_title": "Université Internationale de Chypre",
-  "timeline.ciu_role": "Licence en Génie Informatique",
-  "timeline.ciu_task1": "Étude de l'architecture des systèmes informatiques et de la programmation",
-  "timeline.ciu_task2": "Google Developer Student Club, CIU - Designer Graphique (2023-2024)",
-  
-  "timeline.2022": "2022",
-  "timeline.geneza_title": "École de Design Geneza",
-  "timeline.geneza_role": "Certificat en Design Graphique",
-  "timeline.geneza_task1": "Maîtrise des logiciels de design incluant Canva et Adobe Photoshop",
-  
-  "timeline.resume_title": "CV",
-  "timeline.download_resume": "Télécharger le CV",
-
   // Graphics/Design section
   "graphics.title": "Portfolio de Design Graphique",
   "graphics.creative": "Solutions",
