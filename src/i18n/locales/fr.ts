@@ -4,6 +4,7 @@ const frTranslation = {
   "nav.home": "Accueil",
   "nav.about": "À propos",
   "nav.projects": "Projets",
+  "nav.graphics": "Graphiques",
   "nav.skills": "Compétences",
   "nav.contact": "Contact",
   "nav.navigation": "Navigation",
@@ -14,7 +15,6 @@ const frTranslation = {
   "hero.subtitle": "Développeur de logiciels passionné par la création de solutions élégantes à des problèmes complexes. Transformons vos idées en réalité.",
   "hero.cta.work": "Voir mon travail",
   "hero.cta.contact": "Me contacter",
-  "hero.cta.designer": "Portfolio Graphique",
   "hero.building": "Construire l'Excellence Numérique",
   "hero.through": "Grâce à l'Innovation et au Design",
   "hero.scroll": "Faites défiler pour explorer",
@@ -27,14 +27,6 @@ const frTranslation = {
   // Projects section
   "projects.title": "Mes Projets",
   "projects.things_built": "Quelques projets que j'ai réalisés",
-  "projects.more": "plus",
-  "projects.view_code": "Voir le code",
-  "projects.demo": "Démo en direct",
-  "projects.tech_stack": "Technologies utilisées :",
-  "projects.filter.all": "Tous",
-  "projects.filter.ai": "IA",
-  "projects.filter.social": "Social",
-  "projects.filter.productivity": "Productivité",
   
   // Skills section
   "skills.title": "Mes Compétences",
@@ -43,10 +35,16 @@ const frTranslation = {
   "skills.database.title": "Gestion de Base de Données",
   "skills.tools.title": "Outils et Autres",
   
+  // Graphics section
+  "graphics.title": "Portfolio de Design Créatif",
+  "graphics.description": "Explorez mon travail de design créatif mettant en valeur la narration visuelle, l'image de marque et l'art numérique.",
+  "graphics.book_consultation": "Réserver une Consultation Design",
+  
   // Resume section
   "resume.download": "Télécharger CV",
   "resume.timeline": "Mon Parcours Professionnel",
   "resume.present": "Présent",
+  "resume.resume_title": "CV",
   "resume.bcu.title": "Université Bahçeşehir Chypre",
   "resume.bcu.role": "Assistant d'Enseignement & Master en Génie Informatique",
   "resume.bcu.desc1": "Soutien aux étudiants dans les cours de programmation",
@@ -75,29 +73,20 @@ const frTranslation = {
   "contact.location": "Localisation",
   "contact.location_value": "Nicosie, Chypre du Nord",
   "contact.connect": "Réseaux Sociaux",
+  "contact.form.name": "Nom",
+  "contact.form.name_placeholder": "Votre nom",
+  "contact.form.email_placeholder": "votre.email@exemple.com",
+  "contact.form.message": "Message",
+  "contact.form.message_placeholder": "Comment puis-je vous aider ?",
+  "contact.form.send": "Envoyer le Message",
+  "contact.form.sending": "Envoi en cours...",
+  "contact.success_title": "Message envoyé !",
+  "contact.success_message": "Merci de m'avoir contacté. Je vous répondrai bientôt.",
+  "contact.error_title": "Erreur lors de l'envoi du message",
+  "contact.error_message": "Quelque chose s'est mal passé. Veuillez réessayer.",
   
   // Footer
-  "footer.rights": "Tous droits réservés",
-  "footer.madewith": "Fait avec",
-
-  // Timeline
-  "timeline.title": "Mon parcours professionnel",
-
-  // Graphics/Design section
-  "graphics.title": "Portfolio de Design Créatif",
-  "graphics.creative": "Solutions",
-  "graphics.visual_solutions": "Visuelles Créatives",
-  "graphics.drive_results": "Qui Génèrent des Résultats",
-  "graphics.description": "Explorez mon travail de design créatif mettant en valeur la narration visuelle, l'image de marque et l'art numérique.",
-  "graphics.services.brand_identity": "Identité de Marque",
-  "graphics.services.brand_identity_desc": "Packages complets d'identité de marque incluant logos, schémas de couleurs et directives visuelles.",
-  "graphics.services.print_design": "Design d'Impression",
-  "graphics.services.print_design_desc": "Matériel d'impression professionnel, des cartes de visite aux affichages grand format.",
-  "graphics.services.digital_graphics": "Graphiques Numériques",
-  "graphics.services.digital_graphics_desc": "Graphiques web, ressources pour réseaux sociaux et matériel de marketing numérique.",
-  "graphics.book_consultation": "Réserver une Consultation Design",
-  "graphics.portfolio_gallery": "Galerie de Portfolio",
-  "graphics.interactive_gallery": "Explorez mon travail créatif dans cette galerie interactive 3D. Cliquez et faites glisser pour naviguer."
+  "footer.rights": "Tous droits réservés"
 };
 
 export default frTranslation;

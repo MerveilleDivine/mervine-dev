@@ -101,7 +101,7 @@ export function ResumeTimeline() {
       ),
     },
     {
-      title: "CV",
+      title: t('resume.resume_title'),
       content: (
         <div className="flex justify-start items-center pt-4">
           <button 
