@@ -98,8 +98,8 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-4 text-primary">{t('contact.info')}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Mail size={16} className="text-primary" />
-                <a href="mailto:mervinemuganguzi1@outlook.com" className="text-gray-300 hover:text-primary transition-colors">
+                <Mail size={16} className="text-primary flex-shrink-0" />
+                <a href="mailto:mervinemuganguzi1@outlook.com" className="text-gray-300 hover:text-primary transition-colors break-words">
                   mervinemuganguzi1@outlook.com
                 </a>
               </li>
@@ -141,7 +141,7 @@ const Footer = () => {
         </div>
 
         <div 
-          className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+          className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center pb-20 lg:pb-8"
         >
           <p className="text-gray-400 mb-4 md:mb-0">
             &copy; {currentYear} Mervine Muganguzi. {t('footer.rights')}
@@ -150,10 +150,9 @@ const Footer = () => {
             <Button 
               variant="outline" 
               size="icon"
-              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20 mb-4 md:mb-0 z-10"
+              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20"
               onClick={scrollToTop}
               aria-label="Scroll to top"
-              style={{ position: 'relative', zIndex: 20 }}
             >
               <ArrowUp size={16} />
             </Button>
