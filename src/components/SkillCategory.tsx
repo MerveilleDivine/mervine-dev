@@ -33,7 +33,7 @@ const SkillCategory = ({ title, skills, icon, color = "#7E69AB" }: SkillCategory
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="text-xs sm:text-sm lg:text-sm rounded-full px-2 sm:px-2.5 lg:px-3 py-1 sm:py-1.5 leading-tight font-medium transition-all duration-200 hover:scale-105 break-words"
+                className="text-sm sm:text-sm lg:text-sm rounded-full px-2 sm:px-2.5 lg:px-3 py-1 sm:py-1.5 leading-tight font-medium transition-all duration-200 hover:scale-105 break-words"
                 style={{ 
                   backgroundColor: `${color}20`,
                   color: "#6959a5",

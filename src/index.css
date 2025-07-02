@@ -143,4 +143,29 @@ html {
     min-height: 44px;
     min-width: 44px;
   }
+  
+  /* Hide scrollbar on mobile */
+  body {
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+  }
+  
+  body::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+}
+
+/* AI icon positioning fix */
+.ai-icon-container {
+  position: relative;
+  z-index: 30; /* Lower than navbar */
+}
+
+/* Fix for chat widget positioning */
+@media (max-width: 768px) {
+  .chat-widget {
+    bottom: 80px; /* Keep above bottom navbar */
+    right: 1rem;
+  }
 }

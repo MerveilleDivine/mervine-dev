@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -172,8 +171,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Skills Section - Enhanced spacing and responsive design */}
-      <section id="skills" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900 px-4">
+      {/* Skills Section - Fixed background color */}
+      <section id="skills" className="py-16 sm:py-20 lg:py-24 bg-gray-50 dark:bg-zinc-950 px-4">
         <div className="container mx-auto">
           <SectionTitle title={t('skills.title')} />
           
@@ -209,7 +208,7 @@ const Index = () => {
       </section>
 
       {/* Graphic Design Section - Enhanced spacing */}
-      <div className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-zinc-950 dark:to-zinc-900">
+      <div className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-zinc-900">
         <GraphicDesignSection />
       </div>
 
