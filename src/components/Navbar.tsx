@@ -52,7 +52,7 @@ const Navbar = () => {
           href="#home" 
           className="text-2xl font-nunito font-bold text-primary"
         >
-          Mervine<span className="text-gray-800">.dev</span>
+          M<span className="text-gray-800">.dev</span>
         </a>
 
         {/* Desktop Navigation */}

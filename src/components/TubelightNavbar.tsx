@@ -19,6 +19,11 @@ export function TubelightNavbar() {
 
   return (
     <>
+      <div className="fixed top-4 left-4 z-50">
+        <div className="text-3xl font-bold text-primary bg-white dark:bg-zinc-900 rounded-full w-12 h-12 flex items-center justify-center shadow-lg">
+          M
+        </div>
+      </div>
       <div className="fixed top-4 right-4 z-50 flex gap-2">
         <ThemeToggle />
         <LanguageSwitcher />
