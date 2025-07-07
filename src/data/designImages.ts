@@ -11,4 +11,7 @@ export const designImages = [
   "/lovable-uploads/b9f9dc05-3f85-4ddd-b9a6-2cbb84f2554d.png", // Sole Theory shoe ad (black)
   "/lovable-uploads/8392830d-adba-4145-8ad1-84cbe4f5a0d2.png", // Sole Theory shoe ad (green)
   "/lovable-uploads/73b1b23b-718f-4d8b-a744-61b6114336a4.png", // Biloko ya Congo na Biso food poster
+  "/lovable-uploads/8926bc10-d7b1-4ad4-bf28-a9077c5a4e2c.png", // Biloko ya Congo na Biso t-shirt design
+  "/lovable-uploads/32fc5dec-01c1-4465-9e16-b8afe7457cf5.png", // Biloko ya Congo na Biso cap design
+  "/lovable-uploads/644196d2-9392-40ac-9b5a-6fce24ddf68e.png", // Go Forward magazine cover
 ];
