@@ -12,30 +12,20 @@ export function ResumeTimeline({ onDownloadError }: ResumeTimelineProps) {
   const { t } = useTranslation();
   
   const handleDownloadResume = () => {
-    // First check if the file exists
-    fetch('/mervine_muganguzi_resume.pdf', { method: 'HEAD' })
-      .then(response => {
-        if (response.ok) {
-          // Create a temporary anchor element to trigger download
-          const link = document.createElement('a');
-          link.href = '/mervine_muganguzi_resume.pdf';
-          link.download = 'Mervine_Muganguzi_Resume.pdf';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        } else {
-          console.error('Resume file not found or inaccessible');
-          if (onDownloadError) {
-            onDownloadError();
-          }
-        }
-      })
-      .catch(error => {
-        console.error('Error checking resume file:', error);
-        if (onDownloadError) {
-          onDownloadError();
-        }
-      });
+    try {
+      // Create a temporary anchor element to trigger download of the resume image
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/a7fdb425-27e7-44a7-b644-4e8fc68ab4a2.png';
+      link.download = 'Mervine_Muganguzi_Resume.png';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      if (onDownloadError) {
+        onDownloadError();
+      }
+    }
   };
   
   const timelineData = [
@@ -134,14 +124,23 @@ export function ResumeTimeline({ onDownloadError }: ResumeTimelineProps) {
     {
       title: t('resume.resume_title'),
       content: (
-        <div className="flex justify-start items-center pt-4">
-          <button 
-            onClick={handleDownloadResume}
-            className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer bg-transparent border-none p-0 font-medium text-lg hover:underline"
-          >
-            <FileDown size={18} />
-            <span>{t('resume.download')}</span>
-          </button>
+        <div className="flex flex-col gap-4">
+          <div className="flex justify-start items-center">
+            <button 
+              onClick={handleDownloadResume}
+              className="flex items-center gap-2 text-primary hover:text-primary/80 transition-colors cursor-pointer bg-transparent border-none p-0 font-medium text-lg hover:underline"
+            >
+              <FileDown size={18} />
+              <span>{t('resume.download')}</span>
+            </button>
+          </div>
+          <div className="mt-4">
+            <img 
+              src="/lovable-uploads/a7fdb425-27e7-44a7-b644-4e8fc68ab4a2.png" 
+              alt="Mervine Muganguzi Resume" 
+              className="max-w-full h-auto rounded-lg shadow-lg border border-neutral-200 dark:border-neutral-800"
+            />
+          </div>
         </div>
       ),
     },
