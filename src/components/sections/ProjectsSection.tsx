@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -78,6 +77,7 @@ const ProjectsSection = () => {
                       imageUrl={project.image_url || '/lovable-uploads/spendwise-mockup.png'}
                       category={project.category || 'Web'}
                       index={index}
+                      isInProgress={true}
                     />
                   </div>
                 </div>

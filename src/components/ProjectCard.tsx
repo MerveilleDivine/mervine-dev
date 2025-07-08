@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink, Star, Zap, Users, Brain, ArrowUpRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 interface ProjectCardProps {
   title: string;
@@ -13,6 +13,7 @@ interface ProjectCardProps {
   index?: number;
   category?: string;
   features?: string[];
+  isInProgress?: boolean;
 }
 
 const ProjectCard = ({
@@ -25,7 +26,10 @@ const ProjectCard = ({
   index = 0,
   category,
   features = [],
+  isInProgress = true, // Default to true while projects are still in progress
 }: ProjectCardProps) => {
+  const navigate = useNavigate();
+  
   const getCategoryIcon = () => {
     switch (category) {
       case 'AI':
@@ -54,12 +58,20 @@ const ProjectCard = ({
 
   const handleLiveDemo = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open(liveUrl, '_blank', 'noopener,noreferrer');
+    if (isInProgress) {
+      navigate('/in-progress');
+    } else {
+      window.open(liveUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   const handleViewCode = (e: React.MouseEvent) => {
     e.preventDefault();
-    window.open(githubUrl, '_blank', 'noopener,noreferrer');
+    if (isInProgress) {
+      navigate('/in-progress');
+    } else {
+      window.open(githubUrl, '_blank', 'noopener,noreferrer');
+    }
   };
 
   return (
