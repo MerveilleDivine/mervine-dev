@@ -40,20 +40,26 @@ const ChatWidget = () => {
   const generateBotResponse = (question: string): string => {
     const lowerQuestion = question.toLowerCase();
     
-    if (lowerQuestion.includes('tech') || lowerQuestion.includes('technology') || lowerQuestion.includes('stack')) {
-      return "Mervine enjoys working with modern JavaScript frameworks like React and Node.js. She's also skilled in MongoDB, SQL databases, and has experience with Docker and cloud technologies. She loves learning new technologies that help solve real-world problems efficiently!";
-    } else if (lowerQuestion.includes('teamwork') || lowerQuestion.includes('team')) {
-      return "Mervine believes teamwork is essential for creating great software. She values open communication, knowledge sharing, and collaborative problem-solving. From her experience, diverse perspectives always lead to better solutions!";
-    } else if (lowerQuestion.includes('project') || lowerQuestion.includes('favorite project')) {
-      return "While Mervine enjoys all her projects, she's particularly proud of her full-stack applications that solve real user problems. Check out the Projects section to see her latest work featuring React, Node.js, and various databases!";
-    } else if (lowerQuestion.includes('language') || lowerQuestion.includes('languages') || lowerQuestion.includes('speak')) {
-      return "Mervine is fluent in English and French, and she's currently learning German. Her multilingual skills help her collaborate with diverse teams and contribute to international projects!";
-    } else if (lowerQuestion.includes('teaching') || lowerQuestion.includes('mentor')) {
-      return "Mervine is passionate about teaching and mentoring. She's been a teaching assistant for programming courses, loves explaining complex concepts like OOP in simple terms, and even runs a choir training program. She believes in making knowledge accessible to everyone!";
-    } else if (lowerQuestion.includes('hobby') || lowerQuestion.includes('interest') || lowerQuestion.includes('free time')) {
-      return "Outside of coding, Mervine enjoys glute/abs workouts, snacking on salted peanuts, and is actively involved in faith-based community work. She's also passionate about music leadership!";
+    if (lowerQuestion.includes('hire') || lowerQuestion.includes('available') || lowerQuestion.includes('work')) {
+      return "Yes! Mervine is actively looking for opportunities in Full Stack Development. She's passionate about creating meaningful digital experiences and would love to discuss how her skills can contribute to your team. Feel free to reach out through the contact section!";
+    } else if (lowerQuestion.includes('tech') || lowerQuestion.includes('technology') || lowerQuestion.includes('stack') || lowerQuestion.includes('skills')) {
+      return "Mervine's tech stack includes React.js, Node.js, MongoDB, SQL databases, Docker, and various cloud technologies. She's currently working on projects with modern frameworks and loves learning new technologies that solve real-world problems efficiently!";
+    } else if (lowerQuestion.includes('project') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('work')) {
+      return "Mervine has built several impressive projects including MIRA (AI Academic Assistant), a BAUCF Choir Management Web App, GD Pastries online store, and ExpenseMate budgeting assistant. Each project showcases her full-stack capabilities and problem-solving skills!";
+    } else if (lowerQuestion.includes('experience') || lowerQuestion.includes('background')) {
+      return "Mervine is a Computer Engineering graduate from Cyprus International University. She has experience as a Teaching Assistant at Birmingham City University and Northeastern University, plus hands-on development experience. She's passionate about both teaching and building software!";
+    } else if (lowerQuestion.includes('language') || lowerQuestion.includes('speak')) {
+      return "Mervine is multilingual - fluent in English and French, currently learning German. This helps her collaborate effectively with international teams and contribute to diverse project environments!";
+    } else if (lowerQuestion.includes('teaching') || lowerQuestion.includes('mentor') || lowerQuestion.includes('education')) {
+      return "Mervine loves teaching! She's been a Teaching Assistant for programming courses, specializes in making complex concepts like OOP accessible, and runs choir training programs. She believes in empowering others through knowledge sharing!";
+    } else if (lowerQuestion.includes('hobby') || lowerQuestion.includes('interest') || lowerQuestion.includes('personal')) {
+      return "Outside coding, Mervine enjoys fitness (especially glute/abs workouts), music leadership in her community, and faith-based activities. She's also known for her love of salted peanuts! 🥜";
+    } else if (lowerQuestion.includes('contact') || lowerQuestion.includes('reach')) {
+      return "You can reach Mervine through the contact form on this website, or connect with her on LinkedIn and other social platforms. She's always open to discussing new opportunities and collaborations!";
+    } else if (lowerQuestion.includes('hello') || lowerQuestion.includes('hi') || lowerQuestion.includes('hey')) {
+      return "Hello! Great to meet you! I'm here to help you learn more about Mervine's work, skills, and experience. What would you like to know about her?";
     } else {
-      return "That's a great question! Mervine is a Computer Engineering graduate and Full Stack Developer who's passionate about building meaningful digital experiences. Feel free to ask about her tech stack, projects, teaching experience, or personal interests!";
+      return "That's an interesting question! Mervine is a passionate Full Stack Developer and Computer Engineering graduate who loves building meaningful digital solutions. Ask me about her projects, technical skills, teaching experience, availability for work, or personal interests!";
     }
   };
 
@@ -112,17 +118,29 @@ const ChatWidget = () => {
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={`chat-message ${message.sender}`}
+                className={`mb-4 flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
               >
-                {message.text}
+                <div
+                  className={`max-w-[80%] px-4 py-2 rounded-2xl ${
+                    message.sender === 'user'
+                      ? 'bg-primary text-white ml-4'
+                      : 'bg-gray-100 text-gray-800 mr-4'
+                  }`}
+                >
+                  <p className="text-sm leading-relaxed">{message.text}</p>
+                </div>
               </div>
             ))}
             
             {isTyping && (
-              <div className="chat-message bot typing-indicator">
-                <span></span>
-                <span></span>
-                <span></span>
+              <div className="mb-4 flex justify-start">
+                <div className="bg-gray-100 px-4 py-3 rounded-2xl mr-4">
+                  <div className="flex space-x-1">
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                  </div>
+                </div>
               </div>
             )}
             
