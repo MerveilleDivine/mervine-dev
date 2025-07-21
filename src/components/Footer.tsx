@@ -150,7 +150,7 @@ const Footer = () => {
             <Button 
               variant="outline" 
               size="icon"
-              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20"
+              className="rounded-full bg-gray-800 border-gray-700 hover:bg-primary/20 fixed bottom-4 right-20 z-30"
               onClick={scrollToTop}
               aria-label="Scroll to top"
             >

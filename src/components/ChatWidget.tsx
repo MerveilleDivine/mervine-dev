@@ -40,26 +40,32 @@ const ChatWidget = () => {
   const generateBotResponse = (question: string): string => {
     const lowerQuestion = question.toLowerCase();
     
-    if (lowerQuestion.includes('hire') || lowerQuestion.includes('available') || lowerQuestion.includes('work')) {
-      return "Yes! Mervine is actively looking for opportunities in Full Stack Development. She's passionate about creating meaningful digital experiences and would love to discuss how her skills can contribute to your team. Feel free to reach out through the contact section!";
-    } else if (lowerQuestion.includes('tech') || lowerQuestion.includes('technology') || lowerQuestion.includes('stack') || lowerQuestion.includes('skills')) {
-      return "Mervine's tech stack includes React.js, Node.js, MongoDB, SQL databases, Docker, and various cloud technologies. She's currently working on projects with modern frameworks and loves learning new technologies that solve real-world problems efficiently!";
-    } else if (lowerQuestion.includes('project') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('work')) {
-      return "Mervine has built several impressive projects including MIRA (AI Academic Assistant), a BAUCF Choir Management Web App, GD Pastries online store, and ExpenseMate budgeting assistant. Each project showcases her full-stack capabilities and problem-solving skills!";
-    } else if (lowerQuestion.includes('experience') || lowerQuestion.includes('background')) {
-      return "Mervine is a Computer Engineering graduate from Cyprus International University. She has experience as a Teaching Assistant at Birmingham City University and Northeastern University, plus hands-on development experience. She's passionate about both teaching and building software!";
-    } else if (lowerQuestion.includes('language') || lowerQuestion.includes('speak')) {
-      return "Mervine is multilingual - fluent in English and French, currently learning German. This helps her collaborate effectively with international teams and contribute to diverse project environments!";
-    } else if (lowerQuestion.includes('teaching') || lowerQuestion.includes('mentor') || lowerQuestion.includes('education')) {
-      return "Mervine loves teaching! She's been a Teaching Assistant for programming courses, specializes in making complex concepts like OOP accessible, and runs choir training programs. She believes in empowering others through knowledge sharing!";
-    } else if (lowerQuestion.includes('hobby') || lowerQuestion.includes('interest') || lowerQuestion.includes('personal')) {
-      return "Outside coding, Mervine enjoys fitness (especially glute/abs workouts), music leadership in her community, and faith-based activities. She's also known for her love of salted peanuts! 🥜";
-    } else if (lowerQuestion.includes('contact') || lowerQuestion.includes('reach')) {
-      return "You can reach Mervine through the contact form on this website, or connect with her on LinkedIn and other social platforms. She's always open to discussing new opportunities and collaborations!";
-    } else if (lowerQuestion.includes('hello') || lowerQuestion.includes('hi') || lowerQuestion.includes('hey')) {
-      return "Hello! Great to meet you! I'm here to help you learn more about Mervine's work, skills, and experience. What would you like to know about her?";
+    if (lowerQuestion.includes('graduate') || lowerQuestion.includes('university') || lowerQuestion.includes('school') || lowerQuestion.includes('degree')) {
+      return "Mervine graduated from Cyprus International University with a Computer Engineering degree (2020-2025). She's passionate about both the theoretical foundations and practical applications of computer science!";
+    } else if (lowerQuestion.includes('hire') || lowerQuestion.includes('available') || lowerQuestion.includes('job') || lowerQuestion.includes('position')) {
+      return "Yes! Mervine is actively seeking Full Stack Developer opportunities. She's eager to contribute to meaningful projects and would love to discuss how her skills can benefit your team. Check out the contact section to get in touch!";
+    } else if (lowerQuestion.includes('tech') || lowerQuestion.includes('technology') || lowerQuestion.includes('stack') || lowerQuestion.includes('programming') || lowerQuestion.includes('code')) {
+      return "Mervine's technical expertise includes React.js, Node.js, MongoDB, SQL databases, Python, Docker, and cloud technologies. She enjoys working with modern JavaScript frameworks and is always eager to learn new tools that solve problems efficiently!";
+    } else if (lowerQuestion.includes('project') || lowerQuestion.includes('built') || lowerQuestion.includes('portfolio') || lowerQuestion.includes('work')) {
+      return "Mervine has created some impressive projects: MIRA (AI Academic Assistant using OpenAI API), BAUCF Choir Management Web App, GD Pastries online store with Stripe integration, and ExpenseMate budgeting assistant. Each showcases her full-stack development skills!";
+    } else if (lowerQuestion.includes('experience') || lowerQuestion.includes('background') || lowerQuestion.includes('career')) {
+      return "Mervine has diverse experience as a Teaching Assistant at Birmingham City University and Northeastern University, plus hands-on development work. She's taught programming concepts and helped students understand complex topics like OOP!";
+    } else if (lowerQuestion.includes('language') || lowerQuestion.includes('speak') || lowerQuestion.includes('multilingual')) {
+      return "Mervine speaks English and French fluently, and she's currently learning German. Her multilingual abilities help her collaborate effectively with international teams and diverse project environments!";
+    } else if (lowerQuestion.includes('teaching') || lowerQuestion.includes('mentor') || lowerQuestion.includes('education') || lowerQuestion.includes('assistant')) {
+      return "Mervine loves teaching! She's been a Teaching Assistant for programming courses at both Birmingham City University and Northeastern University. She excels at breaking down complex concepts like Object-Oriented Programming into understandable pieces!";
+    } else if (lowerQuestion.includes('hobby') || lowerQuestion.includes('interest') || lowerQuestion.includes('personal') || lowerQuestion.includes('free time')) {
+      return "Outside of coding, Mervine enjoys fitness workouts (especially glute/abs training), music leadership in her faith community, and her famous love for salted peanuts! 🥜 She believes in maintaining a healthy work-life balance!";
+    } else if (lowerQuestion.includes('contact') || lowerQuestion.includes('reach') || lowerQuestion.includes('email') || lowerQuestion.includes('connect')) {
+      return "You can reach Mervine through the contact form on this website, connect with her on LinkedIn, or check out her GitHub. She's always open to discussing new opportunities, collaborations, or just having a chat about tech!";
+    } else if (lowerQuestion.includes('hello') || lowerQuestion.includes('hi') || lowerQuestion.includes('hey') || lowerQuestion.includes('good')) {
+      return "Hello! Great to meet you! I'm here to help you learn more about Mervine's work, skills, and experience. What specific aspect would you like to know about?";
+    } else if (lowerQuestion.includes('age') || lowerQuestion.includes('old') || lowerQuestion.includes('young')) {
+      return "Mervine is a young professional who recently completed her Computer Engineering degree. She brings fresh perspectives and enthusiasm to every project she works on!";
+    } else if (lowerQuestion.includes('location') || lowerQuestion.includes('where') || lowerQuestion.includes('based') || lowerQuestion.includes('live')) {
+      return "Mervine has international experience, having studied in Cyprus and worked as a Teaching Assistant in the UK and US. She's flexible with location and open to both remote and on-site opportunities!";
     } else {
-      return "That's an interesting question! Mervine is a passionate Full Stack Developer and Computer Engineering graduate who loves building meaningful digital solutions. Ask me about her projects, technical skills, teaching experience, availability for work, or personal interests!";
+      return "That's an interesting question! I'd love to help you learn more about Mervine. You can ask me about her education, technical skills, projects, teaching experience, availability for work, personal interests, or how to contact her. What would you like to know?";
     }
   };
 
