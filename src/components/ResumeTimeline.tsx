@@ -3,6 +3,7 @@ import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { FileDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import jsPDF from 'jspdf';
 
 interface ResumeTimelineProps {
   onDownloadError?: () => void;
@@ -11,15 +12,59 @@ interface ResumeTimelineProps {
 export function ResumeTimeline({ onDownloadError }: ResumeTimelineProps) {
   const { t } = useTranslation();
   
-  const handleDownloadResume = () => {
+  const handleDownloadResume = async () => {
     try {
-      // Create a temporary anchor element to trigger download of the resume image
-      const link = document.createElement('a');
-      link.href = '/lovable-uploads/a7fdb425-27e7-44a7-b644-4e8fc68ab4a2.png';
-      link.download = 'Mervine_Muganguzi_Resume.png';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      
+      img.onload = () => {
+        try {
+          // Create PDF with A4 dimensions
+          const pdf = new jsPDF('portrait', 'mm', 'a4');
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = pdf.internal.pageSize.getHeight();
+          
+          // Calculate image dimensions to fit the page while maintaining aspect ratio
+          const imgAspectRatio = img.width / img.height;
+          const pdfAspectRatio = pdfWidth / pdfHeight;
+          
+          let imgWidth, imgHeight;
+          
+          if (imgAspectRatio > pdfAspectRatio) {
+            // Image is wider than PDF page
+            imgWidth = pdfWidth;
+            imgHeight = pdfWidth / imgAspectRatio;
+          } else {
+            // Image is taller than PDF page
+            imgHeight = pdfHeight;
+            imgWidth = pdfHeight * imgAspectRatio;
+          }
+          
+          // Center the image on the page
+          const x = (pdfWidth - imgWidth) / 2;
+          const y = (pdfHeight - imgHeight) / 2;
+          
+          // Add the image to PDF
+          pdf.addImage(img, 'PNG', x, y, imgWidth, imgHeight);
+          
+          // Save the PDF
+          pdf.save('Mervine_Muganguzi_Resume.pdf');
+        } catch (error) {
+          console.error('Error creating PDF:', error);
+          if (onDownloadError) {
+            onDownloadError();
+          }
+        }
+      };
+      
+      img.onerror = () => {
+        console.error('Error loading resume image');
+        if (onDownloadError) {
+          onDownloadError();
+        }
+      };
+      
+      img.src = '/lovable-uploads/a7fdb425-27e7-44a7-b644-4e8fc68ab4a2.png';
     } catch (error) {
       console.error('Error downloading resume:', error);
       if (onDownloadError) {
